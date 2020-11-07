@@ -1,0 +1,29 @@
+.cardmenu {
+  position: absolute;
+  top: 40%;
+  right: 17px;
+}
+
+.cardmenuButton {
+  width: 31px;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
+  border-radius: 31px;
+  background: transparent;
+  border: 0;
+}
+.cardmenuButton:focus,
+.cardmenuButton:active,
+.cardmenuButton:hover {
+  outline: none;
+  background: rgba(51, 51, 51, .1);
+}
+@media all and (min-width: 1024px) {
+  .cardmenu {
+  transform: rotate(90deg);
+  right: 88px;
+  }
+}

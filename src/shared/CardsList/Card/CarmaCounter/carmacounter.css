@@ -1,0 +1,27 @@
+.karmaValue {
+  color: var(--greyC4);
+  padding: 0 6px;
+}
+.karmaCounter > button.up:hover > svg > path,
+.karmaCounter > button.up:focus > svg > path {
+  outline: none;
+  fill: var(--green);
+}
+.karmaCounter > button.down:hover > svg > path,
+.karmaCounter > button.down:focus > svg > path {
+  outline: none;
+  fill: var(--orange);
+}
+@media all and (min-width: 1024px) {
+  .karmaCounter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .karmaValue {
+    padding-top: 5px ;
+    padding-bottom: 5px;
+    color: var(--black);
+  }
+}

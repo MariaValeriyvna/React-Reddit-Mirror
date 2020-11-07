@@ -1,0 +1,48 @@
+.textContent {
+  padding: 22px 20px 17px;
+}
+.metaData {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.title {
+  margin: 0;
+  padding: 7px 0 0;
+  font-weight: normal;
+}
+.postLink {
+  font-size: 16px;
+  line-height: 19px;
+}
+@media all and (min-width: 1024px) {
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    align-self: start;
+    padding-top: 7px;
+    padding-left: 37px;
+  }
+  .title {
+    order: -1;
+    padding-bottom: 10px;
+  }
+  .postLink {
+    font-size: 20px;
+    line-height: 23px;
+  }
+}
+@media all and (min-width: 1540px) {
+  .textContent {
+    flex-basis: 672px;
+  }
+  .postLink::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}

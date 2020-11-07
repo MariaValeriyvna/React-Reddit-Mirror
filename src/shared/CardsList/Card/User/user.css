@@ -1,0 +1,31 @@
+
+.userLink {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-right: 7px;
+}
+.avatar {
+  margin-right: 7px;
+}
+.username {
+  display: block;
+  font-size: 10px;
+  line-height: 12px;
+  color: var(--orange);
+}
+@media all and (min-width: 1024px) {
+  .username {
+    font-size: 14px;
+  }
+}
+@media all and (min-width: 1540px) {
+
+  .userLink:hover a {
+    text-decoration: underline;
+  }
+  .username {
+    position: relative;
+    z-index: 1;
+  }
+}
