@@ -4,10 +4,7 @@
     flex-flow: row nowrap;
     align-items: center;
     padding: 40px;
-  }
-}
-@media all and (min-width: 1540px) {
-  .header {
-    padding: 67px 0;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 }

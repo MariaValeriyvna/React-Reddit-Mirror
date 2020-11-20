@@ -1,0 +1,21 @@
+.item {
+  height: 38px;
+  padding: 10px 20px;
+  margin: 0 20px;
+  vertical-align: middle;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--grey);
+  border-bottom: 1px solid #ECECEC;
+  cursor: pointer;
+}
+
+.item:focus,
+.item:hover {
+  color: var(--orange);
+}
+
+
