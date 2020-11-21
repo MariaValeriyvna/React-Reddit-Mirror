@@ -20,7 +20,7 @@ const LIST = [
 
 export function CardMenu() {
   const [list, setList] = React.useState(LIST);
-  const handleItemClick = (id: string) => {
+  const handleItemClick = () => {
     setList(list);
   };
 

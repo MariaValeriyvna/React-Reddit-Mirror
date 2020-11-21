@@ -1,7 +1,7 @@
 .cardmenu {
   position: absolute;
-  top: 7%;
-  right: 17px;
+  top: 16px;
+  right: 16px;
 }
 
 .cardmenuButton {
@@ -13,6 +13,7 @@
   border-radius: 31px;
   background: transparent;
   border: 0;
+  transform: rotate(90deg);
 }
 .cardmenuButton:focus,
 .cardmenuButton:active,
@@ -35,10 +36,10 @@
 }
 @media all and (min-width: 1024px) {
   .cardmenuButton {
-    transform: rotate(90deg);
+    transform: rotate(0deg);
   }
   .cardmenu {
-    right: 88px;
-    top:40%;
+    right: 90px;
+    top:73px;
   }
 }
