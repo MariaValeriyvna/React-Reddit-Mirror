@@ -6,6 +6,15 @@
        url('../src/fonts/roboto-v20-cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
        url('../src/fonts/roboto-v20-cyrillic-regular.woff') format('woff'); /* Modern Browsers */
 }
+/* roboto-500 - cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto'),
+       url('../src/fonts/roboto-v20-cyrillic-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../src/fonts/roboto-v20-cyrillic-500.woff') format('woff');/* Modern Browsers */
+}
 :root {
   --black: #333333;
   --orange: #cc6633;
@@ -49,4 +58,34 @@ button {
   border: 0;
   background: transparent;
   cursor: pointer;
+}
+.black {
+  color: var(--black);
+}
+.orange {
+  color: var(--orange);
+}
+.green {
+  color: var(--green);
+}
+.white {
+  color: var(--white);
+}
+.greyF4 {
+  color: var(--greyF4);
+}
+.greyF3 {
+  color: var(--greyF3);
+}
+.greyD9 {
+  color: var(--greyD9);
+}
+.greyC4 {
+  color: var(--greyC4);
+}
+.grey99 {
+  color: var(--grey99);
+}
+.grey66 {
+  color: var(--grey66);
 }

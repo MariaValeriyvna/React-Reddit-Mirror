@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './GenericList.css';
 interface IItem {
   id: string;
-  img?: string;
+  img?: object;
   text: string;
   onClick: (id: string) => void;
   As?: 'a' | 'li' | 'button' | 'div';
@@ -22,8 +22,9 @@ export function GenericList({ list }: IGenericListProps) {
           onClick={() => onClick(id)}
           key={id}
           href={href}
-          style={{ background:`url(${img}) no-repeat 0 center`}}
+          
         >
+          {img}
           {text} 
         </As>
       ))}

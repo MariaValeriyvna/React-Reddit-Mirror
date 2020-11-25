@@ -1,6 +1,7 @@
 .commentsButton {
   display: flex;
   align-items: normal;
+  margin-right: 10px;
 }
 .commentsButton * {
   color: var(--greyC4);

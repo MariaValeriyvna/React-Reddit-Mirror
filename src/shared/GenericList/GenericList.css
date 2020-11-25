@@ -1,21 +1,38 @@
 .item {
+  display: flex;
+  align-items: center;
   height: 38px;
-  padding: 10px 20px;
-  margin: 0 20px;
+  padding: 10px 0 10px 20px;
   vertical-align: middle;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-  color: var(--grey);
-  border-bottom: 1px solid #ECECEC;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--grey99);
+  border-bottom: 1px solid #ececec;
   cursor: pointer;
+}
+.item svg {
+  margin-right: 4px;
 }
 
 .item:focus,
 .item:hover {
   color: var(--orange);
 }
-
-
+.item:focus > svg > path,
+.item:hover > svg > path {
+  fill: var(--orange);
+}
+@media all and (min-width: 1024px) {
+  .item {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+@media all and (min-width: 1400px) {
+  .item {
+    height: 32px;
+  }
+}

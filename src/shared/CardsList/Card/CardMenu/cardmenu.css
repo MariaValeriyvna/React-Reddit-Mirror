@@ -1,7 +1,7 @@
 .cardmenu {
   position: absolute;
   top: 16px;
-  right: 16px;
+  right: 15px;
 }
 
 .cardmenuButton {
@@ -29,17 +29,47 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 12px;
+  line-height: 14px;
   text-align: center;
-  color: var(--grey666);
+  color: var(--grey66);
 }
+.btnClose:focus,
+.btnClose:hover {
+  outline: none;
+  color: var(--orange);
+}
+
+.cardmenulist li:nth-child(2n),
+.cardmenulist li:first-child {
+  display: none;
+}
+
 @media all and (min-width: 1024px) {
   .cardmenuButton {
     transform: rotate(0deg);
   }
   .cardmenu {
     right: 90px;
-    top:73px;
+    top: 73px;
+  }
+  .cardmenulist li:nth-child(2n),
+  .cardmenulist li:first-child {
+    display: flex;
+  }
+  .btnClose {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+@media all and (min-width: 1400px) {
+
+  .cardmenu {
+    right: 128px;
+    top: 76px;
+  }
+
+  .btnClose {
+    display: none;
   }
 }

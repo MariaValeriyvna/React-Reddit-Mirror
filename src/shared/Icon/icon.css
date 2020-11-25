@@ -1,0 +1,80 @@
+.save {
+  background-image: url('../Icons/SaveIcon.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.share {
+  background-image: url('../Icons/ShareIcon.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.s10 {
+  width: 10px;
+  height: 10px;
+}
+.s12 {
+  width: 12px;
+  height: 12px;
+}
+.s14 {
+  width: 14px;
+  height: 14px;
+}
+.s16 {
+  width: 16px;
+  height: 16px;
+}
+.s20 {
+  width: 20px;
+  height: 20px;
+}
+
+@media all and (min-width: 320px) and (max-width: 1023px) {
+  .m10 {
+    width: 10px;
+    height: 10px;
+  }
+  .m12 {
+    width: 12px;
+    height: 12px;
+  }
+  .m20 {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media all and (min-width: 1024px) and (max-width: 1539px) {
+  .t10 {
+    width: 10px;
+    height: 10px;
+  }
+  .t12 {
+    width: 12px;
+    height: 12px;
+  }
+  .t16 {
+    width: 16px;
+    height: 16px;
+  }
+  .t20 {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+@media all and (max-width: 1540px) {
+  .d10 {
+    width: 10px;
+    height: 10px;
+  }
+  .d12 {
+    width: 12px;
+    height: 12px;
+  }
+  .d20 {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
