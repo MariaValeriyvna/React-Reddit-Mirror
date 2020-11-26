@@ -8,6 +8,11 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.anonim {
+  background-image: url('../Icons/AnonimIcon.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .s10 {
   width: 10px;
   height: 10px;
@@ -28,8 +33,16 @@
   width: 20px;
   height: 20px;
 }
+.s30 {
+  width: 30px;
+  height: 30px;
+}
+.s50 {
+  width: 50px;
+  height: 50px;
+}
 
-@media all and (min-width: 320px) and (max-width: 1023px) {
+@media all  and (max-width: 1023px) {
   .m10 {
     width: 10px;
     height: 10px;
@@ -41,6 +54,10 @@
   .m20 {
     width: 20px;
     height: 20px;
+  }
+  .m30 {
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -61,6 +78,10 @@
     width: 20px;
     height: 20px;
   }
+  .t50 {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 
@@ -76,5 +97,9 @@
   .d20 {
     font-size: 20px;
     line-height: 20px;
+  }
+  .d50 {
+    width: 50px;
+    height: 50px;
   }
 }

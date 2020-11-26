@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -102,17 +102,12 @@ var EIcon;
 (function (EIcon) {
     EIcon["save"] = "save";
     EIcon["share"] = "share";
+    EIcon["anonim"] = "anonim";
 })(EIcon = exports.EIcon || (exports.EIcon = {}));
 
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
-
-module.exports = require("classnames");
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -135,7 +130,62 @@ var EColor;
 
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Icon = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var icon_css_1 = __importDefault(__webpack_require__(30));
+var classnames_1 = __importDefault(__webpack_require__(4));
+var enumColor_1 = __webpack_require__(2);
+var enumIcon_1 = __webpack_require__(1);
+function Icon(props) {
+    var _a, _b, _c;
+    var _d = props.As, As = _d === void 0 ? 'button' : _d, _e = props.color, color = _e === void 0 ? enumColor_1.EColor.black : _e, _f = props.icon, icon = _f === void 0 ? enumIcon_1.EIcon.save : _f, size = props.size, mobileSize = props.mobileSize, desktopSize = props.desktopSize, tabletSize = props.tabletSize;
+    var classes = classnames_1.default(icon_css_1.default["s" + size], (_a = {}, _a[icon_css_1.default["m" + mobileSize]] = mobileSize, _a), (_b = {}, _b[icon_css_1.default["m" + desktopSize]] = desktopSize, _b), (_c = {}, _c[icon_css_1.default["m" + tabletSize]] = tabletSize, _c), icon_css_1.default[color], icon_css_1.default[icon]);
+    return react_1.default.createElement(As, { className: classes });
+}
+exports.Icon = Icon;
+
+
+/***/ }),
 /* 4 */
+/***/ (function(module, exports) {
+
+module.exports = require("classnames");
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Text = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var text_css_1 = __importDefault(__webpack_require__(32));
+var classnames_1 = __importDefault(__webpack_require__(4));
+var enumColor_1 = __webpack_require__(2);
+function Text(props) {
+    var _a, _b, _c;
+    var _d = props.As, As = _d === void 0 ? 'span' : _d, _e = props.color, color = _e === void 0 ? enumColor_1.EColor.black : _e, children = props.children, size = props.size, mobileSize = props.mobileSize, desktopSize = props.desktopSize, tabletSize = props.tabletSize, _f = props.bold, bold = _f === void 0 ? 400 : _f, marginTB = props.marginTB;
+    var classes = classnames_1.default(text_css_1.default["s" + size], (_a = {}, _a[text_css_1.default["m" + mobileSize]] = mobileSize, _a), (_b = {}, _b[text_css_1.default["m" + desktopSize]] = desktopSize, _b), (_c = {}, _c[text_css_1.default["m" + tabletSize]] = tabletSize, _c), text_css_1.default[color], text_css_1.default["bold" + bold], text_css_1.default["marginTB" + marginTB]);
+    return react_1.default.createElement(As, { className: classes }, children);
+}
+exports.Text = Text;
+
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -151,18 +201,18 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(56), exports);
-__exportStar(__webpack_require__(5), exports);
-__exportStar(__webpack_require__(57), exports);
-__exportStar(__webpack_require__(58), exports);
-__exportStar(__webpack_require__(59), exports);
-__exportStar(__webpack_require__(60), exports);
-__exportStar(__webpack_require__(61), exports);
-__exportStar(__webpack_require__(62), exports);
+__exportStar(__webpack_require__(63), exports);
+__exportStar(__webpack_require__(7), exports);
+__exportStar(__webpack_require__(64), exports);
+__exportStar(__webpack_require__(65), exports);
+__exportStar(__webpack_require__(66), exports);
+__exportStar(__webpack_require__(67), exports);
+__exportStar(__webpack_require__(68), exports);
+__exportStar(__webpack_require__(69), exports);
 
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -197,7 +247,7 @@ exports.CommentIcon = CommentIcon;
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -206,38 +256,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Icon = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var icon_css_1 = __importDefault(__webpack_require__(71));
-var classnames_1 = __importDefault(__webpack_require__(2));
-var enumColor_1 = __webpack_require__(3);
-var enumIcon_1 = __webpack_require__(1);
-function Icon(props) {
-    var _a, _b, _c;
-    var _d = props.As, As = _d === void 0 ? 'button' : _d, _e = props.color, color = _e === void 0 ? enumColor_1.EColor.black : _e, _f = props.icon, icon = _f === void 0 ? enumIcon_1.EIcon.save : _f, size = props.size, mobileSize = props.mobileSize, desktopSize = props.desktopSize, tabletSize = props.tabletSize;
-    var classes = classnames_1.default(icon_css_1.default["s" + size], (_a = {}, _a[icon_css_1.default["m" + mobileSize]] = mobileSize, _a), (_b = {}, _b[icon_css_1.default["m" + desktopSize]] = desktopSize, _b), (_c = {}, _c[icon_css_1.default["m" + tabletSize]] = tabletSize, _c), icon_css_1.default[color], icon_css_1.default[icon]);
-    return react_1.default.createElement(As, { className: classes });
-}
-exports.Icon = Icon;
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = __importDefault(__webpack_require__(8));
-var server_1 = __importDefault(__webpack_require__(9));
-var App_1 = __webpack_require__(10);
-var indexTemplate_1 = __webpack_require__(78);
+var express_1 = __importDefault(__webpack_require__(9));
+var server_1 = __importDefault(__webpack_require__(10));
+var App_1 = __webpack_require__(11);
+var indexTemplate_1 = __webpack_require__(84);
 var app = express_1.default();
 app.use('/static', express_1.default.static('./dist/client'));
 app.get("/", function (req, res) {
+    res.send(indexTemplate_1.indexTemplate(server_1.default.renderToString(App_1.App())));
+});
+app.get("/auth", function (req, res) {
+    // req.query.code;
     res.send(indexTemplate_1.indexTemplate(server_1.default.renderToString(App_1.App())));
 });
 app.listen(3000, function () {
@@ -246,19 +275,19 @@ app.listen(3000, function () {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -284,13 +313,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
-var root_1 = __webpack_require__(11);
+var root_1 = __webpack_require__(12);
 var React = __importStar(__webpack_require__(0));
-__webpack_require__(12);
-var Layout_1 = __webpack_require__(19);
-var Header_1 = __webpack_require__(22);
-var Content_1 = __webpack_require__(30);
-var CardsList_1 = __webpack_require__(33);
+__webpack_require__(13);
+var Layout_1 = __webpack_require__(20);
+var Header_1 = __webpack_require__(23);
+var Content_1 = __webpack_require__(39);
+var CardsList_1 = __webpack_require__(42);
 function AppComponent() {
     return (React.createElement(Layout_1.Layout, null,
         React.createElement(Header_1.Header, null),
@@ -301,35 +330,35 @@ exports.App = root_1.hot(AppComponent);
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-hot-loader/root");
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(13);
-var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(14);
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(15);
-var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(16);
-var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(17);
-var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__(18);
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(14);
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(15);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(16);
+var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(17);
+var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(18);
+var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__(19);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___);
 // Module
-exports.push([module.i, "@font-face {\r\n  font-family: 'Roboto';\r\n  font-style: normal;\r\n  font-weight: 400;\r\n  src: local('Roboto'), local('Roboto-Regular'),\r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format('woff2'), \r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format('woff'); /* Modern Browsers */\r\n}\r\n/* roboto-500 - cyrillic */\r\n@font-face {\r\n  font-family: 'Roboto';\r\n  font-style: normal;\r\n  font-weight: 500;\r\n  src: local('Roboto'),\r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format('woff2'), \r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") format('woff');/* Modern Browsers */\r\n}\r\n:root {\r\n  --black: #333333;\r\n  --orange: #cc6633;\r\n  --green: #a4cc33;\r\n  --white: #ffffff;\r\n  --greyF4: #f4f4f4;\r\n  --greyF3: #f3f3f3;\r\n  --greyD9: #d9d9d9;\r\n  --greyC4: #c4c4c4;\r\n  --grey99: #999999;\r\n  --grey66: #666666;\r\n}\r\n\r\nbody {\r\n  padding: 0;\r\n  margin: 0;\r\n  background-color: var(--greyF4);\r\n  font-size: 14px;\r\n  line-height: 16px;\r\n  font-family: 'Roboto', serif;\r\n}\r\n\r\n* {\r\n  color: var(--black);\r\n  box-sizing: border-box;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: greyscale;\r\n}\r\n\r\nul {\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n}\r\nbutton {\r\n  padding: 0;\r\n  border: 0;\r\n  background: transparent;\r\n  cursor: pointer;\r\n}\r\n.black {\r\n  color: var(--black);\r\n}\r\n.orange {\r\n  color: var(--orange);\r\n}\r\n.green {\r\n  color: var(--green);\r\n}\r\n.white {\r\n  color: var(--white);\r\n}\r\n.greyF4 {\r\n  color: var(--greyF4);\r\n}\r\n.greyF3 {\r\n  color: var(--greyF3);\r\n}\r\n.greyD9 {\r\n  color: var(--greyD9);\r\n}\r\n.greyC4 {\r\n  color: var(--greyC4);\r\n}\r\n.grey99 {\r\n  color: var(--grey99);\r\n}\r\n.grey66 {\r\n  color: var(--grey66);\r\n}\r\n", ""]);
+exports.push([module.i, "@font-face {\r\n  font-family: 'Roboto';\r\n  font-style: normal;\r\n  font-weight: 400;\r\n  src: local('Roboto'), local('Roboto-Regular'),\r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format('woff2'), \r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format('woff'); /* Modern Browsers */\r\n}\r\n/* roboto-500 - cyrillic */\r\n@font-face {\r\n  font-family: 'Roboto';\r\n  font-style: normal;\r\n  font-weight: 500;\r\n  src: local('Roboto'),\r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format('woff2'), \r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") format('woff');/* Modern Browsers */\r\n}\r\n:root {\r\n  --black: #333333;\r\n  --orange: #cc6633;\r\n  --green: #a4cc33;\r\n  --white: #ffffff;\r\n  --greyF4: #f4f4f4;\r\n  --greyF3: #f3f3f3;\r\n  --greyD9: #d9d9d9;\r\n  --greyC4: #c4c4c4;\r\n  --grey99: #999999;\r\n  --grey66: #666666;\r\n}\r\n\r\nbody {\r\n  padding: 0;\r\n  margin: 0;\r\n  background-color: var(--greyF4);\r\n  font-size: 14px;\r\n  line-height: 16px;\r\n  font-family: 'Roboto', serif;\r\n}\r\n\r\n* {\r\n  color: var(--black);\r\n  box-sizing: border-box;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: greyscale;\r\n}\r\n\r\nul {\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n}\r\nbutton {\r\n  padding: 0;\r\n  border: 0;\r\n  background: transparent;\r\n  cursor: pointer;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -410,7 +439,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -441,7 +470,7 @@ module.exports = function (url, options) {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -449,7 +478,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "./static/src/fonts/roboto-v20-cyrillic-regular.woff2");
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -457,7 +486,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "./static/src/fonts/roboto-v20-cyrillic-regular.woff");
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -465,7 +494,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "./static/src/fonts/roboto-v20-cyrillic-500.woff2");
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -473,7 +502,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "./static/src/fonts/roboto-v20-cyrillic-500.woff");
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -489,11 +518,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(20), exports);
+__exportStar(__webpack_require__(21), exports);
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -504,7 +533,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Layout = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var layout_css_1 = __importDefault(__webpack_require__(21));
+var layout_css_1 = __importDefault(__webpack_require__(22));
 function Layout(_a) {
     var children = _a.children;
     return react_1.default.createElement("div", { className: layout_css_1.default.layout }, children);
@@ -513,7 +542,7 @@ exports.Layout = Layout;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -521,7 +550,7 @@ module.exports = {};
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -532,10 +561,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Header = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var header_css_1 = __importDefault(__webpack_require__(23));
-var SearchBlock_1 = __webpack_require__(24);
-var ThreadTitle_1 = __webpack_require__(26);
-var SortBlock_1 = __webpack_require__(28);
+var header_css_1 = __importDefault(__webpack_require__(24));
+var SearchBlock_1 = __webpack_require__(25);
+var ThreadTitle_1 = __webpack_require__(35);
+var SortBlock_1 = __webpack_require__(37);
 function Header() {
     return (react_1.default.createElement("header", { className: header_css_1.default.header },
         react_1.default.createElement(SearchBlock_1.SearchBlock, null),
@@ -546,7 +575,7 @@ exports.Header = Header;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -556,7 +585,7 @@ module.exports = {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -567,50 +596,51 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SearchBlock = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var searchblock_css_1 = __importDefault(__webpack_require__(25));
+var searchblock_css_1 = __importDefault(__webpack_require__(26));
+var UserBlock_1 = __webpack_require__(27);
+var SearchIcon_1 = __webpack_require__(34);
 function SearchBlock() {
-    return (react_1.default.createElement("div", { className: searchblock_css_1.default.searchblock }, "search"));
+    return (react_1.default.createElement("div", { className: searchblock_css_1.default.searchblock },
+        react_1.default.createElement(UserBlock_1.UserBlock, null),
+        react_1.default.createElement("div", { className: searchblock_css_1.default.blockinput },
+            react_1.default.createElement("button", { className: searchblock_css_1.default.btnsearch, "aria-label": "\u041F\u043E\u0438\u0441\u043A" },
+                react_1.default.createElement(SearchIcon_1.SearchIcon, null)),
+            react_1.default.createElement("input", { className: searchblock_css_1.default.searchinput, placeholder: '\u041F\u043E\u0438\u0441\u043A' }))));
 }
 exports.SearchBlock = SearchBlock;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 // Exports
 module.exports = {
-	"searchblock": "searchblock__searchblock--34CVO"
+	"blockinput": "searchblock__blockinput--2bu_R",
+	"searchblock": "searchblock__searchblock--34CVO",
+	"searchinput": "searchblock__searchinput--3_7zV",
+	"btnsearch": "searchblock__btnsearch--gAzMf"
 };
-
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ThreadTitle = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var threadtitle_css_1 = __importDefault(__webpack_require__(27));
-function ThreadTitle() {
-    return (react_1.default.createElement("h1", { className: threadtitle_css_1.default.threadTitle }, "Header"));
-}
-exports.ThreadTitle = ThreadTitle;
 
 
 /***/ }),
 /* 27 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// Exports
-module.exports = {
-	"threadTitle": "threadtitle__threadTitle--oxugx"
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(__webpack_require__(28), exports);
 
 
 /***/ }),
@@ -623,27 +653,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SortBlock = void 0;
+exports.UserBlock = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var sortblock_css_1 = __importDefault(__webpack_require__(29));
-function SortBlock() {
-    return (react_1.default.createElement("div", { className: sortblock_css_1.default.sortblock }, "sorting"));
+var enumColor_1 = __webpack_require__(2);
+var enumIcon_1 = __webpack_require__(1);
+var Icon_1 = __webpack_require__(29);
+var Text_1 = __webpack_require__(31);
+var userblock_css_1 = __importDefault(__webpack_require__(33));
+function UserBlock() {
+    return (react_1.default.createElement("div", { className: userblock_css_1.default.userblock },
+        react_1.default.createElement("a", { className: userblock_css_1.default.photo, href: "https://www.reddit.com/api/v1/authorize?client_id=iYguATByxd-5PA&response_type=code&state=random_string&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=read submit identity" },
+            react_1.default.createElement(Icon_1.Icon, { As: 'div', icon: enumIcon_1.EIcon.anonim, size: 50, mobileSize: 30 })),
+        react_1.default.createElement("div", { className: userblock_css_1.default.name },
+            react_1.default.createElement(Text_1.Text, { size: 20, bold: 500, color: enumColor_1.EColor.orange }, "\u0410\u043D\u043E\u043D\u0438\u043C"))));
 }
-exports.SortBlock = SortBlock;
+exports.UserBlock = UserBlock;
 
 
 /***/ }),
 /* 29 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {
-	"sortblock": "sortblock__sortblock--2jFPk"
-};
-
-
-/***/ }),
-/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -659,7 +687,39 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(31), exports);
+__exportStar(__webpack_require__(3), exports);
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"save": "icon__save--3rjhI",
+	"share": "icon__share--2GsUq",
+	"anonim": "icon__anonim--1Yc8m",
+	"s10": "icon__s10--6UHq6",
+	"s12": "icon__s12--LuYYL",
+	"s14": "icon__s14--m4nyp",
+	"s16": "icon__s16--NYdak",
+	"s20": "icon__s20--1h1Sg",
+	"s30": "icon__s30--2MvJ-",
+	"s50": "icon__s50--3qS3F",
+	"m10": "icon__m10--2A792",
+	"m12": "icon__m12--1-U0b",
+	"m20": "icon__m20--22ACs",
+	"m30": "icon__m30--lay7A",
+	"t10": "icon__t10--1yy-4",
+	"t12": "icon__t12--3KfvD",
+	"t16": "icon__t16--2OInr",
+	"t20": "icon__t20--uj2iv",
+	"t50": "icon__t50--cIkH5",
+	"d10": "icon__d10--3846z",
+	"d12": "icon__d12--29ZTk",
+	"d20": "icon__d20--3J3ju",
+	"d50": "icon__d50--Zzyqu"
+};
 
 
 /***/ }),
@@ -668,18 +728,18 @@ __exportStar(__webpack_require__(31), exports);
 
 "use strict";
 
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Content = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var content_css_1 = __importDefault(__webpack_require__(32));
-function Content(_a) {
-    var children = _a.children;
-    return (react_1.default.createElement("main", { className: content_css_1.default.content }, children));
-}
-exports.Content = Content;
+__exportStar(__webpack_require__(5), exports);
 
 
 /***/ }),
@@ -688,226 +748,16 @@ exports.Content = Content;
 
 // Exports
 module.exports = {
-	"content": "content__content--2O9-S"
-};
-
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CardsList = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var cardslist_css_1 = __importDefault(__webpack_require__(34));
-var Card_1 = __webpack_require__(35);
-function CardsList() {
-    return (react_1.default.createElement("ul", { className: cardslist_css_1.default.cardsList },
-        react_1.default.createElement(Card_1.Card, null)));
-}
-exports.CardsList = CardsList;
-
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {};
-
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Card = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var card_css_1 = __importDefault(__webpack_require__(36));
-__webpack_require__(37);
-var TextComponent_1 = __webpack_require__(38);
-var CardMenu_1 = __webpack_require__(47);
-var Controls_1 = __webpack_require__(63);
-var Preview_1 = __webpack_require__(75);
-function Card() {
-    return (react_1.default.createElement("li", { className: card_css_1.default.card },
-        react_1.default.createElement(TextComponent_1.TextComponent, null),
-        react_1.default.createElement(Preview_1.Preview, null),
-        react_1.default.createElement(CardMenu_1.CardMenu, null),
-        react_1.default.createElement(Controls_1.Controls, null)));
-}
-exports.Card = Card;
-
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {
-	"card": "card__card--7bN6-"
-};
-
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-hot-loader");
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TextComponent = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var User_1 = __webpack_require__(39);
-var TimeComment_1 = __webpack_require__(42);
-var textcomponent_css_1 = __importDefault(__webpack_require__(44));
-var Text_1 = __webpack_require__(45);
-function TextComponent() {
-    return (react_1.default.createElement("div", { className: textcomponent_css_1.default.textContent },
-        react_1.default.createElement("div", { className: textcomponent_css_1.default.metaData },
-            react_1.default.createElement(User_1.User, null),
-            react_1.default.createElement(TimeComment_1.TimeComment, null)),
-        react_1.default.createElement(Text_1.Text, { As: 'h2', size: 20, mobileSize: 16, marginTB: 7 },
-            react_1.default.createElement("a", { href: "#user-url", className: textcomponent_css_1.default.postLink }, "\u0420\u0435\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u044F \u043D\u0430\u043C\u0435\u0447\u0435\u043D\u043D\u044B\u0445 \u043F\u043B\u0430\u043D\u043E\u0432\u044B\u0445 \u0437\u0430\u0434\u0430\u043D\u0438\u0439"))));
-}
-exports.TextComponent = TextComponent;
-
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var user_css_1 = __importDefault(__webpack_require__(40));
-var user_png_1 = __importDefault(__webpack_require__(41));
-function User() {
-    return (react_1.default.createElement("div", { className: user_css_1.default.userLink },
-        react_1.default.createElement("img", { className: user_css_1.default.avatar, src: user_png_1.default }),
-        react_1.default.createElement("a", { href: "#user-url", className: user_css_1.default.username }, "\u0414\u043C\u0438\u0442\u0440\u0438\u0439 \u0413\u0440\u0438\u0448\u0438\u043D")));
-}
-exports.User = User;
-
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {
-	"userLink": "user__userLink--1NY7B",
-	"avatar": "user__avatar--on2f6",
-	"username": "user__username--3ACnJ"
-};
-
-
-/***/ }),
-/* 41 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "./static/src/shared/CardsList/Card/User/user.png");
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TimeComment = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var timecomment_css_1 = __importDefault(__webpack_require__(43));
-function TimeComment() {
-    return (react_1.default.createElement("span", { className: timecomment_css_1.default.createdAt },
-        react_1.default.createElement("span", { className: timecomment_css_1.default.publishedLabel }, "\u043E\u043F\u0443\u0431\u043B\u0438\u043A\u043E\u0432\u0430\u043D\u043E"),
-        " 4 \u0447\u0430\u0441\u0430 \u043D\u0430\u0437\u0430\u0434"));
-}
-exports.TimeComment = TimeComment;
-
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {
-	"createdAt": "timecomment__createdAt--3kC43",
-	"publishedLabel": "timecomment__publishedLabel--1CxXs"
-};
-
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {
-	"textContent": "textcomponent__textContent--1n1y-",
-	"metaData": "textcomponent__metaData--2PVuX",
-	"postLink": "textcomponent__postLink--dmjD3"
-};
-
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Text = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var text_css_1 = __importDefault(__webpack_require__(46));
-var classnames_1 = __importDefault(__webpack_require__(2));
-var enumColor_1 = __webpack_require__(3);
-function Text(props) {
-    var _a, _b, _c;
-    var _d = props.As, As = _d === void 0 ? 'span' : _d, _e = props.color, color = _e === void 0 ? enumColor_1.EColor.black : _e, children = props.children, size = props.size, mobileSize = props.mobileSize, desktopSize = props.desktopSize, tabletSize = props.tabletSize, _f = props.bold, bold = _f === void 0 ? 400 : _f, marginTB = props.marginTB;
-    var classes = classnames_1.default(text_css_1.default["s" + size], (_a = {}, _a[text_css_1.default["m" + mobileSize]] = mobileSize, _a), (_b = {}, _b[text_css_1.default["m" + desktopSize]] = desktopSize, _b), (_c = {}, _c[text_css_1.default["m" + tabletSize]] = tabletSize, _c), text_css_1.default[color], text_css_1.default["bold" + bold], text_css_1.default["marginTB" + marginTB]);
-    return react_1.default.createElement(As, { className: classes }, children);
-}
-exports.Text = Text;
-
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {
+	"black": "text__black--1zchg",
+	"orange": "text__orange--1RyAM",
+	"green": "text__green--3mYQn",
+	"white": "text__white--13JGE",
+	"greyF4": "text__greyF4--V0fR0",
+	"greyF3": "text__greyF3--2Lfsi",
+	"greyD9": "text__greyD9--7iRFr",
+	"greyC4": "text__greyC4--3oiNM",
+	"grey99": "text__grey99--35u3B",
+	"grey66": "text__grey66--373uw",
 	"bold400": "text__bold400--2otlD",
 	"bold500": "text__bold500--3n6km",
 	"marginTB0": "text__marginTB0--2Zacd",
@@ -940,7 +790,348 @@ module.exports = {
 
 
 /***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"userblock": "userblock__userblock--2-sph",
+	"photo": "userblock__photo--jvysj",
+	"name": "userblock__name--2mio1"
+};
+
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SearchIcon = void 0;
+var React = __importStar(__webpack_require__(0));
+function SearchIcon() {
+    return (React.createElement("svg", { width: "19", height: "19", viewBox: "0 0 19 19", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M13.541 11.9497H12.7037L12.407 11.6564C13.4456 10.418 14.0709 8.81018 14.0709 7.06118C14.0709 3.16124 10.9868 0 7.18194 0C3.37711 0 0.292969 3.16124 0.292969 7.06118C0.292969 10.9611 3.37711 14.1224 7.18194 14.1224C8.88828 14.1224 10.4568 13.4814 11.6651 12.4168L11.9512 12.721V13.5792L17.2504 19L18.8296 17.3814L13.541 11.9497ZM7.18194 11.9497C4.54293 11.9497 2.41265 9.76615 2.41265 7.06118C2.41265 4.3562 4.54293 2.17267 7.18194 2.17267C9.82094 2.17267 11.9512 4.3562 11.9512 7.06118C11.9512 9.76615 9.82094 11.9497 7.18194 11.9497Z", fill: "#C4C4C4" })));
+}
+exports.SearchIcon = SearchIcon;
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ThreadTitle = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var threadtitle_css_1 = __importDefault(__webpack_require__(36));
+function ThreadTitle() {
+    return (react_1.default.createElement("h1", { className: threadtitle_css_1.default.threadTitle }, "Header"));
+}
+exports.ThreadTitle = ThreadTitle;
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"threadTitle": "threadtitle__threadTitle--oxugx"
+};
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SortBlock = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var sortblock_css_1 = __importDefault(__webpack_require__(38));
+function SortBlock() {
+    return (react_1.default.createElement("div", { className: sortblock_css_1.default.sortblock }, "sorting"));
+}
+exports.SortBlock = SortBlock;
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"sortblock": "sortblock__sortblock--2jFPk"
+};
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(__webpack_require__(40), exports);
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Content = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var content_css_1 = __importDefault(__webpack_require__(41));
+function Content(_a) {
+    var children = _a.children;
+    return (react_1.default.createElement("main", { className: content_css_1.default.content }, children));
+}
+exports.Content = Content;
+
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"content": "content__content--2O9-S"
+};
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CardsList = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var cardslist_css_1 = __importDefault(__webpack_require__(43));
+var Card_1 = __webpack_require__(44);
+function CardsList() {
+    return (react_1.default.createElement("ul", { className: cardslist_css_1.default.cardsList },
+        react_1.default.createElement(Card_1.Card, null)));
+}
+exports.CardsList = CardsList;
+
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {};
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Card = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var card_css_1 = __importDefault(__webpack_require__(45));
+__webpack_require__(46);
+var TextComponent_1 = __webpack_require__(47);
+var CardMenu_1 = __webpack_require__(54);
+var Controls_1 = __webpack_require__(70);
+var Preview_1 = __webpack_require__(81);
+function Card() {
+    return (react_1.default.createElement("li", { className: card_css_1.default.card },
+        react_1.default.createElement(TextComponent_1.TextComponent, null),
+        react_1.default.createElement(Preview_1.Preview, null),
+        react_1.default.createElement(CardMenu_1.CardMenu, null),
+        react_1.default.createElement(Controls_1.Controls, null)));
+}
+exports.Card = Card;
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"card": "card__card--7bN6-"
+};
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-hot-loader");
+
+/***/ }),
 /* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TextComponent = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var User_1 = __webpack_require__(48);
+var TimeComment_1 = __webpack_require__(51);
+var textcomponent_css_1 = __importDefault(__webpack_require__(53));
+var Text_1 = __webpack_require__(5);
+function TextComponent() {
+    return (react_1.default.createElement("div", { className: textcomponent_css_1.default.textContent },
+        react_1.default.createElement("div", { className: textcomponent_css_1.default.metaData },
+            react_1.default.createElement(User_1.User, null),
+            react_1.default.createElement(TimeComment_1.TimeComment, null)),
+        react_1.default.createElement(Text_1.Text, { As: 'h2', size: 20, mobileSize: 16, marginTB: 7 },
+            react_1.default.createElement("a", { href: "#user-url", className: textcomponent_css_1.default.postLink }, "\u0420\u0435\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u044F \u043D\u0430\u043C\u0435\u0447\u0435\u043D\u043D\u044B\u0445 \u043F\u043B\u0430\u043D\u043E\u0432\u044B\u0445 \u0437\u0430\u0434\u0430\u043D\u0438\u0439"))));
+}
+exports.TextComponent = TextComponent;
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.User = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var user_css_1 = __importDefault(__webpack_require__(49));
+var user_png_1 = __importDefault(__webpack_require__(50));
+function User() {
+    return (react_1.default.createElement("div", { className: user_css_1.default.userLink },
+        react_1.default.createElement("img", { className: user_css_1.default.avatar, src: user_png_1.default }),
+        react_1.default.createElement("a", { href: "#user-url", className: user_css_1.default.username }, "\u0414\u043C\u0438\u0442\u0440\u0438\u0439 \u0413\u0440\u0438\u0448\u0438\u043D")));
+}
+exports.User = User;
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"userLink": "user__userLink--1NY7B",
+	"avatar": "user__avatar--on2f6",
+	"username": "user__username--3ACnJ"
+};
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "./static/src/shared/CardsList/Card/User/user.png");
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TimeComment = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var timecomment_css_1 = __importDefault(__webpack_require__(52));
+function TimeComment() {
+    return (react_1.default.createElement("span", { className: timecomment_css_1.default.createdAt },
+        react_1.default.createElement("span", { className: timecomment_css_1.default.publishedLabel }, "\u043E\u043F\u0443\u0431\u043B\u0438\u043A\u043E\u0432\u0430\u043D\u043E"),
+        " 4 \u0447\u0430\u0441\u0430 \u043D\u0430\u0437\u0430\u0434"));
+}
+exports.TimeComment = TimeComment;
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"createdAt": "timecomment__createdAt--3kC43",
+	"publishedLabel": "timecomment__publishedLabel--1CxXs"
+};
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"textContent": "textcomponent__textContent--1n1y-",
+	"metaData": "textcomponent__metaData--2PVuX",
+	"postLink": "textcomponent__postLink--dmjD3"
+};
+
+
+/***/ }),
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -951,12 +1142,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CardMenu = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var cardmenu_css_1 = __importDefault(__webpack_require__(48));
-var DropDown_1 = __webpack_require__(49);
-var GenericList_1 = __webpack_require__(51);
-var merge_1 = __webpack_require__(53);
-var generateRandomIndex_1 = __webpack_require__(54);
-var Icons_1 = __webpack_require__(4);
+var cardmenu_css_1 = __importDefault(__webpack_require__(55));
+var DropDown_1 = __webpack_require__(56);
+var GenericList_1 = __webpack_require__(58);
+var merge_1 = __webpack_require__(60);
+var generateRandomIndex_1 = __webpack_require__(61);
+var Icons_1 = __webpack_require__(6);
 var LIST = [
     { As: 'li', text: 'Комментарии', img: react_1.default.createElement(Icons_1.CommentIcon, null) },
     { As: 'li', text: 'Поделиться', img: react_1.default.createElement(Icons_1.ShareIcon, null) },
@@ -980,7 +1171,7 @@ exports.CardMenu = CardMenu;
 
 
 /***/ }),
-/* 48 */
+/* 55 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -993,7 +1184,7 @@ module.exports = {
 
 
 /***/ }),
-/* 49 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1023,7 +1214,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DropDown = void 0;
 var react_1 = __importStar(__webpack_require__(0));
-var dropdown_css_1 = __importDefault(__webpack_require__(50));
+var dropdown_css_1 = __importDefault(__webpack_require__(57));
 var NOOP = function () { };
 function DropDown(_a) {
     var button = _a.button, children = _a.children, isOpen = _a.isOpen, _b = _a.onClose, onClose = _b === void 0 ? NOOP : _b, _c = _a.onOpen, onOpen = _c === void 0 ? NOOP : _c;
@@ -1044,7 +1235,7 @@ exports.DropDown = DropDown;
 
 
 /***/ }),
-/* 50 */
+/* 57 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1056,7 +1247,7 @@ module.exports = {
 
 
 /***/ }),
-/* 51 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1068,7 +1259,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GenericList = void 0;
 //рендериит любые списки
 var react_1 = __importDefault(__webpack_require__(0));
-var GenericList_css_1 = __importDefault(__webpack_require__(52));
+var GenericList_css_1 = __importDefault(__webpack_require__(59));
 function GenericList(_a) {
     var list = _a.list;
     return (react_1.default.createElement(react_1.default.Fragment, null, list.map(function (_a) {
@@ -1082,7 +1273,7 @@ exports.GenericList = GenericList;
 
 
 /***/ }),
-/* 52 */
+/* 59 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1092,7 +1283,7 @@ module.exports = {
 
 
 /***/ }),
-/* 53 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1117,20 +1308,20 @@ exports.merge = merge;
 
 
 /***/ }),
-/* 54 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateId = exports.generateRandomString = void 0;
-var assoc_1 = __webpack_require__(55);
+var assoc_1 = __webpack_require__(62);
 exports.generateRandomString = function () { return Math.random().toString(36).substring(2, 15); };
 exports.generateId = function (obj) { return assoc_1.assoc('id', exports.generateRandomString())(obj); };
 
 
 /***/ }),
-/* 55 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1159,7 +1350,7 @@ exports.assoc = assoc;
 
 
 /***/ }),
-/* 56 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1196,7 +1387,7 @@ exports.MenuIcon = MenuIcon;
 
 
 /***/ }),
-/* 57 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1231,7 +1422,7 @@ exports.ComplainIcon = ComplainIcon;
 
 
 /***/ }),
-/* 58 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1266,7 +1457,7 @@ exports.HideIcon = HideIcon;
 
 
 /***/ }),
-/* 59 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1301,7 +1492,7 @@ exports.SaveIcon = SaveIcon;
 
 
 /***/ }),
-/* 60 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1336,7 +1527,7 @@ exports.ShareIcon = ShareIcon;
 
 
 /***/ }),
-/* 61 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1371,7 +1562,7 @@ exports.DownIcon = DownIcon;
 
 
 /***/ }),
-/* 62 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1406,7 +1597,7 @@ exports.UpIcon = UpIcon;
 
 
 /***/ }),
-/* 63 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1417,11 +1608,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Controls = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var controls_css_1 = __importDefault(__webpack_require__(64));
-var CarmaCounter_1 = __webpack_require__(65);
-var CommentsNumber_1 = __webpack_require__(67);
-var ShareButton_1 = __webpack_require__(69);
-var SaveButton_1 = __webpack_require__(72);
+var controls_css_1 = __importDefault(__webpack_require__(71));
+var CarmaCounter_1 = __webpack_require__(72);
+var CommentsNumber_1 = __webpack_require__(74);
+var ShareButton_1 = __webpack_require__(76);
+var SaveButton_1 = __webpack_require__(78);
 function Controls() {
     return (react_1.default.createElement("div", { className: controls_css_1.default.controls },
         react_1.default.createElement(CarmaCounter_1.CarmaCounter, null),
@@ -1434,7 +1625,7 @@ exports.Controls = Controls;
 
 
 /***/ }),
-/* 64 */
+/* 71 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1445,7 +1636,7 @@ module.exports = {
 
 
 /***/ }),
-/* 65 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1456,8 +1647,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CarmaCounter = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var carmacounter_css_1 = __importDefault(__webpack_require__(66));
-var Icons_1 = __webpack_require__(4);
+var carmacounter_css_1 = __importDefault(__webpack_require__(73));
+var Icons_1 = __webpack_require__(6);
 function CarmaCounter() {
     return (react_1.default.createElement("div", { className: carmacounter_css_1.default.karmaCounter },
         react_1.default.createElement("button", { className: carmacounter_css_1.default.up },
@@ -1470,7 +1661,7 @@ exports.CarmaCounter = CarmaCounter;
 
 
 /***/ }),
-/* 66 */
+/* 73 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1483,7 +1674,7 @@ module.exports = {
 
 
 /***/ }),
-/* 67 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1494,8 +1685,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommentsNumber = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var commentsnumber_css_1 = __importDefault(__webpack_require__(68));
-var CommentIcon_1 = __webpack_require__(5);
+var commentsnumber_css_1 = __importDefault(__webpack_require__(75));
+var CommentIcon_1 = __webpack_require__(7);
 function CommentsNumber() {
     return (react_1.default.createElement("button", { className: commentsnumber_css_1.default.commentsButton },
         react_1.default.createElement(CommentIcon_1.CommentIcon, null),
@@ -1505,7 +1696,7 @@ exports.CommentsNumber = CommentsNumber;
 
 
 /***/ }),
-/* 68 */
+/* 75 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1516,7 +1707,7 @@ module.exports = {
 
 
 /***/ }),
-/* 69 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1527,8 +1718,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShareButton = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var sharebutton_css_1 = __importDefault(__webpack_require__(70));
-var Icon_1 = __webpack_require__(6);
+var sharebutton_css_1 = __importDefault(__webpack_require__(77));
+var Icon_1 = __webpack_require__(3);
 var enumIcon_1 = __webpack_require__(1);
 function ShareButton() {
     return (react_1.default.createElement("div", { className: sharebutton_css_1.default.sharebutton },
@@ -1538,7 +1729,7 @@ exports.ShareButton = ShareButton;
 
 
 /***/ }),
-/* 70 */
+/* 77 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1548,33 +1739,7 @@ module.exports = {
 
 
 /***/ }),
-/* 71 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {
-	"save": "icon__save--3rjhI",
-	"share": "icon__share--2GsUq",
-	"s10": "icon__s10--6UHq6",
-	"s12": "icon__s12--LuYYL",
-	"s14": "icon__s14--m4nyp",
-	"s16": "icon__s16--NYdak",
-	"s20": "icon__s20--1h1Sg",
-	"m10": "icon__m10--2A792",
-	"m12": "icon__m12--1-U0b",
-	"m20": "icon__m20--22ACs",
-	"t10": "icon__t10--1yy-4",
-	"t12": "icon__t12--3KfvD",
-	"t16": "icon__t16--2OInr",
-	"t20": "icon__t20--uj2iv",
-	"d10": "icon__d10--3846z",
-	"d12": "icon__d12--29ZTk",
-	"d20": "icon__d20--3J3ju"
-};
-
-
-/***/ }),
-/* 72 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1590,11 +1755,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(73), exports);
+__exportStar(__webpack_require__(79), exports);
 
 
 /***/ }),
-/* 73 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1605,8 +1770,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SaveButton = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var savebtn_css_1 = __importDefault(__webpack_require__(74));
-var Icon_1 = __webpack_require__(6);
+var savebtn_css_1 = __importDefault(__webpack_require__(80));
+var Icon_1 = __webpack_require__(3);
 var enumIcon_1 = __webpack_require__(1);
 function SaveButton() {
     return (react_1.default.createElement("div", { className: savebtn_css_1.default.savebtn },
@@ -1616,7 +1781,7 @@ exports.SaveButton = SaveButton;
 
 
 /***/ }),
-/* 74 */
+/* 80 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1626,7 +1791,7 @@ module.exports = {
 
 
 /***/ }),
-/* 75 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1637,8 +1802,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Preview = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var preview_css_1 = __importDefault(__webpack_require__(76));
-var Postprew_png_1 = __importDefault(__webpack_require__(77));
+var preview_css_1 = __importDefault(__webpack_require__(82));
+var Postprew_png_1 = __importDefault(__webpack_require__(83));
 function Preview() {
     return (react_1.default.createElement("div", { className: preview_css_1.default.preview },
         react_1.default.createElement("img", { className: preview_css_1.default.previewImg, src: Postprew_png_1.default })));
@@ -1647,7 +1812,7 @@ exports.Preview = Preview;
 
 
 /***/ }),
-/* 76 */
+/* 82 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1658,7 +1823,7 @@ module.exports = {
 
 
 /***/ }),
-/* 77 */
+/* 83 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1666,7 +1831,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "./static/src/shared/CardsList/Card/Preview/Postprew.png");
 
 /***/ }),
-/* 78 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

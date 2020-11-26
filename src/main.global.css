@@ -59,33 +59,3 @@ button {
   background: transparent;
   cursor: pointer;
 }
-.black {
-  color: var(--black);
-}
-.orange {
-  color: var(--orange);
-}
-.green {
-  color: var(--green);
-}
-.white {
-  color: var(--white);
-}
-.greyF4 {
-  color: var(--greyF4);
-}
-.greyF3 {
-  color: var(--greyF3);
-}
-.greyD9 {
-  color: var(--greyD9);
-}
-.greyC4 {
-  color: var(--greyC4);
-}
-.grey99 {
-  color: var(--grey99);
-}
-.grey66 {
-  color: var(--grey66);
-}

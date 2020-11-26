@@ -1,3 +1,6 @@
+.blockinput {
+  position: relative;
+}
 .searchblock {
   display: flex;
   flex-flow: row nowrap;
@@ -6,8 +9,47 @@
   padding: 14px 20px;
   background-color: var(--white);
   border-radius: 0 0 7px 7px;
-  box-shadow: 0 0 20px rgba(0,0,0,.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   margin: 0 0 38px;
+}
+
+.searchinput {
+  width: 192px;
+  height: 30px;
+  padding: 10px 30px;
+  background-color: var(--greyF4);
+  border-color: transparent;
+  border-radius: 30px;
+}
+.searchinput:focus,
+.searchinput:hover {
+  outline: none;
+  border: 0.5px solid var(--orange);
+}
+.searchinput::placeholder {
+  font-size: 12px;
+  color: var(--greyC4);
+}
+.btnsearch {
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  border: none;
+  transition: 0.5s;
+  z-index: 5;
+}
+
+.btnsearch svg {
+  width: 11px;
+  height: 11px;
+}
+.btnsearch:focus,
+.btnsearch:hover {
+  outline: none;
+}
+
+.btnsearch:hover > svg > path {
+  fill: var(--orange);
 }
 
 @media all and (min-width: 1024px) {
@@ -18,5 +60,26 @@
     box-shadow: none;
     margin: 0 0 0 auto;
     order: 3;
+  }
+  .blockinput {
+    order: -1;
+  }
+  .searchinput {
+    width: 280px;
+    height: 50px;
+    padding-left: 40px;
+   
+    background-color: var(--white);
+  }
+  .searchinput::placeholder {
+    font-size: 20px;
+  }
+  .btnsearch {
+    top: 15px;
+    left: 13px;
+  }
+  .btnsearch svg {
+    width: 19px;
+    height: 19px;
   }
 }

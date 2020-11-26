@@ -3,6 +3,7 @@ import styles from './text.css';
 import classNames from 'classnames';
 import {EColor} from '../../const/enumColor';
 
+
 type TSizes = 28 | 20 | 16 | 14 | 12 | 10;
 type TBold = 400 | 500;
 interface ITextProps {

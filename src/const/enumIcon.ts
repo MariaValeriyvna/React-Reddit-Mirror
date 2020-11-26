@@ -1,6 +1,6 @@
-
 export 
  enum EIcon {
   save="save",
-  share="share"
+  share="share",
+  anonim="anonim"
 }

@@ -1,0 +1,21 @@
+.userblock {
+  display: flex;
+  align-items: center;
+}
+.photo {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.photo:focus,
+.photo:hover {
+  border: 1px solid var(--orange)
+}
+@media all and (max-width: 1023px) {
+  .name {
+    display: none;
+  }
+}
+
