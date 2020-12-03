@@ -11,6 +11,5 @@ export function Header() {
       <ThreadTitle />
       <SortBlock />
     </header>
-
   );
 }

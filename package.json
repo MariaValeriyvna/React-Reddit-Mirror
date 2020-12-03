@@ -40,10 +40,11 @@
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.13.0",
+    "axios": "^0.21.0",
     "classnames": "^2.2.6",
     "express": "^4.17.1",
     "nodemon": "^2.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   }
 }

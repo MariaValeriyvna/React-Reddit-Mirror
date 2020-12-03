@@ -7,13 +7,14 @@ import { EIcon } from '../../const/enumIcon';
 type TSizes = 50 | 30 | 28 | 20 | 16 | 14 | 12 | 10;
 interface IIconProps {
   As?: 'div' | 'button' ;
+  src?: string;
   size: TSizes;
   mobileSize?: TSizes;
   tabletSize?: TSizes;
   desktopSize?: TSizes;
   color?: EColor;
   className?: string;
-  icon: EIcon;
+  icon?: EIcon;
 }
 export function Icon(props: IIconProps) {
   const {

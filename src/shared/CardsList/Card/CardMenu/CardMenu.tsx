@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './cardmenu.css';
 import { DropDown } from '../../../DropDown/DropDown';
 import { GenericList } from '../../../GenericList/GenericList';
@@ -25,7 +25,7 @@ const LIST = [
 ].map(generateId);
 
 export function CardMenu() {
-  const [list, setList] = React.useState(LIST);
+  const [list, setList] = useState(LIST);
   const handleItemClick = () => {
     setList(list);
   };

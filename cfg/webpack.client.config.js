@@ -65,7 +65,6 @@ module.exports = {
   },
 
   devtool: setupDevtool(),
-
   plugins: IS_DEV
     ? DEV_PLUGINS.concat(COMMON_PLUGINS)
     : COMMON_PLUGINS,

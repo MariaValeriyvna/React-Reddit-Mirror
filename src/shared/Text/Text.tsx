@@ -28,14 +28,14 @@ export function Text(props: ITextProps) {
     desktopSize,
     tabletSize,
     bold = 400,
-    marginTB,
+    marginTB
   } = props;
 
   const classes = classNames(
     styles[`s${size}`],
     { [styles[`m${mobileSize}`]]: mobileSize },
-    { [styles[`m${desktopSize}`]]: desktopSize },
-    { [styles[`m${tabletSize}`]]: tabletSize },
+    { [styles[`d${desktopSize}`]]: desktopSize },
+    { [styles[`t${tabletSize}`]]: tabletSize },
     styles[color],
     styles[`bold${bold}`],
     styles[`marginTB${marginTB}`]

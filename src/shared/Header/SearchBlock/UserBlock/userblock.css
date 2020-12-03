@@ -1,21 +1,40 @@
 .userblock {
   display: flex;
   align-items: center;
-}
-.photo {
-  margin: 5px;
-  padding: 5px;
-  border: 1px solid transparent;
-  border-radius: 50%;
   cursor: pointer;
 }
-.photo:focus,
-.photo:hover {
-  border: 1px solid var(--orange)
+.photo {
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+  object-fit: cover;
+  border: 1px solid transparent;
+  border-radius: 50%;
 }
+.name {
+  font-size: 20px;
+  font-weight: 500;
+}
+.userblock:hover > .name {
+  color: var(--orange);
+}
+.userblock:focus > .photo,
+.userblock:hover > .photo {
+  border: 1px solid var(--orange);
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
 @media all and (max-width: 1023px) {
   .name {
     display: none;
   }
+  .avatar {
+    width: 30px;
+    height: 30px;
+  }
 }
-

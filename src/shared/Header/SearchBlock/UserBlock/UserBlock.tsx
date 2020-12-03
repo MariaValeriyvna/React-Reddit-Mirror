@@ -1,19 +1,28 @@
-import React from 'react';
-import { EColor } from '../../../../const/enumColor';
+import * as React from 'react';
 import { EIcon } from '../../../../const/enumIcon';
 import { Icon } from '../../../Icon';
-import { Text } from '../../../Text';
 import styles from './userblock.css';
-
-export function UserBlock() {
+interface IUserBlockProps {
+  avatarSrc?: string;
+  username?: string;
+}
+export function UserBlock({ avatarSrc, username = 'Аноним' }: IUserBlockProps) {
   return (
-    <div className={styles.userblock}>
-      <a className={styles.photo} href="https://www.reddit.com/api/v1/authorize?client_id=iYguATByxd-5PA&response_type=code&state=random_string&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=read submit identity">
-        <Icon As={'div'} icon={EIcon.anonim} size={50} mobileSize={30} />
+    <div>
+      <a
+        className={styles.userblock}
+        href="https://www.reddit.com/api/v1/authorize?client_id=iYguATByxd-5PA&response_type=code&state=random_string&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=read submit identity"
+      >
+        <div className={styles.photo}>
+          {avatarSrc ? (
+            <img className={styles.avatar} src={avatarSrc} alt="user avatar" />
+          ) : (
+            <Icon As={'div'} icon={EIcon.anonim} size={50} mobileSize={30} />
+          )}
+        </div>
+
+        <div className={styles.name}>{username}</div>
       </a>
-      <div className={styles.name}>
-        <Text size={20} bold={500} color={EColor.orange}>Аноним</Text>
-      </div>
     </div>
   );
 }

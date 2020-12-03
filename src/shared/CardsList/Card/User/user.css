@@ -6,6 +6,9 @@
   margin-right: 7px;
 }
 .avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
   margin-right: 7px;
 }
 .username {
