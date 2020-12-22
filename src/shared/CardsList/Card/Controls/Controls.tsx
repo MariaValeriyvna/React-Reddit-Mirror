@@ -4,10 +4,14 @@ import { CarmaCounter } from '../CarmaCounter/CarmaCounter';
 import { CommentsNumber } from '../CommentsNumber/CommentsNumber';
 import { ShareButton } from '../ShareButton/ShareButton';
 import { SaveButton } from '../SaveButton';
-export function Controls() {
+export interface ITitleData {
+  score: string;
+}
+
+export function Controls({score}: ITitleData) {
   return (
     <div className={styles.controls}>
-      <CarmaCounter />
+      <CarmaCounter score = {score}/>
       <CommentsNumber />
       <div className={styles.actions}>
         <ShareButton />

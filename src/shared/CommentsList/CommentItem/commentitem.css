@@ -1,0 +1,40 @@
+
+.item {
+  display: flex;
+  width: 100%;
+  border: 1px solid transparent;
+}
+.item:focus,
+.item:hover{
+  border: 1px solid var(--greyD9);
+}
+
+.itemtitle {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.titlesub {
+  background-color: var(--greyD9);
+  font-size: 14px;
+line-height: 16px;
+text-align: center;
+padding: 3px 5px;
+}
+.ulicons {
+  display: flex;
+}
+.textcomment {
+  font-size: 14px;
+  line-height: 16px;
+  text-indent: 20px;
+  
+}
+.portalReply {
+  position: absolute;
+  top: 50%;
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  z-index: 30;
+}

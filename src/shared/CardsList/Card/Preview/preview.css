@@ -1,4 +1,5 @@
 .preview {
+  max-width: 320px;
   max-height: 178px;
 }
 .previewImg {
@@ -11,5 +12,6 @@
 @media all and (min-width: 1024px) {
   .preview {
     max-width: 190px;
+    max-height: 107px;
   }
 }

@@ -1,49 +1,28 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styles from './cardmenu.css';
-import { DropDown } from '../../../DropDown/DropDown';
-import { GenericList } from '../../../GenericList/GenericList';
-import { merge } from '../../../../utils/js/merge';
-import {
-  generateId,
-  generateRandomString,
-} from '../../../../utils/react/generateRandomIndex';
-import {
-  MenuIcon,
-  CommentIcon,
-  ShareIcon,
-  HideIcon,
-  SaveIcon,
-  ComplainIcon,
-} from '../../../Icons';
-
-const LIST = [
-  { As: 'li' as const, text: 'Комментарии', img: <CommentIcon /> },
-  { As: 'li' as const, text: 'Поделиться', img: <ShareIcon /> },
-  { As: 'li' as const, text: 'Скрыть', img: <HideIcon /> },
-  { As: 'li' as const, text: 'Сохранить', img: <SaveIcon /> },
-  { As: 'li' as const, text: 'Пожаловаться', img: <ComplainIcon /> },
-].map(generateId);
+import { MenuIcon } from '../../../Icons';
+import { DropDownMenu } from './DropDownMenu';
 
 export function CardMenu() {
-  const [list, setList] = useState(LIST);
-  const handleItemClick = () => {
-    setList(list);
-  };
-
+  const [isDropDownOpened, setIsDropDownOpened] = useState(false);
+  const [portalXY, setPortalXY] = useState({x:0,y:0});
+  
   return (
     <div className={styles.cardmenu}>
-      <DropDown
-        button={
-          <button className={styles.cardmenuButton}>
-            <MenuIcon />
-          </button>
-        }
+      <button
+        className={styles.cardmenuButton}
+        onClick={(ev) => {
+          setIsDropDownOpened(true);
+          setPortalXY({x:ev.clientX, y: ev.clientY})
+        }}
       >
-        <ul className={styles.cardmenulist}>
-          <GenericList list={list.map(merge({ onClick: handleItemClick }))} />
-        </ul>
-        <button className={styles.btnClose}>Закрыть</button>
-      </DropDown>
+        <MenuIcon />
+      </button>
+      {isDropDownOpened && (
+        <DropDownMenu portalTop={portalXY.y+50} portalLeft={portalXY.x-120} onClose={() =>{
+           setIsDropDownOpened(false)
+          }} />
+      )}
     </div>
   );
 }

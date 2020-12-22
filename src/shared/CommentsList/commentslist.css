@@ -1,0 +1,21 @@
+
+.item {
+  position: relative;
+  margin-top: 35px;
+  padding-left: 40px;
+}
+.replies {
+  position: relative;
+  margin-left: 50px;
+  padding-left: 40px;
+}
+.controls {
+  position: absolute;
+  top: 0;
+  left:0;
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+  justify-content: space-between;
+  margin-right: 20px;
+}

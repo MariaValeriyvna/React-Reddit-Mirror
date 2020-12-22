@@ -1,8 +1,27 @@
-@media all and (min-width: 1024px) {
-  .content {
-    max-width: 1400px;
-    margin: 0 auto;
-    background-color: var(--white);
-    border-radius: 7px 7px 0 0;
-  }
+.content {
+  box-sizing: border-box;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 1451px;
+  height: 85vh;
+  background-color: var(--grayF4);
+  margin: 0 auto;
+  border-radius: 7px 7px 0 0;
+}
+
+.content::-webkit-scrollbar {
+  width: 7px;
+  background: #ececec;
+  border-radius: 30px;
+
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;
+  border-radius: 30px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--orange);
 }

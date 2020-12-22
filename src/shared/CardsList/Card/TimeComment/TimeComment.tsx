@@ -5,6 +5,7 @@ interface ITimeProps {
 }
 
 export function TimeComment({ created_utc }: ITimeProps) {
+
   return (
     <>
       {created_utc < 60 && (

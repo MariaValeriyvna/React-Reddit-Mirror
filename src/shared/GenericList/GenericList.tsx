@@ -4,25 +4,30 @@ import styles from './GenericList.css';
 interface IItem {
   id: string;
   img?: object;
-  text: string;
-  onClick: (id: string) => void;
+  text?: string;
+  onClick?: (id:string) => void;
   As?: 'a' | 'li' | 'button' | 'div';
   href?: string;
 }
 interface IGenericListProps {
   list: IItem[];
+  underline?: boolean;
+  
 }
+const noop = ()=>{}
+export function GenericList({ list , underline=true}: IGenericListProps) {
 
-export function GenericList({ list }: IGenericListProps) {
+  const liStyle =  (underline) ? {'border': '1px solid #ececec'} : {'border': 'none'}
+
   return (
     <>
-      {list.map(({ As = 'div', img, text, onClick, id, href }) => (
+      {list.map(({ As = 'div', img, text, onClick=noop, id, href }) => (
         <As
+          style={liStyle}
           className={styles.item}
-          onClick={() => onClick(id)}
+          onClick={()=>onClick(id)}
           key={id}
           href={href}
-          
         >
           {img}
           {text} 

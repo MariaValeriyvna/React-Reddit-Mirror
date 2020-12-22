@@ -5,6 +5,8 @@
   display: flex;
   flex-flow: row wrap;
   position: relative;
+  justify-content: center;
+  
 }
 .card > * {
   flex: 1 1 100%;
@@ -12,21 +14,24 @@
 
 @media all and (min-width: 1024px) {
   .card {
+    box-sizing: border-box;
     flex-flow: row nowrap;
-    align-items: center;
     padding: 37px;
+    margin-top: 0;
+    border: 1px solid transparent;
+  }
+  .card:focus,
+  .card:hover{
+    border: 1px solid var(--greyD9);
+  }
+  .card:hover h2 a,
+  .card:focus h2 a {
+    color: var(--orange);
   }
 }
 @media all and (min-width: 1400px) {
   .card {
     padding-right: 74px;
   }
-  .card:hover,
-  .card:focus {
-    outline: 1px solid var(--greyD9);
-  }
-  .card:hover h2 a,
-  .card:focus h2 a {
-    color: var(--orange);
-  }
+
 }

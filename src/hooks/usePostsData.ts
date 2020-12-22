@@ -10,30 +10,23 @@ export interface ISimplPostData {
   author: string;
   created_utc: number;
   thumbnail?: string;
-  preview?: IPreviewPostData;
-}
-export interface IPreviewPostData {
-  images?: IArrayImg;
-}
-export interface IArrayImg {
-  0: ISource;
-}
-export interface ISource {
-  source?: Iurl | undefined;
-}
-export interface Iurl {
+  id:string;
   url: string;
+  selftext:string;
+  score: string
 }
+
 export function usePostsData() {
   const [data, setData] = useState<Array<IPostData>>([]);
   const token = useContext(tokenContext);
   useEffect(() => {
     axios
-      .get('https://oauth.reddit.com/best.json', {
+      .get('https://oauth.reddit.com/best.json?limit=10', {
         headers: { Authorization: `bearer ${token}` },
       })
       .then((resp) => {
         const postsData: Array<IPostData> = resp.data.data.children;
+        console.log(postsData)
         setData(postsData);
       })
       .catch(console.log);

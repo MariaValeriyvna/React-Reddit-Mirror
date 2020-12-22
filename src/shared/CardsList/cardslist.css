@@ -1,0 +1,22 @@
+.cardsList {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  overflow-x: hidden;
+  top:0;
+  left:0;
+  padding-bottom: 150px;
+
+}
+.cardLi {
+  box-sizing: border-box;
+  position: relative;
+  min-height: 148px;
+}
+@media all and (min-width: 1400px ){
+  .cardsList {
+  width: 1400px;
+  }
+}
+

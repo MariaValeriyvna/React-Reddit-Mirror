@@ -1,0 +1,11 @@
+.down:focus,
+.down:hover{
+  outline: none;
+}
+
+.down:hover > svg > path,
+.down:focus > svg > path,
+.down:active > svg > path{
+  outline: none;
+  fill: var(--orange);
+}

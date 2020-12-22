@@ -2,22 +2,7 @@
   color: var(--greyC4);
   padding: 0 6px;
 }
-.up:focus,
-.up:hover,
-.down:focus,
-.down:hover{
-  outline: none;
-}
-.karmaCounter > button.up:hover > svg > path,
-.karmaCounter > button.up:focus > svg > path {
-  outline: none;
-  fill: var(--green);
-}
-.karmaCounter > button.down:hover > svg > path,
-.karmaCounter > button.down:focus > svg > path {
-  outline: none;
-  fill: var(--orange);
-}
+
 @media all and (min-width: 1024px) {
   .karmaCounter {
     display: flex;

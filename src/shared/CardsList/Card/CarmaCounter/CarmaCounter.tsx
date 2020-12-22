@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './carmacounter.css';
-import { DownIcon, UpIcon } from '../../../Icons';
+import { BtnUp } from '../../../BtnUp';
+import { BtnDown } from '../../../BtnDown';
+import axios from 'axios';
+import { tokenContext } from '../../../Context/TokenContext';
+import { postsContext } from '../../../Context/postsContext';
 
-export function CarmaCounter() {
+export interface ITitleData {
+  score: string;
+}
+
+export function CarmaCounter({score}:  ITitleData) {
   return (
     <div className={styles.karmaCounter}>
-      <button className={styles.up}>
-        <UpIcon />
-      </button>
-      <span className={styles.karmaValue}>256</span>
-      <button className={styles.down}>
-        <DownIcon />
-      </button>
+      <BtnUp />
+      <span className={styles.karmaValue}>{score}</span>
+        <BtnDown />
     </div>
   );
 }

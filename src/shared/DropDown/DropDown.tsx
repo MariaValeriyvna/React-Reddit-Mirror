@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './dropdown.css';
 
 interface IDropDownProps {
-  button: React.ReactNode;
+  button?: React.ReactNode;
   children: React.ReactNode;
   isOpen?: boolean;
   onOpen?: () => void;

@@ -1,0 +1,11 @@
+.up:focus,
+.up:hover
+{
+  outline: none;
+}
+.up:hover > svg > path,
+.up:focus > svg > path,
+.up:active > svg > path {
+  outline: none;
+  fill: var(--green);
+}

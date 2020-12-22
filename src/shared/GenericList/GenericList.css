@@ -10,7 +10,6 @@
   font-size: 12px;
   line-height: 14px;
   color: var(--grey99);
-  border-bottom: 1px solid #ececec;
   cursor: pointer;
 }
 .item svg {
