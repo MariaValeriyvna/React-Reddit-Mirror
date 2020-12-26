@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function DownIcon() {
+export function DownIcon():JSX.Element {
   return (
   <svg
     width="19"

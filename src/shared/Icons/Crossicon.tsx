@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function Crossicon() {
+export function Crossicon():JSX.Element {
   return (
     <svg
     width="21"

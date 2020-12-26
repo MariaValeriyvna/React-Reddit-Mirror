@@ -12,7 +12,8 @@ interface ITextComponentkProps {
   titleShort?: boolean;
   id: string;
   urlpreview: string;
-  score: string
+  score: string;
+  num_comments: number
 }
 
 export function TextComponent({
@@ -22,11 +23,12 @@ export function TextComponent({
   titleShort = true,
   id,
   urlpreview,
-  score
-}: ITextComponentkProps) {
+  score,
+  num_comments
+}: ITextComponentkProps): JSX.Element{
   const [isModalOpened, SetIsModalOpened] = useState(false);
 
-  let titleMod =
+  const titleMod =
     title.length > 70 && titleShort ? title.substring(0, 64) + '... ' : title;
 
   return (
@@ -52,6 +54,7 @@ export function TextComponent({
           created_utc={created_utc}
           onClose={() => SetIsModalOpened(false)}
           score={score}
+          num_comments={num_comments}
         />
       )}
     </div>

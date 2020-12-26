@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 21);
+/******/ 	return __webpack_require__(__webpack_require__.s = 23);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -107,10 +107,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(63), exports);
-__exportStar(__webpack_require__(13), exports);
-__exportStar(__webpack_require__(64), exports);
 __exportStar(__webpack_require__(65), exports);
+__exportStar(__webpack_require__(13), exports);
 __exportStar(__webpack_require__(66), exports);
 __exportStar(__webpack_require__(67), exports);
 __exportStar(__webpack_require__(68), exports);
@@ -129,6 +127,8 @@ __exportStar(__webpack_require__(80), exports);
 __exportStar(__webpack_require__(81), exports);
 __exportStar(__webpack_require__(82), exports);
 __exportStar(__webpack_require__(83), exports);
+__exportStar(__webpack_require__(84), exports);
+__exportStar(__webpack_require__(85), exports);
 
 
 /***/ }),
@@ -201,7 +201,7 @@ exports.merge = merge;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateId = exports.generateRandomString = void 0;
-var assoc_1 = __webpack_require__(107);
+var assoc_1 = __webpack_require__(109);
 exports.generateRandomString = function () { return Math.random().toString(36).substring(2, 15); };
 exports.generateId = function (obj) { return assoc_1.assoc('id', exports.generateRandomString())(obj); };
 
@@ -223,7 +223,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(108), exports);
+__exportStar(__webpack_require__(110), exports);
 
 
 /***/ }),
@@ -238,9 +238,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Icon = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var icon_css_1 = __importDefault(__webpack_require__(45));
-var classnames_1 = __importDefault(__webpack_require__(46));
-var enumColor_1 = __webpack_require__(47);
+var icon_css_1 = __importDefault(__webpack_require__(47));
+var classnames_1 = __importDefault(__webpack_require__(48));
+var enumColor_1 = __webpack_require__(49);
 var enumIcon_1 = __webpack_require__(4);
 function Icon(props) {
     var _a, _b, _c;
@@ -263,7 +263,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostsContextProvider = exports.postsContext = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var usePostsData_1 = __webpack_require__(58);
+var usePostsData_1 = __webpack_require__(60);
 exports.postsContext = react_1.default.createContext([]);
 function PostsContextProvider(_a) {
     var children = _a.children;
@@ -285,7 +285,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserContextProvider = exports.userContext = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var useUserData_1 = __webpack_require__(40);
+var useUserData_1 = __webpack_require__(42);
 exports.userContext = react_1.default.createContext({});
 function UserContextProvider(_a) {
     var children = _a.children;
@@ -309,11 +309,11 @@ exports.TextComponent = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
 var User_1 = __webpack_require__(12);
 var TimeComment_1 = __webpack_require__(14);
-var textcomponent_css_1 = __importDefault(__webpack_require__(86));
+var textcomponent_css_1 = __importDefault(__webpack_require__(88));
 var react_2 = __webpack_require__(0);
-var Post_1 = __webpack_require__(87);
+var Post_1 = __webpack_require__(89);
 function TextComponent(_a) {
-    var title = _a.title, author = _a.author, created_utc = _a.created_utc, _b = _a.titleShort, titleShort = _b === void 0 ? true : _b, id = _a.id, urlpreview = _a.urlpreview, score = _a.score;
+    var title = _a.title, author = _a.author, created_utc = _a.created_utc, _b = _a.titleShort, titleShort = _b === void 0 ? true : _b, id = _a.id, urlpreview = _a.urlpreview, score = _a.score, num_comments = _a.num_comments;
     var _c = react_2.useState(false), isModalOpened = _c[0], SetIsModalOpened = _c[1];
     var titleMod = title.length > 70 && titleShort ? title.substring(0, 64) + '... ' : title;
     return (react_1.default.createElement("div", { className: textcomponent_css_1.default.textContent },
@@ -323,7 +323,7 @@ function TextComponent(_a) {
         react_1.default.createElement("button", { className: textcomponent_css_1.default.postLink, onClick: function () {
                 SetIsModalOpened(true);
             } }, titleMod),
-        isModalOpened && (react_1.default.createElement(Post_1.Post, { urlpreview: urlpreview, id: id, title: title, author: author, created_utc: created_utc, onClose: function () { return SetIsModalOpened(false); }, score: score }))));
+        isModalOpened && (react_1.default.createElement(Post_1.Post, { urlpreview: urlpreview, id: id, title: title, author: author, created_utc: created_utc, onClose: function () { return SetIsModalOpened(false); }, score: score, num_comments: num_comments }))));
 }
 exports.TextComponent = TextComponent;
 
@@ -340,9 +340,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var user_css_1 = __importDefault(__webpack_require__(62));
+var user_css_1 = __importDefault(__webpack_require__(64));
 var Icons_1 = __webpack_require__(1);
-var useUserAvatar_1 = __webpack_require__(84);
+var useUserAvatar_1 = __webpack_require__(86);
 function User(_a) {
     var author = _a.author;
     var data = useUserAvatar_1.useUserAvatar({ author: author });
@@ -400,7 +400,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TimeComment = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var timecomment_css_1 = __importDefault(__webpack_require__(85));
+var timecomment_css_1 = __importDefault(__webpack_require__(87));
 function TimeComment(_a) {
     var created_utc = _a.created_utc;
     return (react_1.default.createElement(react_1.default.Fragment, null,
@@ -441,16 +441,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Controls = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var controls_css_1 = __importDefault(__webpack_require__(92));
-var CarmaCounter_1 = __webpack_require__(93);
-var CommentsNumber_1 = __webpack_require__(99);
-var ShareButton_1 = __webpack_require__(101);
-var SaveButton_1 = __webpack_require__(103);
+var controls_css_1 = __importDefault(__webpack_require__(94));
+var CarmaCounter_1 = __webpack_require__(95);
+var CommentsNumber_1 = __webpack_require__(101);
+var ShareButton_1 = __webpack_require__(103);
+var SaveButton_1 = __webpack_require__(105);
 function Controls(_a) {
-    var score = _a.score;
+    var score = _a.score, num_comments = _a.num_comments;
     return (react_1.default.createElement("div", { className: controls_css_1.default.controls },
         react_1.default.createElement(CarmaCounter_1.CarmaCounter, { score: score }),
-        react_1.default.createElement(CommentsNumber_1.CommentsNumber, null),
+        react_1.default.createElement(CommentsNumber_1.CommentsNumber, { num_comments: num_comments }),
         react_1.default.createElement("div", { className: controls_css_1.default.actions },
             react_1.default.createElement(ShareButton_1.ShareButton, null),
             react_1.default.createElement(SaveButton_1.SaveButton, null))));
@@ -475,7 +475,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(95), exports);
+__exportStar(__webpack_require__(97), exports);
 
 
 /***/ }),
@@ -495,7 +495,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(97), exports);
+__exportStar(__webpack_require__(99), exports);
 
 
 /***/ }),
@@ -515,7 +515,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(106), exports);
+__exportStar(__webpack_require__(108), exports);
 
 
 /***/ }),
@@ -542,15 +542,65 @@ exports.commentContext = react_1.default.createContext({
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(__webpack_require__(113), exports);
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useCloseElement = void 0;
+var react_1 = __webpack_require__(0);
+function useCloseElement(ref, state, onClose) {
+    var _a = react_1.useState(state), isClose = _a[0], setIsClose = _a[1];
+    react_1.useEffect(function () {
+        function handleClick(event) {
+            var _a;
+            if (event.target instanceof Node &&
+                !((_a = ref.current) === null || _a === void 0 ? void 0 : _a.contains(event.target))) {
+                setIsClose(true);
+                onClose === null || onClose === void 0 ? void 0 : onClose();
+            }
+        }
+        document.addEventListener('click', handleClick);
+        return function () {
+            document.removeEventListener('click', handleClick);
+        };
+    }, [isClose, onClose, ref]);
+    return isClose;
+}
+exports.useCloseElement = useCloseElement;
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = __importDefault(__webpack_require__(22));
-var server_1 = __importDefault(__webpack_require__(23));
+var express_1 = __importDefault(__webpack_require__(24));
+var server_1 = __importDefault(__webpack_require__(25));
 var axios_1 = __importDefault(__webpack_require__(2));
-var App_1 = __webpack_require__(24);
-var indexTemplate_1 = __webpack_require__(128);
+var App_1 = __webpack_require__(26);
+var indexTemplate_1 = __webpack_require__(131);
 var app = express_1.default();
 app.use('/static', express_1.default.static('./dist/client'));
 app.get("/", function (req, res) {
@@ -573,19 +623,19 @@ app.listen(3000, function () {
 
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -612,13 +662,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
 var react_1 = __importStar(__webpack_require__(0));
-var root_1 = __webpack_require__(25);
-__webpack_require__(26);
-var Layout_1 = __webpack_require__(33);
-var Header_1 = __webpack_require__(36);
-var Content_1 = __webpack_require__(53);
-var CardsList_1 = __webpack_require__(56);
-var useToken_1 = __webpack_require__(127);
+var root_1 = __webpack_require__(27);
+__webpack_require__(28);
+var Layout_1 = __webpack_require__(35);
+var Header_1 = __webpack_require__(38);
+var Content_1 = __webpack_require__(55);
+var CardsList_1 = __webpack_require__(58);
+var useToken_1 = __webpack_require__(130);
 var TokenContext_1 = __webpack_require__(3);
 var userContext_1 = __webpack_require__(10);
 var postsContext_1 = __webpack_require__(9);
@@ -639,22 +689,22 @@ exports.App = root_1.hot(function () { return react_1.default.createElement(AppC
 
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-hot-loader/root");
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(27);
-var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(28);
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(29);
-var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(30);
-var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(31);
-var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__(32);
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(29);
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(30);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(31);
+var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(32);
+var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(33);
+var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__(34);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
@@ -667,7 +717,7 @@ module.exports = exports;
 
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -748,7 +798,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -779,7 +829,7 @@ module.exports = function (url, options) {
 
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -787,7 +837,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "./static/src/fonts/roboto-v20-cyrillic-regular.woff2");
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -795,7 +845,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "./static/src/fonts/roboto-v20-cyrillic-regular.woff");
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -803,7 +853,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "./static/src/fonts/roboto-v20-cyrillic-500.woff2");
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -811,7 +861,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "./static/src/fonts/roboto-v20-cyrillic-500.woff");
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -827,37 +877,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(34), exports);
-
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Layout = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var layout_css_1 = __importDefault(__webpack_require__(35));
-function Layout(_a) {
-    var children = _a.children;
-    return react_1.default.createElement("div", { className: layout_css_1.default.layout }, children);
-}
-exports.Layout = Layout;
-
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {
-	"layout": "layout__layout--2fANc"
-};
+__exportStar(__webpack_require__(36), exports);
 
 
 /***/ }),
@@ -870,12 +890,42 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Layout = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var layout_css_1 = __importDefault(__webpack_require__(37));
+function Layout(_a) {
+    var children = _a.children;
+    return react_1.default.createElement("div", { className: layout_css_1.default.layout }, children);
+}
+exports.Layout = Layout;
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"layout": "layout__layout--2fANc"
+};
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Header = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var header_css_1 = __importDefault(__webpack_require__(37));
-var SearchBlock_1 = __webpack_require__(38);
-var ThreadTitle_1 = __webpack_require__(49);
-var SortBlock_1 = __webpack_require__(51);
+var header_css_1 = __importDefault(__webpack_require__(39));
+var SearchBlock_1 = __webpack_require__(40);
+var ThreadTitle_1 = __webpack_require__(51);
+var SortBlock_1 = __webpack_require__(53);
 function Header() {
     return (react_1.default.createElement("header", { className: header_css_1.default.header },
         react_1.default.createElement(SearchBlock_1.SearchBlock, null),
@@ -886,7 +936,7 @@ exports.Header = Header;
 
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -896,7 +946,7 @@ module.exports = {
 
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -926,10 +976,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SearchBlock = void 0;
 var react_1 = __importStar(__webpack_require__(0));
-var searchblock_css_1 = __importDefault(__webpack_require__(39));
+var searchblock_css_1 = __importDefault(__webpack_require__(41));
 var userContext_1 = __webpack_require__(10);
-var SearchIcon_1 = __webpack_require__(41);
-var UserBlock_1 = __webpack_require__(42);
+var SearchIcon_1 = __webpack_require__(43);
+var UserBlock_1 = __webpack_require__(44);
 function SearchBlock() {
     var _a = react_1.useContext(userContext_1.userContext), iconImg = _a.iconImg, name = _a.name;
     return (react_1.default.createElement("div", { className: searchblock_css_1.default.searchblock },
@@ -943,7 +993,7 @@ exports.SearchBlock = SearchBlock;
 
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -956,7 +1006,7 @@ module.exports = {
 
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -988,7 +1038,7 @@ exports.useUserData = useUserData;
 
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1023,7 +1073,7 @@ exports.SearchIcon = SearchIcon;
 
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1039,11 +1089,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(43), exports);
+__exportStar(__webpack_require__(45), exports);
 
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1074,8 +1124,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserBlock = void 0;
 var React = __importStar(__webpack_require__(0));
 var enumIcon_1 = __webpack_require__(4);
-var Icon_1 = __webpack_require__(44);
-var userblock_css_1 = __importDefault(__webpack_require__(48));
+var Icon_1 = __webpack_require__(46);
+var userblock_css_1 = __importDefault(__webpack_require__(50));
 function UserBlock(_a) {
     var avatarSrc = _a.avatarSrc, _b = _a.username, username = _b === void 0 ? 'Аноним' : _b;
     return (React.createElement("div", null,
@@ -1087,7 +1137,7 @@ exports.UserBlock = UserBlock;
 
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1107,7 +1157,7 @@ __exportStar(__webpack_require__(8), exports);
 
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1139,13 +1189,13 @@ module.exports = {
 
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports) {
 
 module.exports = require("classnames");
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1168,7 +1218,7 @@ var EColor;
 
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1177,35 +1227,6 @@ module.exports = {
 	"photo": "userblock__photo--jvysj",
 	"name": "userblock__name--2mio1",
 	"avatar": "userblock__avatar--3vdFj"
-};
-
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ThreadTitle = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var threadtitle_css_1 = __importDefault(__webpack_require__(50));
-function ThreadTitle() {
-    return (react_1.default.createElement("h1", { className: threadtitle_css_1.default.threadTitle }, "Header"));
-}
-exports.ThreadTitle = ThreadTitle;
-
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {
-	"threadTitle": "threadtitle__threadTitle--oxugx"
 };
 
 
@@ -1219,9 +1240,38 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ThreadTitle = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var threadtitle_css_1 = __importDefault(__webpack_require__(52));
+function ThreadTitle() {
+    return (react_1.default.createElement("h1", { className: threadtitle_css_1.default.threadTitle }, "Header"));
+}
+exports.ThreadTitle = ThreadTitle;
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"threadTitle": "threadtitle__threadTitle--oxugx"
+};
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.SortBlock = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var sortblock_css_1 = __importDefault(__webpack_require__(52));
+var sortblock_css_1 = __importDefault(__webpack_require__(54));
 function SortBlock() {
     return (react_1.default.createElement("div", { className: sortblock_css_1.default.sortblock }, "sorting"));
 }
@@ -1229,7 +1279,7 @@ exports.SortBlock = SortBlock;
 
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1239,7 +1289,7 @@ module.exports = {
 
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1255,11 +1305,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(54), exports);
+__exportStar(__webpack_require__(56), exports);
 
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1270,7 +1320,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Content = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var content_css_1 = __importDefault(__webpack_require__(55));
+var content_css_1 = __importDefault(__webpack_require__(57));
 function Content(_a) {
     var children = _a.children;
     return (react_1.default.createElement("main", { className: content_css_1.default.content }, children));
@@ -1279,7 +1329,7 @@ exports.Content = Content;
 
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1289,7 +1339,7 @@ module.exports = {
 
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1319,9 +1369,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CardsList = void 0;
 var react_1 = __importStar(__webpack_require__(0));
-var cardslist_css_1 = __importDefault(__webpack_require__(57));
+var cardslist_css_1 = __importDefault(__webpack_require__(59));
 var postsContext_1 = __webpack_require__(9);
-var Card_1 = __webpack_require__(59);
+var Card_1 = __webpack_require__(61);
 function CardsList() {
     var posts = react_1.useContext(postsContext_1.postsContext);
     return (react_1.default.createElement("ul", { className: cardslist_css_1.default.cardsList }, posts.map(function (post, index) {
@@ -1333,14 +1383,14 @@ function CardsList() {
         var result = Math.ceil((Math.ceil(Math.abs(new Date().getTime() - post.data.created_utc * 1000))) / (1000 * 60 * 60));
         var author = post.data.author;
         return (react_1.default.createElement("li", { className: cardslist_css_1.default.cardLi, key: index },
-            react_1.default.createElement(Card_1.Card, { id: post.data.id, title: post.data.title, author: author, created_utc: result, urlpreview: urlpreview, score: post.data.score })));
+            react_1.default.createElement(Card_1.Card, { id: post.data.id, title: post.data.title, author: author, created_utc: result, urlpreview: urlpreview, score: post.data.score, num_comments: post.data.num_comments })));
     })));
 }
 exports.CardsList = CardsList;
 
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1351,7 +1401,7 @@ module.exports = {
 
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1385,7 +1435,7 @@ exports.usePostsData = usePostsData;
 
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1396,25 +1446,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Card = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var card_css_1 = __importDefault(__webpack_require__(60));
-__webpack_require__(61);
+var card_css_1 = __importDefault(__webpack_require__(62));
+__webpack_require__(63);
 var TextComponent_1 = __webpack_require__(11);
-var CardMenu_1 = __webpack_require__(120);
+var CardMenu_1 = __webpack_require__(123);
 var Controls_1 = __webpack_require__(16);
-var Preview_1 = __webpack_require__(125);
+var Preview_1 = __webpack_require__(128);
 function Card(_a) {
-    var title = _a.title, author = _a.author, urlpreview = _a.urlpreview, created_utc = _a.created_utc, id = _a.id, score = _a.score;
+    var title = _a.title, author = _a.author, urlpreview = _a.urlpreview, created_utc = _a.created_utc, id = _a.id, score = _a.score, num_comments = _a.num_comments;
     return (react_1.default.createElement("div", { className: card_css_1.default.card },
-        react_1.default.createElement(TextComponent_1.TextComponent, { urlpreview: urlpreview, id: id, title: title, author: author, created_utc: created_utc, score: score }),
+        react_1.default.createElement(TextComponent_1.TextComponent, { urlpreview: urlpreview, id: id, title: title, author: author, created_utc: created_utc, score: score, num_comments: num_comments }),
         react_1.default.createElement(Preview_1.Preview, { url: urlpreview }),
         react_1.default.createElement(CardMenu_1.CardMenu, null),
-        react_1.default.createElement(Controls_1.Controls, { score: score })));
+        react_1.default.createElement(Controls_1.Controls, { score: score, num_comments: num_comments })));
 }
 exports.Card = Card;
 
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1424,13 +1474,13 @@ module.exports = {
 
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-hot-loader");
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1442,7 +1492,7 @@ module.exports = {
 
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1479,7 +1529,7 @@ exports.MenuIcon = MenuIcon;
 
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1514,7 +1564,7 @@ exports.ComplainIcon = ComplainIcon;
 
 
 /***/ }),
-/* 65 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1549,7 +1599,7 @@ exports.HideIcon = HideIcon;
 
 
 /***/ }),
-/* 66 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1584,7 +1634,7 @@ exports.SaveIcon = SaveIcon;
 
 
 /***/ }),
-/* 67 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1619,7 +1669,7 @@ exports.ShareIcon = ShareIcon;
 
 
 /***/ }),
-/* 68 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1654,7 +1704,7 @@ exports.DownIcon = DownIcon;
 
 
 /***/ }),
-/* 69 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1689,7 +1739,7 @@ exports.UpIcon = UpIcon;
 
 
 /***/ }),
-/* 70 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1724,7 +1774,7 @@ exports.Copyicon = Copyicon;
 
 
 /***/ }),
-/* 71 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1759,7 +1809,7 @@ exports.Imgicon = Imgicon;
 
 
 /***/ }),
-/* 72 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1794,7 +1844,7 @@ exports.Tagicon = Tagicon;
 
 
 /***/ }),
-/* 73 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1829,7 +1879,7 @@ exports.SaveCommenticon = SaveCommenticon;
 
 
 /***/ }),
-/* 74 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1864,7 +1914,7 @@ exports.Personicon = Personicon;
 
 
 /***/ }),
-/* 75 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1899,7 +1949,7 @@ exports.Renewicon = Renewicon;
 
 
 /***/ }),
-/* 76 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1934,7 +1984,7 @@ exports.Linkicon = Linkicon;
 
 
 /***/ }),
-/* 77 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1969,7 +2019,7 @@ exports.Microphoneicon = Microphoneicon;
 
 
 /***/ }),
-/* 78 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2004,7 +2054,7 @@ exports.Commentsicon = Commentsicon;
 
 
 /***/ }),
-/* 79 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2039,7 +2089,7 @@ exports.Penicon = Penicon;
 
 
 /***/ }),
-/* 80 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2074,7 +2124,7 @@ exports.Lettericon = Lettericon;
 
 
 /***/ }),
-/* 81 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2109,7 +2159,7 @@ exports.Pdficon = Pdficon;
 
 
 /***/ }),
-/* 82 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2146,7 +2196,7 @@ exports.RedditIcon = RedditIcon;
 
 
 /***/ }),
-/* 83 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2182,7 +2232,7 @@ exports.Crossicon = Crossicon;
 
 
 /***/ }),
-/* 84 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2208,14 +2258,14 @@ function useUserAvatar(_a) {
             setData({ user: author, avatar: avatar });
         })
             .catch(console.log);
-    }, [token]);
+    }, [author, token]);
     return data;
 }
 exports.useUserAvatar = useUserAvatar;
 
 
 /***/ }),
-/* 85 */
+/* 87 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2226,7 +2276,7 @@ module.exports = {
 
 
 /***/ }),
-/* 86 */
+/* 88 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2238,7 +2288,7 @@ module.exports = {
 
 
 /***/ }),
-/* 87 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2254,11 +2304,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(88), exports);
+__exportStar(__webpack_require__(90), exports);
 
 
 /***/ }),
-/* 88 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2289,32 +2339,34 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Post = void 0;
 var react_1 = __importStar(__webpack_require__(0));
 var react_dom_1 = __importDefault(__webpack_require__(15));
-var post_css_1 = __importDefault(__webpack_require__(89));
-var TextComponent_1 = __webpack_require__(90);
-var Controls_1 = __webpack_require__(91);
+var post_css_1 = __importDefault(__webpack_require__(91));
+var TextComponent_1 = __webpack_require__(92);
+var Controls_1 = __webpack_require__(93);
 var CommentForm_1 = __webpack_require__(19);
 var postsContext_1 = __webpack_require__(9);
 var Icons_1 = __webpack_require__(1);
 var merge_1 = __webpack_require__(5);
 var generateRandomIndex_1 = __webpack_require__(6);
 var GenericList_1 = __webpack_require__(7);
-var CommentsList_1 = __webpack_require__(111);
-var useCommentsData_1 = __webpack_require__(119);
-var LIST = [
-    { As: 'li', text: 'Комментарии', img: react_1.default.createElement(Icons_1.CommentIcon, null) },
-    { As: 'li', text: 'Поделиться', img: react_1.default.createElement(Icons_1.ShareIcon, null) },
-    { As: 'li', text: 'Скрыть', img: react_1.default.createElement(Icons_1.HideIcon, null) },
-    { As: 'li', text: 'Сохранить', img: react_1.default.createElement(Icons_1.SaveIcon, null) },
-    { As: 'li', text: 'Пожаловаться', img: react_1.default.createElement(Icons_1.ComplainIcon, null) },
-].map(generateRandomIndex_1.generateId);
+var CommentsList_1 = __webpack_require__(21);
+var useCommentsData_1 = __webpack_require__(122);
+var useCloseElement_1 = __webpack_require__(22);
 function Post(_a) {
-    var title = _a.title, onClose = _a.onClose, author = _a.author, created_utc = _a.created_utc, id = _a.id, urlpreview = _a.urlpreview, score = _a.score;
+    var title = _a.title, onClose = _a.onClose, author = _a.author, created_utc = _a.created_utc, id = _a.id, urlpreview = _a.urlpreview, score = _a.score, num_comments = _a.num_comments;
     var ref = react_1.useRef(null);
     var posts = react_1.useContext(postsContext_1.postsContext);
     var comments = useCommentsData_1.useCommentsData(id);
+    var isClose = useCloseElement_1.useCloseElement(ref, false, onClose);
+    var LIST = [
+        { As: 'li', text: 'Комментарии', img: react_1.default.createElement(Icons_1.CommentIcon, null) },
+        { As: 'li', text: 'Поделиться', img: react_1.default.createElement(Icons_1.ShareIcon, null) },
+        { As: 'li', text: 'Скрыть', img: react_1.default.createElement(Icons_1.HideIcon, null) },
+        { As: 'li', text: 'Сохранить', img: react_1.default.createElement(Icons_1.SaveIcon, null) },
+        { As: 'li', text: 'Пожаловаться', img: react_1.default.createElement(Icons_1.ComplainIcon, null) },
+    ].map(generateRandomIndex_1.generateId);
     console.log(comments);
     var postMedia, urlImg, checkurl, selftext;
-    posts.forEach(function (post, index) {
+    posts.forEach(function (post) {
         var _a, _b;
         if (post.data.id === id) {
             postMedia = (_b = (_a = post.data.media) === null || _a === void 0 ? void 0 : _a.reddit_video) === null || _b === void 0 ? void 0 : _b.fallback_url;
@@ -2326,29 +2378,16 @@ function Post(_a) {
     function handleClick() {
         console.log('click');
     }
-    react_1.useEffect(function () {
-        function handleClick(event) {
-            var _a;
-            if (event.target instanceof Node &&
-                !((_a = ref.current) === null || _a === void 0 ? void 0 : _a.contains(event.target))) {
-                onClose === null || onClose === void 0 ? void 0 : onClose();
-            }
-        }
-        document.addEventListener('click', handleClick);
-        return function () {
-            document.removeEventListener('click', handleClick);
-        };
-    });
     var node = document.querySelector('#modal_root');
-    if (!node)
-        return null;
+    if (!node || isClose)
+        return react_1.default.createElement("div", null);
     return react_dom_1.default.createPortal(react_1.default.createElement("div", { className: post_css_1.default.modalWrap },
         react_1.default.createElement("div", { className: post_css_1.default.modal, ref: ref },
             react_1.default.createElement("button", { className: post_css_1.default.cross, onClick: onClose },
                 react_1.default.createElement(Icons_1.Crossicon, null)),
             react_1.default.createElement("div", { className: post_css_1.default.modalTitle },
-                react_1.default.createElement(Controls_1.Controls, { score: score }),
-                react_1.default.createElement(TextComponent_1.TextComponent, { title: title, author: author, created_utc: created_utc, titleShort: false, id: id, urlpreview: urlpreview, score: score })),
+                react_1.default.createElement(Controls_1.Controls, { score: score, num_comments: num_comments }),
+                react_1.default.createElement(TextComponent_1.TextComponent, { title: title, author: author, created_utc: created_utc, titleShort: false, id: id, urlpreview: urlpreview, score: score, num_comments: num_comments })),
             react_1.default.createElement("div", { className: post_css_1.default.modalContent },
                 react_1.default.createElement("p", null, selftext),
                 postMedia ? (react_1.default.createElement("video", { className: post_css_1.default.modalContent__media, controls: true },
@@ -2357,14 +2396,14 @@ function Post(_a) {
                     react_1.default.createElement("a", { href: urlImg }, urlImg)))) || react_1.default.createElement(Icons_1.RedditIcon, { size: '100px' }))),
             react_1.default.createElement("ul", { className: post_css_1.default.ulicons },
                 react_1.default.createElement(GenericList_1.GenericList, { underline: false, list: LIST.map(merge_1.merge({ onClick: handleClick })) })),
-            react_1.default.createElement(CommentForm_1.CommentForm, { placeHolder: 'Оставьте Ваш комментарий' }),
-            comments.length > 0 && react_1.default.createElement(CommentsList_1.CommentsList, { comments: comments }))), node);
+            react_1.default.createElement(CommentForm_1.CommentForm, { id: 'post', placeHolder: 'Оставьте Ваш комментарий', textbtn: 'Комментировать' }),
+            comments.length > 0 && react_1.default.createElement(CommentsList_1.CommentsList, { comments: comments, forauthor: author, key: author }))), node);
 }
 exports.Post = Post;
 
 
 /***/ }),
-/* 89 */
+/* 91 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2380,7 +2419,7 @@ module.exports = {
 
 
 /***/ }),
-/* 90 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2400,7 +2439,7 @@ __exportStar(__webpack_require__(11), exports);
 
 
 /***/ }),
-/* 91 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2420,49 +2459,13 @@ __exportStar(__webpack_require__(16), exports);
 
 
 /***/ }),
-/* 92 */
+/* 94 */
 /***/ (function(module, exports) {
 
 // Exports
 module.exports = {
 	"controls": "controls__controls--1pbuI",
 	"actions": "controls__actions--1iXY3"
-};
-
-
-/***/ }),
-/* 93 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CarmaCounter = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var carmacounter_css_1 = __importDefault(__webpack_require__(94));
-var BtnUp_1 = __webpack_require__(17);
-var BtnDown_1 = __webpack_require__(18);
-function CarmaCounter(_a) {
-    var score = _a.score;
-    return (react_1.default.createElement("div", { className: carmacounter_css_1.default.karmaCounter },
-        react_1.default.createElement(BtnUp_1.BtnUp, null),
-        react_1.default.createElement("span", { className: carmacounter_css_1.default.karmaValue }, score),
-        react_1.default.createElement(BtnDown_1.BtnDown, null)));
-}
-exports.CarmaCounter = CarmaCounter;
-
-
-/***/ }),
-/* 94 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {
-	"karmaValue": "carmacounter__karmaValue--J6tnX",
-	"karmaCounter": "carmacounter__karmaCounter--3vSuH"
 };
 
 
@@ -2476,16 +2479,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BtnUp = void 0;
+exports.CarmaCounter = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var Icons_1 = __webpack_require__(1);
-var btnup_css_1 = __importDefault(__webpack_require__(96));
-function BtnUp(_a) {
-    var click = _a.click;
-    return (react_1.default.createElement("button", { className: btnup_css_1.default.up, onClick: click },
-        react_1.default.createElement(Icons_1.UpIcon, null)));
+var carmacounter_css_1 = __importDefault(__webpack_require__(96));
+var BtnUp_1 = __webpack_require__(17);
+var BtnDown_1 = __webpack_require__(18);
+function CarmaCounter(_a) {
+    var score = _a.score;
+    return (react_1.default.createElement("div", { className: carmacounter_css_1.default.karmaCounter },
+        react_1.default.createElement(BtnUp_1.BtnUp, { state: true }),
+        react_1.default.createElement("span", { className: carmacounter_css_1.default.karmaValue }, score),
+        react_1.default.createElement(BtnDown_1.BtnDown, { state: false })));
 }
-exports.BtnUp = BtnUp;
+exports.CarmaCounter = CarmaCounter;
 
 
 /***/ }),
@@ -2494,7 +2500,8 @@ exports.BtnUp = BtnUp;
 
 // Exports
 module.exports = {
-	"up": "btnup__up--3C9qB"
+	"karmaValue": "carmacounter__karmaValue--J6tnX",
+	"karmaCounter": "carmacounter__karmaCounter--3vSuH"
 };
 
 
@@ -2508,16 +2515,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BtnDown = void 0;
+exports.BtnUp = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
 var Icons_1 = __webpack_require__(1);
-var btndown_css_1 = __importDefault(__webpack_require__(98));
-function BtnDown(_a) {
-    var click = _a.click;
-    return (react_1.default.createElement("button", { className: btndown_css_1.default.down, onClick: click },
-        react_1.default.createElement(Icons_1.DownIcon, null)));
+var btnup_css_1 = __importDefault(__webpack_require__(98));
+function BtnUp(_a) {
+    var click = _a.click, state = _a.state;
+    return (react_1.default.createElement("button", { className: state ? btnup_css_1.default.up : btnup_css_1.default.up_disable, onClick: click },
+        react_1.default.createElement(Icons_1.UpIcon, null)));
 }
-exports.BtnDown = BtnDown;
+exports.BtnUp = BtnUp;
 
 
 /***/ }),
@@ -2526,7 +2533,8 @@ exports.BtnDown = BtnDown;
 
 // Exports
 module.exports = {
-	"down": "btndown__down--sM3jR"
+	"up": "btnup__up--3C9qB",
+	"up_disable": "btnup__up_disable--XMQbd"
 };
 
 
@@ -2540,16 +2548,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CommentsNumber = void 0;
+exports.BtnDown = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var commentsnumber_css_1 = __importDefault(__webpack_require__(100));
-var CommentIcon_1 = __webpack_require__(13);
-function CommentsNumber() {
-    return (react_1.default.createElement("button", { className: commentsnumber_css_1.default.commentsButton },
-        react_1.default.createElement(CommentIcon_1.CommentIcon, null),
-        react_1.default.createElement("span", { className: commentsnumber_css_1.default.commentsNumber }, "27")));
+var Icons_1 = __webpack_require__(1);
+var btndown_css_1 = __importDefault(__webpack_require__(100));
+function BtnDown(_a) {
+    var click = _a.click, state = _a.state;
+    return (react_1.default.createElement("button", { className: state ? btndown_css_1.default.down_disable : btndown_css_1.default.down, onClick: click },
+        react_1.default.createElement(Icons_1.DownIcon, null)));
 }
-exports.CommentsNumber = CommentsNumber;
+exports.BtnDown = BtnDown;
 
 
 /***/ }),
@@ -2558,8 +2566,8 @@ exports.CommentsNumber = CommentsNumber;
 
 // Exports
 module.exports = {
-	"commentsButton": "commentsnumber__commentsButton--3Vee8",
-	"commentsNumber": "commentsnumber__commentsNumber--1Nkkv"
+	"down": "btndown__down--sM3jR",
+	"down_disable": "btndown__down_disable--8wUpF"
 };
 
 
@@ -2573,9 +2581,43 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CommentsNumber = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var commentsnumber_css_1 = __importDefault(__webpack_require__(102));
+var CommentIcon_1 = __webpack_require__(13);
+function CommentsNumber(_a) {
+    var num_comments = _a.num_comments;
+    return (react_1.default.createElement("button", { className: commentsnumber_css_1.default.commentsButton },
+        react_1.default.createElement(CommentIcon_1.CommentIcon, null),
+        react_1.default.createElement("span", { className: commentsnumber_css_1.default.commentsNumber }, num_comments)));
+}
+exports.CommentsNumber = CommentsNumber;
+
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"commentsButton": "commentsnumber__commentsButton--3Vee8",
+	"commentsNumber": "commentsnumber__commentsNumber--1Nkkv"
+};
+
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShareButton = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var sharebutton_css_1 = __importDefault(__webpack_require__(102));
+var sharebutton_css_1 = __importDefault(__webpack_require__(104));
 var Icon_1 = __webpack_require__(8);
 var enumIcon_1 = __webpack_require__(4);
 function ShareButton() {
@@ -2586,7 +2628,7 @@ exports.ShareButton = ShareButton;
 
 
 /***/ }),
-/* 102 */
+/* 104 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2596,7 +2638,7 @@ module.exports = {
 
 
 /***/ }),
-/* 103 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2612,11 +2654,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(104), exports);
+__exportStar(__webpack_require__(106), exports);
 
 
 /***/ }),
-/* 104 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2627,7 +2669,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SaveButton = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var savebtn_css_1 = __importDefault(__webpack_require__(105));
+var savebtn_css_1 = __importDefault(__webpack_require__(107));
 var Icon_1 = __webpack_require__(8);
 var enumIcon_1 = __webpack_require__(4);
 function SaveButton() {
@@ -2638,7 +2680,7 @@ exports.SaveButton = SaveButton;
 
 
 /***/ }),
-/* 105 */
+/* 107 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2648,7 +2690,7 @@ module.exports = {
 
 
 /***/ }),
-/* 106 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2684,50 +2726,60 @@ var generateRandomIndex_1 = __webpack_require__(6);
 var commentContext_1 = __webpack_require__(20);
 var GenericList_1 = __webpack_require__(7);
 var Icons_1 = __webpack_require__(1);
-var commentform_css_1 = __importDefault(__webpack_require__(110));
-var list = [
-    { As: 'li', img: react_1.default.createElement(Icons_1.Tagicon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.Copyicon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.Imgicon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.SaveCommenticon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.Personicon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.Personicon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.Renewicon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.Linkicon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.Microphoneicon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.Commentsicon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.Penicon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.Lettericon, null) },
-    { As: 'li', img: react_1.default.createElement(Icons_1.Pdficon, null) },
-].map(generateRandomIndex_1.generateId);
+var commentform_css_1 = __importDefault(__webpack_require__(112));
 function CommentForm(_a) {
-    var placeHolder = _a.placeHolder, _b = _a.isOpen, isOpen = _b === void 0 ? true : _b, id = _a.id, nameAthour = _a.nameAthour;
-    var _c = react_2.useContext(commentContext_1.commentContext), value = _c.value, onChange = _c.onChange;
+    var placeHolder = _a.placeHolder, _b = _a.nameAthour, nameAthour = _b === void 0 ? '' : _b, textbtn = _a.textbtn, _c = _a.isOpen, isOpen = _c === void 0 ? true : _c, id = _a.id;
+    var _d = react_2.useContext(commentContext_1.commentContext), value = _d.value, onChange = _d.onChange;
+    var _e = react_1.useState(nameAthour ? nameAthour + ' , ' : ''), valueText = _e[0], setValueText = _e[1];
+    var inputRef = react_1.useRef(null);
+    var list = [
+        { As: 'li', img: react_1.default.createElement(Icons_1.Tagicon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.Copyicon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.Imgicon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.SaveCommenticon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.Personicon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.Personicon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.Renewicon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.Linkicon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.Microphoneicon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.Commentsicon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.Penicon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.Lettericon, null) },
+        { As: 'li', img: react_1.default.createElement(Icons_1.Pdficon, null) },
+    ].map(generateRandomIndex_1.generateId);
     function handleChange(event) {
-        onChange(event.target.value);
+        if (id !== 'post')
+            setValueText(event.target.value);
+        else
+            onChange((event.target.value)); // для контролируемого компонента, для usecontext - onChange
     }
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(value);
+        // console.log (inputRef.current?.value) // для неконтролируемого компонента
+        console.log(value, valueText); // для контролируемого компонента
     }
     function handleClick() {
         console.log('cl');
     }
-    react_1.useEffect(function () { console.log('commentform useeffect'); }, [isOpen]);
+    react_1.useEffect(function () {
+        var _a, _b, _c, _d;
+        (_a = inputRef.current) === null || _a === void 0 ? void 0 : _a.focus();
+        (_b = inputRef.current) === null || _b === void 0 ? void 0 : _b.setSelectionRange((_c = inputRef.current) === null || _c === void 0 ? void 0 : _c.textLength, ((_d = inputRef.current) === null || _d === void 0 ? void 0 : _d.textLength) + 1, 'forward');
+    }, [isOpen]);
     if (!isOpen)
         return react_1.default.createElement("div", null);
-    return (isOpen && (react_1.default.createElement("form", { className: commentform_css_1.default.form, onSubmit: handleSubmit },
-        react_1.default.createElement("textarea", { className: commentform_css_1.default.inputText, value: value ? value : nameAthour, onChange: handleChange, placeholder: placeHolder }),
+    return (react_1.default.createElement("form", { className: commentform_css_1.default.form, onSubmit: handleSubmit, key: id },
+        react_1.default.createElement("textarea", { ref: inputRef, className: commentform_css_1.default.inputText, onChange: handleChange, placeholder: placeHolder, value: id === 'post' ? value : valueText }),
         react_1.default.createElement("div", { className: commentform_css_1.default.commentEdit },
             react_1.default.createElement("ul", { className: commentform_css_1.default.ulEdit },
                 react_1.default.createElement(GenericList_1.GenericList, { list: list.map(merge_1.merge({ onClick: handleClick })) })),
-            react_1.default.createElement("button", { type: "submit", className: commentform_css_1.default.btnSubmit }, "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C")))));
+            react_1.default.createElement("button", { type: "submit", className: commentform_css_1.default.btnSubmit }, textbtn))));
 }
 exports.CommentForm = CommentForm;
 
 
 /***/ }),
-/* 107 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2756,7 +2808,7 @@ exports.assoc = assoc;
 
 
 /***/ }),
-/* 108 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2768,14 +2820,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GenericList = void 0;
 //рендериит любые списки
 var react_1 = __importDefault(__webpack_require__(0));
-var GenericList_css_1 = __importDefault(__webpack_require__(109));
-var noop = function () { };
+var GenericList_css_1 = __importDefault(__webpack_require__(111));
+var noop = function () { null; };
 function GenericList(_a) {
     var list = _a.list, _b = _a.underline, underline = _b === void 0 ? true : _b;
     var liStyle = (underline) ? { 'border': '1px solid #ececec' } : { 'border': 'none' };
-    return (react_1.default.createElement(react_1.default.Fragment, null, list.map(function (_a) {
+    return (react_1.default.createElement(react_1.default.Fragment, null, list.map(function (_a, index) {
         var _b = _a.As, As = _b === void 0 ? 'div' : _b, img = _a.img, text = _a.text, _c = _a.onClick, onClick = _c === void 0 ? noop : _c, id = _a.id, href = _a.href;
-        return (react_1.default.createElement(As, { style: liStyle, className: GenericList_css_1.default.item, onClick: function () { return onClick(id); }, key: id, href: href },
+        return (react_1.default.createElement(As, { style: liStyle, className: GenericList_css_1.default.item, onClick: function () { return onClick(id, index); }, key: index, id: id, href: href },
             img,
             text));
     })));
@@ -2784,7 +2836,7 @@ exports.GenericList = GenericList;
 
 
 /***/ }),
-/* 109 */
+/* 111 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2794,7 +2846,7 @@ module.exports = {
 
 
 /***/ }),
-/* 110 */
+/* 112 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2809,88 +2861,33 @@ module.exports = {
 
 
 /***/ }),
-/* 111 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(112), exports);
-
-
-/***/ }),
-/* 112 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommentsList = void 0;
-var react_1 = __importStar(__webpack_require__(0));
-var BtnDown_1 = __webpack_require__(18);
-var BtnUp_1 = __webpack_require__(17);
-var CommentItem_1 = __webpack_require__(113);
-var commentslist_css_1 = __importDefault(__webpack_require__(118));
+var react_1 = __importDefault(__webpack_require__(0));
+var CommentItem_1 = __webpack_require__(114);
+var commentslist_css_1 = __importDefault(__webpack_require__(121));
 function CommentsList(_a) {
-    var comments = _a.comments;
-    return (react_1.default.createElement("ul", { className: commentslist_css_1.default.commentsList }, comments.map(function (comment, index) {
-        var _a = react_1.useState(false), openReplies = _a[0], setOpenReplies = _a[1];
-        if (comment.data.body)
-            return (react_1.default.createElement("li", { className: commentslist_css_1.default.item, key: comment.data.id },
-                react_1.default.createElement("div", { className: commentslist_css_1.default.controls },
-                    react_1.default.createElement(BtnUp_1.BtnUp, { click: function () { return setOpenReplies(false); } }),
-                    react_1.default.createElement(BtnDown_1.BtnDown, { click: function () { return setOpenReplies(true); } })),
-                react_1.default.createElement(CommentItem_1.CommentItem, { created_utc: comment.data.created_utc, subreddit: comment.data.subreddit, author: comment.data.author, body: comment.data.body, id: comment.data.id }),
-                openReplies &&
-                    react_1.default.createElement("ul", { className: commentslist_css_1.default.commentsList }, comment.data.replies &&
-                        comment.data.replies.data.children.length > 0 &&
-                        comment.data.replies.data.children.map(function (child, index) {
-                            if (child.data.body)
-                                return (react_1.default.createElement("li", { className: commentslist_css_1.default.replies, key: index },
-                                    react_1.default.createElement("div", { className: commentslist_css_1.default.controls },
-                                        react_1.default.createElement(BtnUp_1.BtnUp, null),
-                                        react_1.default.createElement(BtnDown_1.BtnDown, null)),
-                                    react_1.default.createElement(CommentItem_1.CommentItem, { created_utc: child.data.created_utc, subreddit: child.data.subreddit, author: child.data.author, body: child.data.body, id: child.data.id })));
-                        }))));
+    var comments = _a.comments, forauthor = _a.forauthor;
+    return (react_1.default.createElement("ul", { className: commentslist_css_1.default.commentsList, key: forauthor }, comments.map(function (comment) {
+        if (!comment.data.body)
+            return null;
+        return (react_1.default.createElement("li", { className: commentslist_css_1.default.item, key: comment.data.id },
+            react_1.default.createElement(CommentItem_1.CommentItem, { created_utc: comment.data.created_utc, subreddit: comment.data.subreddit, author: comment.data.author, body: comment.data.body, id: comment.data.id, replies: comment.data.replies })));
     })));
 }
 exports.CommentsList = CommentsList;
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2906,11 +2903,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(114), exports);
+__exportStar(__webpack_require__(115), exports);
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2940,22 +2937,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommentItem = void 0;
 var react_1 = __importStar(__webpack_require__(0));
+var __1 = __webpack_require__(21);
 var merge_1 = __webpack_require__(5);
 var generateRandomIndex_1 = __webpack_require__(6);
-var TimeComment_1 = __webpack_require__(115);
-var User_1 = __webpack_require__(116);
+var TimeComment_1 = __webpack_require__(116);
+var User_1 = __webpack_require__(117);
 var CommentForm_1 = __webpack_require__(19);
 var GenericList_1 = __webpack_require__(7);
 var Icons_1 = __webpack_require__(1);
-var commentitem_css_1 = __importDefault(__webpack_require__(117));
+var ControlOpenAddComments_1 = __webpack_require__(118);
+var commentitem_css_1 = __importDefault(__webpack_require__(120));
 function CommentItem(_a) {
-    var created_utc = _a.created_utc, subreddit = _a.subreddit, author = _a.author, body = _a.body, _b = _a.openReply, openReply = _b === void 0 ? true : _b, id = _a.id;
-    var _c = react_1.useState(openReply), openFormReply = _c[0], setOpenFormReply = _c[1];
+    var created_utc = _a.created_utc, subreddit = _a.subreddit, author = _a.author, body = _a.body, _b = _a.isOpenReply, isOpenReply = _b === void 0 ? false : _b, replies = _a.replies;
+    var _c = react_1.useState(replies && replies.data.children.length > 0 ? false : true), openReplies = _c[0], setOpenReplies = _c[1];
+    var _d = react_1.useState(isOpenReply), openFormReply = _d[0], setOpenFormReply = _d[1];
     var result = Math.ceil(Math.ceil(Math.abs(new Date().getTime() - created_utc * 1000)) /
         (1000 * 60 * 60));
     var handleItemClick = function () {
-        console.log('klik ответить', id);
-        setOpenFormReply(!openReply);
+        setOpenFormReply(!openFormReply);
     };
     var LIST = [
         {
@@ -2967,7 +2966,9 @@ function CommentItem(_a) {
         { As: 'li', text: 'Поделиться', img: react_1.default.createElement(Icons_1.ShareIcon, null) },
         { As: 'li', text: 'Пожаловаться', img: react_1.default.createElement(Icons_1.ComplainIcon, null) },
     ].map(generateRandomIndex_1.generateId);
-    return (react_1.default.createElement("div", null,
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("div", { className: commentitem_css_1.default.controls },
+            react_1.default.createElement(ControlOpenAddComments_1.ControlOpenAddComments, { openReplies: openReplies, onClickUp: function () { return setOpenReplies(false); }, onClickDown: function () { return setOpenReplies(true); } })),
         react_1.default.createElement("div", null,
             react_1.default.createElement("div", { className: commentitem_css_1.default.itemtitle },
                 react_1.default.createElement("div", { className: commentitem_css_1.default.titlesub }, subreddit),
@@ -2976,31 +2977,11 @@ function CommentItem(_a) {
                     react_1.default.createElement(User_1.User, { author: author }))),
             react_1.default.createElement("p", { className: commentitem_css_1.default.textcomment }, body),
             react_1.default.createElement("ul", { className: commentitem_css_1.default.ulicons },
-                react_1.default.createElement(GenericList_1.GenericList, { underline: false, list: LIST.map(merge_1.merge({})) }))),
-        react_1.default.createElement("div", null,
-            react_1.default.createElement(CommentForm_1.CommentForm, { id: id, placeHolder: "", nameAthour: author, isOpen: openReply }))));
+                react_1.default.createElement(GenericList_1.GenericList, { underline: false, list: LIST.map(merge_1.merge({})) })),
+            react_1.default.createElement(CommentForm_1.CommentForm, { placeHolder: "", textbtn: "\u041E\u0442\u0432\u0435\u0442\u0438\u0442\u044C", nameAthour: author, isOpen: openFormReply })),
+        openReplies && replies && replies.data.children.length > 0 && (react_1.default.createElement(__1.CommentsList, { forauthor: author, key: author, comments: replies.data.children }))));
 }
 exports.CommentItem = CommentItem;
-
-
-/***/ }),
-/* 115 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(14), exports);
 
 
 /***/ }),
@@ -3020,38 +3001,101 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(12), exports);
+__exportStar(__webpack_require__(14), exports);
 
 
 /***/ }),
 /* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(__webpack_require__(12), exports);
+
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(__webpack_require__(119), exports);
+
+
+/***/ }),
+/* 119 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ControlOpenAddComments = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var BtnDown_1 = __webpack_require__(18);
+var BtnUp_1 = __webpack_require__(17);
+function ControlOpenAddComments(_a) {
+    var onClickUp = _a.onClickUp, onClickDown = _a.onClickDown, openReplies = _a.openReplies;
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement(BtnUp_1.BtnUp, { click: onClickUp, state: openReplies }),
+        react_1.default.createElement(BtnDown_1.BtnDown, { click: onClickDown, state: openReplies })));
+}
+exports.ControlOpenAddComments = ControlOpenAddComments;
+
+
+/***/ }),
+/* 120 */
 /***/ (function(module, exports) {
 
 // Exports
 module.exports = {
+	"controls": "commentitem__controls--2sc-j",
 	"item": "commentitem__item--3BZMi",
 	"itemtitle": "commentitem__itemtitle--2XM9E",
 	"titlesub": "commentitem__titlesub--Q2JWn",
 	"ulicons": "commentitem__ulicons--2fJ_N",
 	"textcomment": "commentitem__textcomment--2EU3f",
-	"portalReply": "commentitem__portalReply--2zNWS"
+	"portalReply": "commentitem__portalReply--2zNWS",
+	"replies": "commentitem__replies--2xWn1"
 };
 
 
 /***/ }),
-/* 118 */
+/* 121 */
 /***/ (function(module, exports) {
 
 // Exports
 module.exports = {
-	"item": "commentslist__item--19c2O",
-	"replies": "commentslist__replies--3Z8OR",
-	"controls": "commentslist__controls--1ZA-8"
+	"item": "commentslist__item--19c2O"
 };
 
 
 /***/ }),
-/* 119 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3078,87 +3122,6 @@ function useCommentsData(id) {
     return comments;
 }
 exports.useCommentsData = useCommentsData;
-
-
-/***/ }),
-/* 120 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CardMenu = void 0;
-var react_1 = __importStar(__webpack_require__(0));
-var cardmenu_css_1 = __importDefault(__webpack_require__(121));
-var Icons_1 = __webpack_require__(1);
-var DropDownMenu_1 = __webpack_require__(122);
-function CardMenu() {
-    var _a = react_1.useState(false), isDropDownOpened = _a[0], setIsDropDownOpened = _a[1];
-    var _b = react_1.useState({ x: 0, y: 0 }), portalXY = _b[0], setPortalXY = _b[1];
-    return (react_1.default.createElement("div", { className: cardmenu_css_1.default.cardmenu },
-        react_1.default.createElement("button", { className: cardmenu_css_1.default.cardmenuButton, onClick: function (ev) {
-                setIsDropDownOpened(true);
-                setPortalXY({ x: ev.clientX, y: ev.clientY });
-            } },
-            react_1.default.createElement(Icons_1.MenuIcon, null)),
-        isDropDownOpened && (react_1.default.createElement(DropDownMenu_1.DropDownMenu, { portalTop: portalXY.y + 50, portalLeft: portalXY.x - 120, onClose: function () {
-                setIsDropDownOpened(false);
-            } }))));
-}
-exports.CardMenu = CardMenu;
-
-
-/***/ }),
-/* 121 */
-/***/ (function(module, exports) {
-
-// Exports
-module.exports = {
-	"cardmenu": "cardmenu__cardmenu--2zHci",
-	"cardmenuButton": "cardmenu__cardmenuButton--bunuf"
-};
-
-
-/***/ }),
-/* 122 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(123), exports);
 
 
 /***/ }),
@@ -3190,44 +3153,113 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CardMenu = void 0;
+var react_1 = __importStar(__webpack_require__(0));
+var cardmenu_css_1 = __importDefault(__webpack_require__(124));
+var Icons_1 = __webpack_require__(1);
+var DropDownMenu_1 = __webpack_require__(125);
+function CardMenu() {
+    var _a = react_1.useState(false), isDropDownOpened = _a[0], setIsDropDownOpened = _a[1];
+    var _b = react_1.useState({ x: 0, y: 0 }), portalXY = _b[0], setPortalXY = _b[1];
+    return (react_1.default.createElement("div", { className: cardmenu_css_1.default.cardmenu },
+        react_1.default.createElement("button", { className: cardmenu_css_1.default.cardmenuButton, onClick: function (ev) {
+                setIsDropDownOpened(true);
+                setPortalXY({ x: ev.clientX, y: ev.clientY });
+            } },
+            react_1.default.createElement(Icons_1.MenuIcon, null)),
+        isDropDownOpened && (react_1.default.createElement(DropDownMenu_1.DropDownMenu, { portalTop: portalXY.y + 50, portalLeft: portalXY.x - 120, onClose: function () {
+                setIsDropDownOpened(false);
+            } }))));
+}
+exports.CardMenu = CardMenu;
+
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports) {
+
+// Exports
+module.exports = {
+	"cardmenu": "cardmenu__cardmenu--2zHci",
+	"cardmenuButton": "cardmenu__cardmenuButton--bunuf"
+};
+
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(__webpack_require__(126), exports);
+
+
+/***/ }),
+/* 126 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.DropDownMenu = void 0;
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 var react_1 = __importStar(__webpack_require__(0));
 var react_dom_1 = __importDefault(__webpack_require__(15));
+var useCloseElement_1 = __webpack_require__(22);
 var merge_1 = __webpack_require__(5);
 var generateRandomIndex_1 = __webpack_require__(6);
 var GenericList_1 = __webpack_require__(7);
 var Icons_1 = __webpack_require__(1);
-var dropdownmenu_css_1 = __importDefault(__webpack_require__(124));
-var LIST = [
-    { As: 'li', text: 'Комментарии', img: react_1.default.createElement(Icons_1.CommentIcon, null) },
-    { As: 'li', text: 'Поделиться', img: react_1.default.createElement(Icons_1.ShareIcon, null) },
-    { As: 'li', text: 'Скрыть', img: react_1.default.createElement(Icons_1.HideIcon, null) },
-    { As: 'li', text: 'Сохранить', img: react_1.default.createElement(Icons_1.SaveIcon, null) },
-    { As: 'li', text: 'Пожаловаться', img: react_1.default.createElement(Icons_1.ComplainIcon, null) },
-].map(generateRandomIndex_1.generateId);
+var dropdownmenu_css_1 = __importDefault(__webpack_require__(127));
 function DropDownMenu(_a) {
     var onClose = _a.onClose, portalTop = _a.portalTop, portalLeft = _a.portalLeft;
+    var LIST = [
+        { As: 'li', text: 'Комментарии', img: react_1.default.createElement(Icons_1.CommentIcon, null) },
+        { As: 'li', text: 'Поделиться', img: react_1.default.createElement(Icons_1.ShareIcon, null) },
+        { As: 'li', text: 'Скрыть', img: react_1.default.createElement(Icons_1.HideIcon, null) },
+        { As: 'li', text: 'Сохранить', img: react_1.default.createElement(Icons_1.SaveIcon, null) },
+        { As: 'li', text: 'Пожаловаться', img: react_1.default.createElement(Icons_1.ComplainIcon, null) },
+    ].map(generateRandomIndex_1.generateId);
     var _b = react_1.useState(LIST), list = _b[0], setList = _b[1];
-    var handleItemClick = function () {
-        setList(list);
-    };
+    var handleItemClick = function () { return setList(list); };
     var ref = react_1.useRef(null);
-    react_1.useEffect(function () {
-        function handleClick(event) {
-            var _a;
-            if (event.target instanceof Node &&
-                !((_a = ref.current) === null || _a === void 0 ? void 0 : _a.contains(event.target))) {
-                onClose === null || onClose === void 0 ? void 0 : onClose();
-            }
-        }
-        document.addEventListener('click', handleClick);
-        return function () {
-            document.removeEventListener('click', handleClick);
-        };
-    }, []);
+    var isClose = useCloseElement_1.useCloseElement(ref, false, onClose);
     var node = document.querySelector('#dropDown_root');
-    if (!node)
-        return null;
+    if (!node || isClose)
+        return react_1.default.createElement("div", null);
     return react_dom_1.default.createPortal(react_1.default.createElement("div", { className: dropdownmenu_css_1.default.dropdownmenuWrap },
         react_1.default.createElement("div", { style: { position: 'fixed', top: portalTop + "px", left: portalLeft + "px" }, className: dropdownmenu_css_1.default.dropdownmenu, ref: ref, id: "drop" },
             react_1.default.createElement("ul", { className: dropdownmenu_css_1.default.cardmenulist },
@@ -3238,7 +3270,7 @@ exports.DropDownMenu = DropDownMenu;
 
 
 /***/ }),
-/* 124 */
+/* 127 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -3251,7 +3283,7 @@ module.exports = {
 
 
 /***/ }),
-/* 125 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3263,7 +3295,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Preview = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
 var Icons_1 = __webpack_require__(1);
-var preview_css_1 = __importDefault(__webpack_require__(126));
+var preview_css_1 = __importDefault(__webpack_require__(129));
 function Preview(_a) {
     var url = _a.url;
     return (react_1.default.createElement("div", { className: preview_css_1.default.preview }, url.includes('//')
@@ -3274,7 +3306,7 @@ exports.Preview = Preview;
 
 
 /***/ }),
-/* 126 */
+/* 129 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -3285,7 +3317,7 @@ module.exports = {
 
 
 /***/ }),
-/* 127 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3305,7 +3337,7 @@ exports.useToken = useToken;
 
 
 /***/ }),
-/* 128 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

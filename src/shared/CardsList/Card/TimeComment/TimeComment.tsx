@@ -4,7 +4,7 @@ interface ITimeProps {
   created_utc: number;
 }
 
-export function TimeComment({ created_utc }: ITimeProps) {
+export function TimeComment({ created_utc }: ITimeProps): JSX.Element {
 
   return (
     <>

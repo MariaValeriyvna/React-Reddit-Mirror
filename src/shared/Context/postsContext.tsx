@@ -14,7 +14,8 @@ export interface ISimplPostContextData {
  id: string;
  url:string;
  selftext:string;
- score: string
+ score: string;
+ num_comments: number
 }
 
 export interface IMedia {
@@ -22,7 +23,7 @@ export interface IMedia {
 }
 
 export const postsContext= React.createContext<Array<IPostContextData>>([]);
-export function PostsContextProvider({children}: {children: React.ReactNode}){
+export function PostsContextProvider({children}: {children: React.ReactNode}): JSX.Element{
   const posts = usePostsData();
   return (
     <postsContext.Provider value={posts}>

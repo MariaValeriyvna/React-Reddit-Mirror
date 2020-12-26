@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { MouseEvent } from 'react';
+import React, { useState } from 'react';
+import { CommentsList } from '..';
 import { merge } from '../../../utils/js/merge';
 import { generateId } from '../../../utils/react/generateRandomIndex';
 import { TimeComment } from '../../CardsList/Card/TimeComment';
 import { User } from '../../CardsList/Card/User';
 import { CommentForm } from '../../CommentForm';
-import { DropDown } from '../../DropDown';
 import { GenericList } from '../../GenericList';
 import { CommentIcon, ShareIcon, ComplainIcon } from '../../Icons';
+import { ControlOpenAddComments } from '../ControlOpenAddComments';
 import styles from './commentitem.css';
 
 interface ISimplCommentItemData {
@@ -16,7 +16,18 @@ interface ISimplCommentItemData {
   created_utc: number;
   id: string;
   subreddit: string;
-  openReply?: boolean;
+  isOpenReply?: boolean;
+  replies?: ICommentRepliesProps;
+}
+interface ICommentRepliesProps {
+  data: IChildrenRepliesProps;
+}
+
+interface IChildrenRepliesProps {
+  children: Array<IRepliesListData>;
+}
+interface IRepliesListData {
+  data: ISimplCommentItemData;
 }
 
 export function CommentItem({
@@ -24,18 +35,19 @@ export function CommentItem({
   subreddit,
   author,
   body,
-  openReply = true,
-  id
-}: ISimplCommentItemData) {
-  const [openFormReply, setOpenFormReply]=useState(openReply)
+  isOpenReply = false,
+  replies
+}: ISimplCommentItemData): JSX.Element {
+  const [openReplies, setOpenReplies]=useState(replies && replies.data.children.length > 0 ? false : true)
+  const [openFormReply, setOpenFormReply] = useState(isOpenReply);
+  
   const result = Math.ceil(
     Math.ceil(Math.abs(new Date().getTime() - created_utc * 1000)) /
       (1000 * 60 * 60)
   );
 
-  let handleItemClick = () => {
-    console.log('klik ответить', id)
-    setOpenFormReply(!openReply)
+  const handleItemClick = () => {
+    setOpenFormReply(!openFormReply);
   };
   const LIST = [
     {
@@ -47,8 +59,12 @@ export function CommentItem({
     { As: 'li' as const, text: 'Поделиться', img: <ShareIcon /> },
     { As: 'li' as const, text: 'Пожаловаться', img: <ComplainIcon /> },
   ].map(generateId);
+  
   return (
-    <div>
+    <>
+      <div className={styles.controls}>
+        <ControlOpenAddComments openReplies={openReplies} onClickUp={()=> setOpenReplies(false)} onClickDown={()=> setOpenReplies(true)}/>
+      </div>
       <div>
         <div className={styles.itemtitle}>
           <div className={styles.titlesub}>{subreddit}</div>
@@ -61,10 +77,16 @@ export function CommentItem({
         <ul className={styles.ulicons}>
           <GenericList underline={false} list={LIST.map(merge({}))} />
         </ul>
+        <CommentForm
+          placeHolder=""
+          textbtn="Ответить"
+          nameAthour={author}
+          isOpen={openFormReply}
+        />
       </div>
-      <div>
-        <CommentForm id={id} placeHolder="" nameAthour={author} isOpen={openReply}/>
-      </div>
-    </div>
+      {openReplies && replies && replies.data.children.length > 0 && (
+        <CommentsList forauthor={author} key={author} comments={replies.data.children}  />
+      )}
+    </>
   );
 }

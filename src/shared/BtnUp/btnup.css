@@ -1,11 +1,13 @@
 .up:focus,
-.up:hover
+.up:hover,
+.up_disable:focus,
+.up_disable:hover
 {
   outline: none;
 }
 .up:hover > svg > path,
-.up:focus > svg > path,
-.up:active > svg > path {
+.up:focus > svg > path
+{
   outline: none;
   fill: var(--green);
 }

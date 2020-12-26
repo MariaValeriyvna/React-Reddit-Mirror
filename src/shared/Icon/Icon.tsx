@@ -16,7 +16,7 @@ interface IIconProps {
   className?: string;
   icon?: EIcon;
 }
-export function Icon(props: IIconProps) {
+export function Icon(props: IIconProps):JSX.Element {
   const {
     As = 'button',
     color = EColor.black,

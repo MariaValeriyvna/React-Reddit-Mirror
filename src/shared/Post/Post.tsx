@@ -19,23 +19,19 @@ import { generateId } from '../../utils/react/generateRandomIndex';
 import { GenericList } from '../GenericList';
 import { CommentsList } from '../CommentsList';
 import { useCommentsData } from '../../hooks/useCommentsData';
+import { useCloseElement } from '../../hooks/useCloseElement';
 
 interface IPost {
-  onClose?: () => void;
+  onClose: () => void;
   title: string;
   author: string;
   created_utc: number;
   id: string;
   urlpreview: string;
   score: string;
+  num_comments: number
 }
-const LIST = [
-  { As: 'li' as const, text: 'Комментарии', img: <CommentIcon /> },
-  { As: 'li' as const, text: 'Поделиться', img: <ShareIcon /> },
-  { As: 'li' as const, text: 'Скрыть', img: <HideIcon /> },
-  { As: 'li' as const, text: 'Сохранить', img: <SaveIcon /> },
-  { As: 'li' as const, text: 'Пожаловаться', img: <ComplainIcon /> },
-].map(generateId);
+
 
 export function Post({
   title,
@@ -45,13 +41,22 @@ export function Post({
   id,
   urlpreview,
   score,
-}: IPost) {
+  num_comments
+}: IPost): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
   const posts = useContext(postsContext);
   const comments = useCommentsData(id);
+  const isClose = useCloseElement(ref, false, onClose)
+  const LIST = [
+    { As: 'li' as const, text: 'Комментарии', img: <CommentIcon /> },
+    { As: 'li' as const, text: 'Поделиться', img: <ShareIcon /> },
+    { As: 'li' as const, text: 'Скрыть', img: <HideIcon /> },
+    { As: 'li' as const, text: 'Сохранить', img: <SaveIcon /> },
+    { As: 'li' as const, text: 'Пожаловаться', img: <ComplainIcon /> },
+  ].map(generateId);
   console.log(comments);
   let postMedia, urlImg, checkurl, selftext;
-  posts.forEach((post, index) => {
+  posts.forEach((post) => {
     if (post.data.id === id) {
       postMedia = post.data.media?.reddit_video?.fallback_url;
       urlImg = post.data.url;
@@ -62,22 +67,9 @@ export function Post({
   function handleClick() {
     console.log('click');
   }
-  useEffect(() => {
-    function handleClick(event: MouseEvent) {
-      if (
-        event.target instanceof Node &&
-        !ref.current?.contains(event.target)
-      ) {
-        onClose?.();
-      }
-    }
-    document.addEventListener('click', handleClick);
-    return () => {
-      document.removeEventListener('click', handleClick);
-    };
-  });
+
   const node = document.querySelector('#modal_root');
-  if (!node) return null;
+  if (!node || isClose) return <div />;
 
   return ReactDOM.createPortal(
     <div className={styles.modalWrap}>
@@ -86,7 +78,7 @@ export function Post({
           <Crossicon />
         </button>
         <div className={styles.modalTitle}>
-          <Controls score={score} />
+          <Controls score={score} num_comments={num_comments}/>
           <TextComponent
             title={title}
             author={author}
@@ -95,6 +87,7 @@ export function Post({
             id={id}
             urlpreview={urlpreview}
             score={score}
+            num_comments={num_comments}
           />
         </div>
         <div className={styles.modalContent}>
@@ -128,8 +121,8 @@ export function Post({
             list={LIST.map(merge({ onClick: handleClick }))}
           />
         </ul>
-        <CommentForm placeHolder={'Оставьте Ваш комментарий'}/>
-        {comments.length > 0 && <CommentsList comments={comments} />}
+        <CommentForm id={'post'} placeHolder={'Оставьте Ваш комментарий'} textbtn={'Комментировать'} />
+        {comments.length > 0 && <CommentsList comments={comments} forauthor={author} key={author}/>}
       </div>
     </div>,
     node

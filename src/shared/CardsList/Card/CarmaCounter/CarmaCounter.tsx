@@ -1,21 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import styles from './carmacounter.css';
 import { BtnUp } from '../../../BtnUp';
 import { BtnDown } from '../../../BtnDown';
-import axios from 'axios';
-import { tokenContext } from '../../../Context/TokenContext';
-import { postsContext } from '../../../Context/postsContext';
 
 export interface ITitleData {
   score: string;
 }
 
-export function CarmaCounter({score}:  ITitleData) {
+export function CarmaCounter({score}:  ITitleData): JSX.Element {
   return (
     <div className={styles.karmaCounter}>
-      <BtnUp />
+      <BtnUp state={true} />
       <span className={styles.karmaValue}>{score}</span>
-        <BtnDown />
+        <BtnDown state={false}/>
     </div>
   );
 }

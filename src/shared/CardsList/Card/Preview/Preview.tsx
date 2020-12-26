@@ -4,7 +4,7 @@ import styles from './preview.css';
 interface IPreviewProps {
   url: string;
 }
-export function Preview({ url }: IPreviewProps) {
+export function Preview({ url }: IPreviewProps): JSX.Element {
   
   return (
       <div className={styles.preview}>

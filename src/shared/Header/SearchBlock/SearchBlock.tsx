@@ -4,7 +4,7 @@ import { userContext } from '../../Context/userContext';
 import { SearchIcon } from '../../Icons/SearchIcon';
 import { UserBlock } from './UserBlock';
 
-export function SearchBlock() {
+export function SearchBlock():JSX.Element {
   const {iconImg, name} = useContext(userContext)
   return (
     <div className={styles.searchblock}>

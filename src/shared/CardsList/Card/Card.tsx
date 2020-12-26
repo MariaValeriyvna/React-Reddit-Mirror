@@ -11,15 +11,16 @@ interface ICardProps {
  created_utc: number;
  urlpreview:string;
  id: string;
- score: string
+ score: string;
+ num_comments: number
 }
-export function Card({title, author, urlpreview, created_utc, id, score}:ICardProps) {
+export function Card({title, author, urlpreview, created_utc, id, score, num_comments}:ICardProps): JSX.Element {
   return (
     <div className={styles.card}>  
-      <TextComponent urlpreview={urlpreview} id={id} title={title} author={author} created_utc = {created_utc} score={score}/>
+      <TextComponent urlpreview={urlpreview} id={id} title={title} author={author} created_utc = {created_utc} score={score} num_comments={num_comments}/>
       <Preview url={urlpreview}/>
       <CardMenu />
-      <Controls score={score}/>
+      <Controls score={score} num_comments={num_comments}/>
     </div>
   );
 }

@@ -6,7 +6,7 @@ interface IUserBlockProps {
   avatarSrc?: string;
   username?: string;
 }
-export function UserBlock({ avatarSrc, username = 'Аноним' }: IUserBlockProps) {
+export function UserBlock({ avatarSrc, username = 'Аноним' }: IUserBlockProps):JSX.Element {
   return (
     <div>
       <a

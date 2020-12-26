@@ -13,10 +13,11 @@ export interface ISimplPostData {
   id:string;
   url: string;
   selftext:string;
-  score: string
+  score: string;
+  num_comments: number
 }
 
-export function usePostsData() {
+export function usePostsData():IPostData[] {
   const [data, setData] = useState<Array<IPostData>>([]);
   const token = useContext(tokenContext);
   useEffect(() => {

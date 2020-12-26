@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function CommentIcon() {
+export function CommentIcon():JSX.Element {
   return (
     <svg
       width="15"

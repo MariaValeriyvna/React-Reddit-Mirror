@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function ComplainIcon() {
+export function ComplainIcon():JSX.Element {
   return (
     <svg
       width="16"

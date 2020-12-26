@@ -18,7 +18,7 @@ interface ITextProps {
   bold?: TBold;
   marginTB?: number;
 }
-export function Text(props: ITextProps) {
+export function Text(props: ITextProps):JSX.Element {
   const {
     As = 'span',
     color = EColor.black,

@@ -6,7 +6,7 @@ export interface IUserContextData {
 }
 export const userContext = React.createContext<IUserContextData>({});
 
-export function UserContextProvider({children}: {children: React.ReactNode}){
+export function UserContextProvider({children}: {children: React.ReactNode}):JSX.Element{
   const [data] = useUserData();
   return (
     <userContext.Provider value={data}>

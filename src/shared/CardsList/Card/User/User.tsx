@@ -6,7 +6,7 @@ import { useUserAvatar } from '../../../../hooks/useUserAvatar';
 interface IUserProps {
   author: string;
 }
-export function User({ author }: IUserProps) {
+export function User({ author }: IUserProps): JSX.Element {
   const data = useUserAvatar({ author });
 
   return (

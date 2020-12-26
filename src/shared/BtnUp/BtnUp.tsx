@@ -3,10 +3,11 @@ import { UpIcon } from '../Icons';
 import styles from './btnup.css';
 interface IClick {
   click?: ()=>void
+  state?: boolean
 }
-export function BtnUp({click}: IClick) {
+export function BtnUp({click, state}: IClick):JSX.Element {
   return (
-      <button className={styles.up} onClick={click}>
+      <button className={state ? styles.up : styles.up_disable} onClick={click}>
         <UpIcon />
       </button>
   );
