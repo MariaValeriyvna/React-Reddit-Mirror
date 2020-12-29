@@ -1,6 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { tokenContext } from '../shared/Context/TokenContext';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
 
 export interface IUserData {
   author: string;
@@ -8,7 +9,7 @@ export interface IUserData {
 
 export function useUserAvatar({ author }: IUserData): {user: string, avatar: string } {
   const [data, setData] = useState({ user: '', avatar: '' });
-  const token = useContext(tokenContext);
+  const token =useSelector<RootState, string>(state=> state.token)
   useEffect(() => {
     axios
       .get(`https://www.reddit.com/user/${author}/about.json`)

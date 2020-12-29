@@ -1,9 +1,8 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useRef, useContext, ChangeEvent } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './post.css';
 import { TextComponent } from '../CardsList/Card/TextComponent';
 import { Controls } from '../CardsList/Card/Controls';
-import { CommentForm } from '../CommentForm';
 import { postsContext } from '../Context/postsContext';
 import {
   CommentIcon,
@@ -20,6 +19,10 @@ import { GenericList } from '../GenericList';
 import { CommentsList } from '../CommentsList';
 import { useCommentsData } from '../../hooks/useCommentsData';
 import { useCloseElement } from '../../hooks/useCloseElement';
+import { CommentFormContainer } from '../CommentFormContainer';
+import { updateComment } from '../../actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 interface IPost {
   onClose: () => void;
@@ -64,10 +67,15 @@ export function Post({
       selftext = post.data.selftext;
     }
   });
+  const valueText = useSelector<RootState, string>(state=>  (state.commentForPost[id]?.comment) ? state.commentForPost[id].comment : '')
+  const dispatch = useDispatch()
+  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) { 
+    dispatch(updateComment(id, title, event.target.value))
+    }
   function handleClick() {
     console.log('click');
   }
-
+  
   const node = document.querySelector('#modal_root');
   if (!node || isClose) return <div />;
 
@@ -121,7 +129,7 @@ export function Post({
             list={LIST.map(merge({ onClick: handleClick }))}
           />
         </ul>
-        <CommentForm id={'post'} placeHolder={'Оставьте Ваш комментарий'} textbtn={'Комментировать'} />
+        <CommentFormContainer id={'post'} placeHolder={'Оставьте Ваш комментарий'} textbtn={'Комментировать'} onChange={handleChange} valueText={valueText}/>
         {comments.length > 0 && <CommentsList comments={comments} forauthor={author} key={author}/>}
       </div>
     </div>,

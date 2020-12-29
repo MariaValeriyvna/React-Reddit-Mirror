@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { CommentsList } from '..';
+import { updateReply } from '../../../actions';
+import { RootState } from '../../../store';
 import { merge } from '../../../utils/js/merge';
 import { generateId } from '../../../utils/react/generateRandomIndex';
 import { TimeComment } from '../../CardsList/Card/TimeComment';
 import { User } from '../../CardsList/Card/User';
-import { CommentForm } from '../../CommentForm';
+import { CommentFormContainer } from '../../CommentFormContainer';
 import { GenericList } from '../../GenericList';
 import { CommentIcon, ShareIcon, ComplainIcon } from '../../Icons';
 import { ControlOpenAddComments } from '../ControlOpenAddComments';
@@ -36,7 +39,8 @@ export function CommentItem({
   author,
   body,
   isOpenReply = false,
-  replies
+  replies,
+  id
 }: ISimplCommentItemData): JSX.Element {
   const [openReplies, setOpenReplies]=useState(replies && replies.data.children.length > 0 ? false : true)
   const [openFormReply, setOpenFormReply] = useState(isOpenReply);
@@ -58,7 +62,12 @@ export function CommentItem({
     },
     { As: 'li' as const, text: 'Поделиться', img: <ShareIcon /> },
     { As: 'li' as const, text: 'Пожаловаться', img: <ComplainIcon /> },
-  ].map(generateId);
+  ].map(generateId)
+  const valueText = useSelector<RootState,string>(state=>  (state.commentsForReplies[id]?.reply) ? state.commentsForReplies[id].reply : author+' , ')
+  const dispatch = useDispatch()
+  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) { 
+    dispatch(updateReply(id, author, event.target.value))
+    }
   
   return (
     <>
@@ -77,11 +86,13 @@ export function CommentItem({
         <ul className={styles.ulicons}>
           <GenericList underline={false} list={LIST.map(merge({}))} />
         </ul>
-        <CommentForm
+        <CommentFormContainer
           placeHolder=""
           textbtn="Ответить"
-          nameAthour={author}
+          nameAuthor={author}
           isOpen={openFormReply}
+          onChange={handleChange}
+          valueText={valueText}
         />
       </div>
       {openReplies && replies && replies.data.children.length > 0 && (

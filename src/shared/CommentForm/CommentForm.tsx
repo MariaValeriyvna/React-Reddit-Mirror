@@ -1,15 +1,11 @@
 import React, {
   ChangeEvent,
   FormEvent,
-  forwardRef,
   useEffect,
-  useRef,
-  useState,
+  useRef
 } from 'react';
-import { useContext } from 'react';
 import { merge } from '../../utils/js/merge';
 import { generateId } from '../../utils/react/generateRandomIndex';
-import { commentContext } from '../Context/commentContext';
 import { GenericList } from '../GenericList';
 import {
   Copyicon,
@@ -31,20 +27,28 @@ interface ICommentFormProps {
   placeHolder: string;
   textbtn: string;
   id?: string;
-  nameAthour?: string;
+  nameAuthor?: string;
   key?: string;
   isOpen?: boolean;
+  onChange:(event: ChangeEvent<HTMLTextAreaElement>)=> void;
+  onSubmit: (event: FormEvent)=>void;
+  onClick: ()=> void,
+  value?: string,
+  valueWithName?: string
 }
 export function CommentForm({
   placeHolder,
-  nameAthour = '',
   textbtn,
   isOpen = true,
-  id
+  id,
+  onClick,
+  onSubmit,
+  onChange,
+  value
 }: ICommentFormProps): JSX.Element {
 
-  const { value, onChange } = useContext(commentContext);
-  const [valueText, setValueText] = useState(nameAthour ? nameAthour+' , ': '')
+  
+
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const list = [
@@ -63,18 +67,7 @@ export function CommentForm({
     { As: 'li' as const, img: <Pdficon /> },
   ].map(generateId);
 
-  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    if (id!=='post') setValueText(event.target.value)
-    else onChange((event.target.value)); // для контролируемого компонента, для usecontext - onChange
-  }
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-    // console.log (inputRef.current?.value) // для неконтролируемого компонента
-    console.log(value, valueText); // для контролируемого компонента
-  }
-  function handleClick() {
-    console.log('cl');
-  }
+
   useEffect(() => {
     inputRef.current?.focus();
     inputRef.current?.setSelectionRange(inputRef.current?.textLength, inputRef.current?.textLength+1,'forward');
@@ -82,17 +75,17 @@ export function CommentForm({
  
   if (!isOpen) return <div />;
   return (
-    <form className={styles.form} onSubmit={handleSubmit} key={id}>
+    <form className={styles.form} onSubmit={onSubmit} key={id}>
       <textarea
         ref={inputRef}
         className={styles.inputText}
-        onChange={handleChange} //для контролируемого компонента
+        onChange={onChange}
         placeholder={placeHolder}
-        value={id==='post' ? value : valueText} // для контролируемого компонента
+        value={value} 
       ></textarea>
       <div className={styles.commentEdit}>
         <ul className={styles.ulEdit}>
-          <GenericList list={list.map(merge({ onClick: handleClick }))} />
+          <GenericList list={list.map(merge({ onClick: onClick }))} />
         </ul>
         <button type="submit" className={styles.btnSubmit}>
           {textbtn}

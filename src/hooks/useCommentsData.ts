@@ -1,6 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { tokenContext } from '../shared/Context/TokenContext';
+import { RootState } from '../store';
+import { useSelector } from 'react-redux';
 
 export interface ICommentData {
   data: ISimplCommentData
@@ -23,8 +24,8 @@ interface IChildrenProps {
   children: Array<ICommentData>
 }
 
-export function useCommentsData(id: string) {
-  const token = useContext(tokenContext);
+export function useCommentsData(id: string):ICommentData[] {
+  const token =useSelector<RootState, string>(state=> state.token)
   const [comments, setComments]=useState<Array<ICommentData>>([])
   useEffect(() => {
     axios
@@ -33,6 +34,6 @@ export function useCommentsData(id: string) {
         setComments(resp.data[1].data.children)
       })
       .catch(console.log);
-  }, [token]);
+  }, [token, id]);
   return comments;
 }

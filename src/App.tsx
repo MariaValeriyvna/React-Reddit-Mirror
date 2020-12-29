@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
-import './main.global.css';
 import { Layout } from './shared/Layout';
 import { Header } from './shared/Header/Header';
 import { Content } from './shared/Content';
 import { CardsList } from './shared/CardsList/CardsList';
-import { useToken } from './hooks/useToken';
-import { tokenContext } from './shared/Context/TokenContext';
 import { UserContextProvider } from './shared/Context/userContext';
 import { PostsContextProvider } from './shared/Context/postsContext';
-import { commentContext } from './shared/Context/commentContext';
+import {Provider} from 'react-redux';
+import { store } from './store';
+import { useToken } from './hooks/useToken';
+import './main.global.css';
 
 function AppComponent() {
-  const [commentValue, setCommentValue] =useState('')
-  const [token] = useToken();
-  
+
+  useToken()
+
   return (
-    <commentContext.Provider value={{value: commentValue, onChange: setCommentValue}}>
-    <tokenContext.Provider value={token}>
+    <Provider store={store}>
       <UserContextProvider>
         <PostsContextProvider>
           <Layout>
@@ -28,8 +27,7 @@ function AppComponent() {
           </Layout>
         </PostsContextProvider>
       </UserContextProvider>
-    </tokenContext.Provider>
-    </commentContext.Provider>
+    </Provider>
   );
 }
 export const App = hot(() => <AppComponent />);
