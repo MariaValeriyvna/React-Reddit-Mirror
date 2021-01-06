@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function SearchIcon() {
+export function SearchIcon(): JSX.Element {
   return (
     <svg
       width="19"

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function UpIcon() {
+export function UpIcon(): JSX.Element {
   return (
     <svg
       width="19"

@@ -6,7 +6,7 @@ import { EIcon } from '../../const/enumIcon';
 
 type TSizes = 50 | 30 | 28 | 20 | 16 | 14 | 12 | 10;
 interface IIconProps {
-  As?: 'div' | 'button' ;
+  As?: 'div' | 'button';
   src?: string;
   size: TSizes;
   mobileSize?: TSizes;
@@ -16,7 +16,7 @@ interface IIconProps {
   className?: string;
   icon?: EIcon;
 }
-export function Icon(props: IIconProps):JSX.Element {
+export function Icon(props: IIconProps): JSX.Element {
   const {
     As = 'button',
     color = EColor.black,

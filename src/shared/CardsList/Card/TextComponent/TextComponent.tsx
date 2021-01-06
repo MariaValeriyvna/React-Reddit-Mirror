@@ -13,7 +13,7 @@ interface ITextComponentkProps {
   id: string;
   urlpreview: string;
   score: string;
-  num_comments: number
+  num_comments: number;
 }
 
 export function TextComponent({
@@ -24,8 +24,8 @@ export function TextComponent({
   id,
   urlpreview,
   score,
-  num_comments
-}: ITextComponentkProps): JSX.Element{
+  num_comments,
+}: ITextComponentkProps): JSX.Element {
   const [isModalOpened, SetIsModalOpened] = useState(false);
 
   const titleMod =

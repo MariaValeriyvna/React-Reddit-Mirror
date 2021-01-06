@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function Copyicon():JSX.Element {
+export function Copyicon(): JSX.Element {
   return (
     <svg
       width="16"

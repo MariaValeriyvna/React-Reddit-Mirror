@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './text.css';
 import classNames from 'classnames';
-import {EColor} from '../../const/enumColor';
-
+import { EColor } from '../../const/enumColor';
 
 type TSizes = 28 | 20 | 16 | 14 | 12 | 10;
 type TBold = 400 | 500;
@@ -18,7 +17,7 @@ interface ITextProps {
   bold?: TBold;
   marginTB?: number;
 }
-export function Text(props: ITextProps):JSX.Element {
+export function Text(props: ITextProps): JSX.Element {
   const {
     As = 'span',
     color = EColor.black,
@@ -28,7 +27,7 @@ export function Text(props: ITextProps):JSX.Element {
     desktopSize,
     tabletSize,
     bold = 400,
-    marginTB
+    marginTB,
   } = props;
 
   const classes = classNames(

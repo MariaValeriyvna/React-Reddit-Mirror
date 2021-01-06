@@ -6,14 +6,13 @@ import { Content } from './shared/Content';
 import { CardsList } from './shared/CardsList/CardsList';
 import { UserContextProvider } from './shared/Context/userContext';
 import { PostsContextProvider } from './shared/Context/postsContext';
-import {Provider} from 'react-redux';
-import { store } from './store';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 import { useToken } from './hooks/useToken';
 import './main.global.css';
 
 function AppComponent() {
-
-  useToken()
+  useToken();
 
   return (
     <Provider store={store}>

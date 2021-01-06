@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-
-export function RedditIcon(prop:{size:string}):JSX.Element {
+export function RedditIcon(prop: { size: string }): JSX.Element {
   return (
     <svg
       width={prop.size}

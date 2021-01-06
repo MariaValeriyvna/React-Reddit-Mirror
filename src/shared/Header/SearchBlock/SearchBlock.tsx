@@ -1,14 +1,18 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import styles from './searchblock.css';
 import { userContext } from '../../Context/userContext';
 import { SearchIcon } from '../../Icons/SearchIcon';
 import { UserBlock } from './UserBlock';
 
-export function SearchBlock():JSX.Element {
-  const {iconImg, name} = useContext(userContext)
+export function SearchBlock(): JSX.Element {
+  const { data, loading = false } = useContext(userContext);
   return (
     <div className={styles.searchblock}>
-      <UserBlock avatarSrc={iconImg} username={name} />
+      <UserBlock
+        avatarSrc={data?.iconImg}
+        username={data?.name}
+        loading={loading}
+      />
       <div className={styles.blockinput}>
         <button className={styles.btnsearch} aria-label="Поиск">
           <SearchIcon />

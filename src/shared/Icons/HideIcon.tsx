@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function HideIcon():JSX.Element {
+export function HideIcon(): JSX.Element {
   return (
     <svg
       width="14"

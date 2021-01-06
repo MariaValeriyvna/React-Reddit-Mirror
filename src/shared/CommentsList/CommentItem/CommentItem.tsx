@@ -1,8 +1,8 @@
 import React, { ChangeEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CommentsList } from '..';
-import { updateReply } from '../../../actions';
-import { RootState } from '../../../store';
+import { updateReply } from '../../../store/actions';
+import { RootState } from '../../../store/store';
 import { merge } from '../../../utils/js/merge';
 import { generateId } from '../../../utils/react/generateRandomIndex';
 import { TimeComment } from '../../CardsList/Card/TimeComment';
@@ -40,11 +40,13 @@ export function CommentItem({
   body,
   isOpenReply = false,
   replies,
-  id
+  id,
 }: ISimplCommentItemData): JSX.Element {
-  const [openReplies, setOpenReplies]=useState(replies && replies.data.children.length > 0 ? false : true)
+  const [openReplies, setOpenReplies] = useState(
+    replies && replies.data.children.length > 0 ? false : true
+  );
   const [openFormReply, setOpenFormReply] = useState(isOpenReply);
-  
+
   const result = Math.ceil(
     Math.ceil(Math.abs(new Date().getTime() - created_utc * 1000)) /
       (1000 * 60 * 60)
@@ -62,17 +64,25 @@ export function CommentItem({
     },
     { As: 'li' as const, text: 'Поделиться', img: <ShareIcon /> },
     { As: 'li' as const, text: 'Пожаловаться', img: <ComplainIcon /> },
-  ].map(generateId)
-  const valueText = useSelector<RootState,string>(state=>  (state.commentsForReplies[id]?.reply) ? state.commentsForReplies[id].reply : author+' , ')
-  const dispatch = useDispatch()
-  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) { 
-    dispatch(updateReply(id, author, event.target.value))
-    }
-  
+  ].map(generateId);
+  const valueText = useSelector<RootState, string>((state) =>
+    state.commentsForReplies[id]?.reply
+      ? state.commentsForReplies[id].reply
+      : author + ' , '
+  );
+  const dispatch = useDispatch();
+  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
+    dispatch(updateReply(id, author, event.target.value));
+  }
+
   return (
     <>
       <div className={styles.controls}>
-        <ControlOpenAddComments openReplies={openReplies} onClickUp={()=> setOpenReplies(false)} onClickDown={()=> setOpenReplies(true)}/>
+        <ControlOpenAddComments
+          openReplies={openReplies}
+          onClickUp={() => setOpenReplies(false)}
+          onClickDown={() => setOpenReplies(true)}
+        />
       </div>
       <div>
         <div className={styles.itemtitle}>
@@ -96,7 +106,11 @@ export function CommentItem({
         />
       </div>
       {openReplies && replies && replies.data.children.length > 0 && (
-        <CommentsList forauthor={author} key={author} comments={replies.data.children}  />
+        <CommentsList
+          forauthor={author}
+          key={author}
+          comments={replies.data.children}
+        />
       )}
     </>
   );

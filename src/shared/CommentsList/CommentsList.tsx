@@ -4,7 +4,7 @@ import styles from './commentslist.css';
 
 interface IComments {
   comments: Array<ICommentListData>;
-  forauthor: string
+  forauthor: string;
 }
 
 interface ICommentListData {
@@ -26,26 +26,24 @@ interface IChildrenProps {
   children: Array<ICommentListData>;
 }
 
-export function CommentsList({comments, forauthor}: IComments): JSX.Element {
-  
+export function CommentsList({ comments, forauthor }: IComments): JSX.Element {
   return (
-    <ul className={styles.commentsList} key={forauthor} >
+    <ul className={styles.commentsList} key={forauthor}>
       {comments.map((comment) => {
-        if (!comment.data.body) return null
-        
-          return (
-            <li className={styles.item} key={comment.data.id}>
+        if (!comment.data.body) return null;
 
-              <CommentItem
-                created_utc={comment.data.created_utc}
-                subreddit={comment.data.subreddit}
-                author={comment.data.author}
-                body={comment.data.body}
-                id={comment.data.id}
-                replies ={comment.data.replies}
-              />
-            </li>
-          );
+        return (
+          <li className={styles.item} key={comment.data.id}>
+            <CommentItem
+              created_utc={comment.data.created_utc}
+              subreddit={comment.data.subreddit}
+              author={comment.data.author}
+              body={comment.data.body}
+              id={comment.data.id}
+              replies={comment.data.replies}
+            />
+          </li>
+        );
       })}
     </ul>
   );

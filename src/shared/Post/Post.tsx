@@ -20,9 +20,9 @@ import { CommentsList } from '../CommentsList';
 import { useCommentsData } from '../../hooks/useCommentsData';
 import { useCloseElement } from '../../hooks/useCloseElement';
 import { CommentFormContainer } from '../CommentFormContainer';
-import { updateComment } from '../../actions';
+import { updateComment } from '../../store/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { RootState } from '../../store/store';
 
 interface IPost {
   onClose: () => void;
@@ -32,9 +32,8 @@ interface IPost {
   id: string;
   urlpreview: string;
   score: string;
-  num_comments: number
+  num_comments: number;
 }
-
 
 export function Post({
   title,
@@ -44,12 +43,12 @@ export function Post({
   id,
   urlpreview,
   score,
-  num_comments
+  num_comments,
 }: IPost): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
   const posts = useContext(postsContext);
   const comments = useCommentsData(id);
-  const isClose = useCloseElement(ref, false, onClose)
+  const isClose = useCloseElement(ref, false, onClose);
   const LIST = [
     { As: 'li' as const, text: 'Комментарии', img: <CommentIcon /> },
     { As: 'li' as const, text: 'Поделиться', img: <ShareIcon /> },
@@ -67,15 +66,17 @@ export function Post({
       selftext = post.data.selftext;
     }
   });
-  const valueText = useSelector<RootState, string>(state=>  (state.commentForPost[id]?.comment) ? state.commentForPost[id].comment : '')
-  const dispatch = useDispatch()
-  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) { 
-    dispatch(updateComment(id, title, event.target.value))
-    }
+  const valueText = useSelector<RootState, string>((state) =>
+    state.commentForPost[id]?.comment ? state.commentForPost[id].comment : ''
+  );
+  const dispatch = useDispatch();
+  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
+    dispatch(updateComment(id, title, event.target.value));
+  }
   function handleClick() {
     console.log('click');
   }
-  
+
   const node = document.querySelector('#modal_root');
   if (!node || isClose) return <div />;
 
@@ -86,7 +87,7 @@ export function Post({
           <Crossicon />
         </button>
         <div className={styles.modalTitle}>
-          <Controls score={score} num_comments={num_comments}/>
+          <Controls score={score} num_comments={num_comments} />
           <TextComponent
             title={title}
             author={author}
@@ -129,8 +130,16 @@ export function Post({
             list={LIST.map(merge({ onClick: handleClick }))}
           />
         </ul>
-        <CommentFormContainer id={'post'} placeHolder={'Оставьте Ваш комментарий'} textbtn={'Комментировать'} onChange={handleChange} valueText={valueText}/>
-        {comments.length > 0 && <CommentsList comments={comments} forauthor={author} key={author}/>}
+        <CommentFormContainer
+          id={'post'}
+          placeHolder={'Оставьте Ваш комментарий'}
+          textbtn={'Комментировать'}
+          onChange={handleChange}
+          valueText={valueText}
+        />
+        {comments.length > 0 && (
+          <CommentsList comments={comments} forauthor={author} key={author} />
+        )}
       </div>
     </div>,
     node

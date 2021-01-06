@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { SET_TOKEN } from '../actions';
-import { store } from '../store';
+import { SET_TOKEN } from '../store/actions';
+import { store } from '../store/store';
 
 export function useToken() : void{
   useEffect(()=>{

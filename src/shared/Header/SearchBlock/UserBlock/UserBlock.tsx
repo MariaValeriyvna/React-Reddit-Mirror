@@ -5,8 +5,13 @@ import styles from './userblock.css';
 interface IUserBlockProps {
   avatarSrc?: string;
   username?: string;
+  loading: boolean;
 }
-export function UserBlock({ avatarSrc, username = 'Аноним' }: IUserBlockProps):JSX.Element {
+export function UserBlock({
+  avatarSrc,
+  username = 'Аноним',
+  loading,
+}: IUserBlockProps): JSX.Element {
   return (
     <div>
       <a
@@ -21,7 +26,9 @@ export function UserBlock({ avatarSrc, username = 'Аноним' }: IUserBlockPr
           )}
         </div>
 
-        <div className={styles.name}>{username}</div>
+        <div className={styles.name}>
+          {loading ? 'Загрузка...' : `${ username }`}
+        </div>
       </a>
     </div>
   );

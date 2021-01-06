@@ -1,9 +1,4 @@
-import React, {
-  ChangeEvent,
-  FormEvent,
-  useEffect,
-  useRef
-} from 'react';
+import React, { ChangeEvent, FormEvent, useEffect, useRef } from 'react';
 import { merge } from '../../utils/js/merge';
 import { generateId } from '../../utils/react/generateRandomIndex';
 import { GenericList } from '../GenericList';
@@ -30,11 +25,11 @@ interface ICommentFormProps {
   nameAuthor?: string;
   key?: string;
   isOpen?: boolean;
-  onChange:(event: ChangeEvent<HTMLTextAreaElement>)=> void;
-  onSubmit: (event: FormEvent)=>void;
-  onClick: ()=> void,
-  value?: string,
-  valueWithName?: string
+  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onSubmit: (event: FormEvent) => void;
+  onClick: () => void;
+  value?: string;
+  valueWithName?: string;
 }
 export function CommentForm({
   placeHolder,
@@ -44,11 +39,8 @@ export function CommentForm({
   onClick,
   onSubmit,
   onChange,
-  value
+  value,
 }: ICommentFormProps): JSX.Element {
-
-  
-
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const list = [
@@ -67,12 +59,15 @@ export function CommentForm({
     { As: 'li' as const, img: <Pdficon /> },
   ].map(generateId);
 
-
   useEffect(() => {
     inputRef.current?.focus();
-    inputRef.current?.setSelectionRange(inputRef.current?.textLength, inputRef.current?.textLength+1,'forward');
+    inputRef.current?.setSelectionRange(
+      inputRef.current?.textLength,
+      inputRef.current?.textLength + 1,
+      'forward'
+    );
   }, [isOpen]);
- 
+
   if (!isOpen) return <div />;
   return (
     <form className={styles.form} onSubmit={onSubmit} key={id}>
@@ -81,7 +76,7 @@ export function CommentForm({
         className={styles.inputText}
         onChange={onChange}
         placeholder={placeHolder}
-        value={value} 
+        value={value}
       ></textarea>
       <div className={styles.commentEdit}>
         <ul className={styles.ulEdit}>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function MenuIcon():JSX.Element {
+export function MenuIcon(): JSX.Element {
   return (
     <svg
       width="5"

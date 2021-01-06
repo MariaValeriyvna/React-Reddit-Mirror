@@ -5,7 +5,6 @@ interface ITimeProps {
 }
 
 export function TimeComment({ created_utc }: ITimeProps): JSX.Element {
-
   return (
     <>
       {created_utc < 60 && (

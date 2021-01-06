@@ -6,14 +6,14 @@ import { ShareButton } from '../ShareButton/ShareButton';
 import { SaveButton } from '../SaveButton';
 export interface ITitleData {
   score: string;
-  num_comments: number
+  num_comments: number;
 }
 
-export function Controls({score, num_comments}: ITitleData): JSX.Element {
+export function Controls({ score, num_comments }: ITitleData): JSX.Element {
   return (
     <div className={styles.controls}>
-      <CarmaCounter score = {score}/>
-      <CommentsNumber num_comments={num_comments}/>
+      <CarmaCounter score={score} />
+      <CommentsNumber num_comments={num_comments} />
       <div className={styles.actions}>
         <ShareButton />
         <SaveButton />
