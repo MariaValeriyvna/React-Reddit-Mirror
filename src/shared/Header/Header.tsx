@@ -5,6 +5,7 @@ import { ThreadTitle } from './ThreadTitle/ThreadTitle';
 import { SortBlock } from './SortBlock/SortBlock';
 
 export function Header(): JSX.Element {
+  
   return (
     <header className={styles.header}>
       <SearchBlock />

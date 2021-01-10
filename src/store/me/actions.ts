@@ -58,5 +58,4 @@ export const meRequestAsync = (): ThunkAction<
       console.log(error);
       dispatch(meRequestError(String(error)));
     });
-    return getState().token
 };

@@ -13,7 +13,6 @@ import './main.global.css';
 
 function AppComponent() {
   useToken();
-
   return (
     <Provider store={store}>
       <UserContextProvider>

@@ -27,7 +27,7 @@ export function UserBlock({
         </div>
 
         <div className={styles.name}>
-          {loading ? 'Загрузка...' : `${ username }`}
+          {loading ? 'Загрузка...' : `${username}`}
         </div>
       </a>
     </div>
