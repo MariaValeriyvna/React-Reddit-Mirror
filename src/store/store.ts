@@ -26,5 +26,7 @@ export const initialState: RootState = {
 
 export const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk as ThunkMiddleware<RootState, Action>))
+  composeWithDevTools(
+    applyMiddleware(thunk as ThunkMiddleware<RootState, Action>)
+  )
 );
