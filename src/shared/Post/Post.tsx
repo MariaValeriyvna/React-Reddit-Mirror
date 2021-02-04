@@ -1,9 +1,9 @@
-import React, { useRef, useContext, ChangeEvent } from 'react';
-import ReactDOM from 'react-dom';
-import styles from './post.css';
-import { TextComponent } from '../CardsList/Card/TextComponent';
-import { Controls } from '../CardsList/Card/Controls';
-import { postsContext } from '../Context/postsContext';
+import React, { useRef, useContext} from "react";
+import ReactDOM from "react-dom";
+import styles from "./post.css";
+import { TextComponent } from "../CardsList/Card/TextComponent";
+import { Controls } from "../CardsList/Card/Controls";
+import { postsContext } from "../Context/postsContext";
 import {
   CommentIcon,
   ComplainIcon,
@@ -12,17 +12,16 @@ import {
   RedditIcon,
   SaveIcon,
   ShareIcon,
-} from '../Icons';
-import { merge } from '../../utils/js/merge';
-import { generateId } from '../../utils/react/generateRandomIndex';
-import { GenericList } from '../GenericList';
-import { CommentsList } from '../CommentsList';
-import { useCommentsData } from '../../hooks/useCommentsData';
-import { useCloseElement } from '../../hooks/useCloseElement';
-import { CommentFormContainer } from '../CommentFormContainer';
-import { updateComment } from '../../store/actions';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
+} from "../Icons";
+import { merge } from "../../utils/js/merge";
+import { generateId } from "../../utils/react/generateRandomIndex";
+import { GenericList } from "../GenericList";
+import { CommentsList } from "../CommentsList";
+import { useCommentsData } from "../../hooks/useCommentsData";
+import { useCloseElement } from "../../hooks/useCloseElement";
+import { CommentFormContainer } from "../CommentFormContainer";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 interface IPost {
   onClose: () => void;
@@ -50,11 +49,11 @@ export function Post({
   const comments = useCommentsData(id);
   const isClose = useCloseElement(ref, false, onClose);
   const LIST = [
-    { As: 'li' as const, text: 'Комментарии', img: <CommentIcon /> },
-    { As: 'li' as const, text: 'Поделиться', img: <ShareIcon /> },
-    { As: 'li' as const, text: 'Скрыть', img: <HideIcon /> },
-    { As: 'li' as const, text: 'Сохранить', img: <SaveIcon /> },
-    { As: 'li' as const, text: 'Пожаловаться', img: <ComplainIcon /> },
+    { As: "li" as const, text: "Комментарии", img: <CommentIcon /> },
+    { As: "li" as const, text: "Поделиться", img: <ShareIcon /> },
+    { As: "li" as const, text: "Скрыть", img: <HideIcon /> },
+    { As: "li" as const, text: "Сохранить", img: <SaveIcon /> },
+    { As: "li" as const, text: "Пожаловаться", img: <ComplainIcon /> },
   ].map(generateId);
   console.log(comments);
   let postMedia, urlImg, checkurl, selftext;
@@ -62,22 +61,18 @@ export function Post({
     if (post.data.id === id) {
       postMedia = post.data.media?.reddit_video?.fallback_url;
       urlImg = post.data.url;
-      checkurl = urlImg.includes('jpg') || urlImg.includes('png');
+      checkurl = urlImg.includes("jpg") || urlImg.includes("png");
       selftext = post.data.selftext;
     }
   });
   const valueText = useSelector<RootState, string>((state) =>
-    state.commentForPost[id]?.comment ? state.commentForPost[id].comment : ''
+    state.commentForPost[id]?.comment ? state.commentForPost[id].comment : ""
   );
-  const dispatch = useDispatch();
-  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    dispatch(updateComment(id, title, event.target.value));
-  }
   function handleClick() {
-    console.log('click');
+    console.log("click");
   }
 
-  const node = document.querySelector('#modal_root');
+  const node = document.querySelector("#modal_root");
   if (!node || isClose) return <div />;
 
   return ReactDOM.createPortal(
@@ -112,7 +107,7 @@ export function Post({
               alt="pic"
             />
           ) : (
-            (urlpreview.includes('//') && (
+            (urlpreview.includes("//") && (
               <>
                 <img
                   className={styles.modalContent__media}
@@ -121,7 +116,7 @@ export function Post({
                 />
                 <a href={urlImg}>{urlImg}</a>
               </>
-            )) || <RedditIcon size={'100px'} />
+            )) || <RedditIcon size={"100px"} />
           )}
         </div>
         <ul className={styles.ulicons}>
@@ -131,10 +126,9 @@ export function Post({
           />
         </ul>
         <CommentFormContainer
-          id={'post'}
-          placeHolder={'Оставьте Ваш комментарий'}
-          textbtn={'Комментировать'}
-          onChange={handleChange}
+          id={"post"}
+          placeHolder={"Оставьте Ваш комментарий"}
+          textbtn={"Комментировать"}
           valueText={valueText}
         />
         {comments.length > 0 && (

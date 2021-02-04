@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent } from 'react';
+import React from 'react';
 import { CommentForm } from '../CommentForm';
 
 interface ICommentFormProps {
@@ -8,7 +8,6 @@ interface ICommentFormProps {
   nameAuthor?: string;
   key?: string;
   isOpen?: boolean;
-  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   valueText: string;
 }
 export function CommentFormContainer({
@@ -17,13 +16,9 @@ export function CommentFormContainer({
   textbtn,
   isOpen = true,
   id,
-  onChange,
   valueText,
 }: ICommentFormProps): JSX.Element {
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-    console.log(valueText);
-  }
+ 
   function handleClick() {
     console.log('cl');
   }
@@ -33,8 +28,6 @@ export function CommentFormContainer({
       id={id}
       placeHolder={placeHolder}
       textbtn={textbtn}
-      onChange={onChange}
-      onSubmit={handleSubmit}
       onClick={handleClick}
       isOpen={isOpen}
       nameAuthor={nameAuthor}

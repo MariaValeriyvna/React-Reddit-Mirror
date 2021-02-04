@@ -47,7 +47,10 @@
   text-align: center;
   color: #ffffff;
 }
-
+.error {
+  margin: 10px 0;
+  color: red;
+}
 
 @media all and (max-width: 940px) {
   .ulEdit,

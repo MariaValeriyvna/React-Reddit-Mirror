@@ -1,17 +1,16 @@
-import React, { ChangeEvent, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { CommentsList } from '..';
-import { updateReply } from '../../../store/actions';
-import { RootState } from '../../../store/store';
-import { merge } from '../../../utils/js/merge';
-import { generateId } from '../../../utils/react/generateRandomIndex';
-import { TimeComment } from '../../CardsList/Card/TimeComment';
-import { User } from '../../CardsList/Card/User';
-import { CommentFormContainer } from '../../CommentFormContainer';
-import { GenericList } from '../../GenericList';
-import { CommentIcon, ShareIcon, ComplainIcon } from '../../Icons';
-import { ControlOpenAddComments } from '../ControlOpenAddComments';
-import styles from './commentitem.css';
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { CommentsList } from "..";
+import { RootState } from "../../../store/store";
+import { merge } from "../../../utils/js/merge";
+import { generateId } from "../../../utils/react/generateRandomIndex";
+import { TimeComment } from "../../CardsList/Card/TimeComment";
+import { User } from "../../CardsList/Card/User";
+import { CommentFormContainer } from "../../CommentFormContainer";
+import { GenericList } from "../../GenericList";
+import { CommentIcon, ShareIcon, ComplainIcon } from "../../Icons";
+import { ControlOpenAddComments } from "../ControlOpenAddComments";
+import styles from "./commentitem.css";
 
 interface ISimplCommentItemData {
   author: string;
@@ -57,23 +56,19 @@ export function CommentItem({
   };
   const LIST = [
     {
-      As: 'li' as const,
-      text: 'Ответить',
+      As: "li" as const,
+      text: "Ответить",
       img: <CommentIcon />,
       onClick: handleItemClick,
     },
-    { As: 'li' as const, text: 'Поделиться', img: <ShareIcon /> },
-    { As: 'li' as const, text: 'Пожаловаться', img: <ComplainIcon /> },
+    { As: "li" as const, text: "Поделиться", img: <ShareIcon /> },
+    { As: "li" as const, text: "Пожаловаться", img: <ComplainIcon /> },
   ].map(generateId);
   const valueText = useSelector<RootState, string>((state) =>
     state.commentsForReplies[id]?.reply
       ? state.commentsForReplies[id].reply
-      : author + ' , '
+      : author + " , "
   );
-  const dispatch = useDispatch();
-  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    dispatch(updateReply(id, author, event.target.value));
-  }
 
   return (
     <>
@@ -101,7 +96,6 @@ export function CommentItem({
           textbtn="Ответить"
           nameAuthor={author}
           isOpen={openFormReply}
-          onChange={handleChange}
           valueText={valueText}
         />
       </div>
