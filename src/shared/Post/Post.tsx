@@ -45,7 +45,7 @@ export function Post({
   num_comments,
 }: IPost): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
-  const posts = useContext(postsContext);
+  const {posts, loading, errorLoading} = useContext(postsContext);
   const comments = useCommentsData(id);
   const isClose = useCloseElement(ref, false, onClose);
   const LIST = [

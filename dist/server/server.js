@@ -107,8 +107,9 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(__webpack_require__(59), exports);
+__exportStar(__webpack_require__(14), exports);
 __exportStar(__webpack_require__(60), exports);
-__exportStar(__webpack_require__(15), exports);
 __exportStar(__webpack_require__(61), exports);
 __exportStar(__webpack_require__(62), exports);
 __exportStar(__webpack_require__(63), exports);
@@ -128,7 +129,6 @@ __exportStar(__webpack_require__(76), exports);
 __exportStar(__webpack_require__(77), exports);
 __exportStar(__webpack_require__(78), exports);
 __exportStar(__webpack_require__(79), exports);
-__exportStar(__webpack_require__(80), exports);
 
 
 /***/ }),
@@ -319,28 +319,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostsContextProvider = exports.postsContext = void 0;
-var react_1 = __importDefault(__webpack_require__(0));
-var usePostsData_1 = __webpack_require__(55);
-exports.postsContext = react_1.default.createContext([]);
-function PostsContextProvider(_a) {
-    var children = _a.children;
-    var posts = usePostsData_1.usePostsData();
-    return (react_1.default.createElement(exports.postsContext.Provider, { value: posts }, children));
-}
-exports.PostsContextProvider = PostsContextProvider;
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserContextProvider = exports.userContext = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
 var useUserData_1 = __webpack_require__(37);
@@ -354,7 +332,7 @@ exports.UserContextProvider = UserContextProvider;
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -365,11 +343,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TextComponent = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var User_1 = __webpack_require__(14);
-var TimeComment_1 = __webpack_require__(16);
-var textcomponent_css_1 = __importDefault(__webpack_require__(83));
+var User_1 = __webpack_require__(13);
+var TimeComment_1 = __webpack_require__(15);
+var textcomponent_css_1 = __importDefault(__webpack_require__(82));
 var react_2 = __webpack_require__(0);
-var Post_1 = __webpack_require__(84);
+var Post_1 = __webpack_require__(83);
 function TextComponent(_a) {
     var title = _a.title, author = _a.author, created_utc = _a.created_utc, _b = _a.titleShort, titleShort = _b === void 0 ? true : _b, id = _a.id, urlpreview = _a.urlpreview, score = _a.score, num_comments = _a.num_comments;
     var _c = react_2.useState(false), isModalOpened = _c[0], SetIsModalOpened = _c[1];
@@ -387,7 +365,7 @@ exports.TextComponent = TextComponent;
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -398,9 +376,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var user_css_1 = __importDefault(__webpack_require__(59));
+var user_css_1 = __importDefault(__webpack_require__(58));
 var Icons_1 = __webpack_require__(1);
-var useUserAvatar_1 = __webpack_require__(81);
+var useUserAvatar_1 = __webpack_require__(80);
 function User(_a) {
     var author = _a.author;
     var data = useUserAvatar_1.useUserAvatar({ author: author });
@@ -412,7 +390,7 @@ exports.User = User;
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -447,7 +425,7 @@ exports.CommentIcon = CommentIcon;
 
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -458,7 +436,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TimeComment = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var timecomment_css_1 = __importDefault(__webpack_require__(82));
+var timecomment_css_1 = __importDefault(__webpack_require__(81));
 function TimeComment(_a) {
     var created_utc = _a.created_utc;
     return (react_1.default.createElement(react_1.default.Fragment, null,
@@ -482,13 +460,13 @@ exports.TimeComment = TimeComment;
 
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom");
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -499,11 +477,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Controls = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var controls_css_1 = __importDefault(__webpack_require__(89));
-var CarmaCounter_1 = __webpack_require__(90);
-var CommentsNumber_1 = __webpack_require__(96);
-var ShareButton_1 = __webpack_require__(98);
-var SaveButton_1 = __webpack_require__(100);
+var controls_css_1 = __importDefault(__webpack_require__(88));
+var CarmaCounter_1 = __webpack_require__(89);
+var CommentsNumber_1 = __webpack_require__(95);
+var ShareButton_1 = __webpack_require__(97);
+var SaveButton_1 = __webpack_require__(99);
 function Controls(_a) {
     var score = _a.score, num_comments = _a.num_comments;
     return (react_1.default.createElement("div", { className: controls_css_1.default.controls },
@@ -514,6 +492,26 @@ function Controls(_a) {
             react_1.default.createElement(SaveButton_1.SaveButton, null))));
 }
 exports.Controls = Controls;
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(__webpack_require__(91), exports);
 
 
 /***/ }),
@@ -533,7 +531,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(92), exports);
+__exportStar(__webpack_require__(93), exports);
 
 
 /***/ }),
@@ -542,18 +540,24 @@ __exportStar(__webpack_require__(92), exports);
 
 "use strict";
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(94), exports);
+exports.PostsContextProvider = exports.postsContext = void 0;
+var react_1 = __importDefault(__webpack_require__(0));
+var usePostsData_1 = __webpack_require__(102);
+exports.postsContext = react_1.default.createContext({
+    posts: [],
+    loading: false,
+    errorLoading: "",
+});
+function PostsContextProvider(_a) {
+    var children = _a.children;
+    var postsData = usePostsData_1.usePostsData();
+    return (react_1.default.createElement(exports.postsContext.Provider, { value: postsData }, children));
+}
+exports.PostsContextProvider = PostsContextProvider;
 
 
 /***/ }),
@@ -729,8 +733,8 @@ var Layout_1 = __webpack_require__(30);
 var Header_1 = __webpack_require__(33);
 var Content_1 = __webpack_require__(50);
 var CardsList_1 = __webpack_require__(53);
-var userContext_1 = __webpack_require__(12);
-var postsContext_1 = __webpack_require__(11);
+var userContext_1 = __webpack_require__(11);
+var postsContext_1 = __webpack_require__(20);
 var react_redux_1 = __webpack_require__(2);
 var store_1 = __webpack_require__(8);
 var useToken_1 = __webpack_require__(133);
@@ -871,7 +875,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SearchBlock = void 0;
 var react_1 = __importStar(__webpack_require__(0));
 var searchblock_css_1 = __importDefault(__webpack_require__(36));
-var userContext_1 = __webpack_require__(12);
+var userContext_1 = __webpack_require__(11);
 var SearchIcon_1 = __webpack_require__(38);
 var UserBlock_1 = __webpack_require__(39);
 function SearchBlock() {
@@ -1251,6 +1255,42 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -1258,22 +1298,129 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CardsList = void 0;
 var react_1 = __importStar(__webpack_require__(0));
 var cardslist_css_1 = __importDefault(__webpack_require__(54));
-var postsContext_1 = __webpack_require__(11);
-var Card_1 = __webpack_require__(56);
+var Card_1 = __webpack_require__(55);
+var react_redux_1 = __webpack_require__(2);
+var axios_1 = __importDefault(__webpack_require__(3));
 function CardsList() {
-    var posts = react_1.useContext(postsContext_1.postsContext);
-    return (react_1.default.createElement("ul", { className: cardslist_css_1.default.cardsList }, posts.map(function (post, index) {
-        var urlpreview;
-        if (post.data.thumbnail === undefined)
-            urlpreview = '';
-        else
-            urlpreview = post.data.thumbnail;
-        var result = Math.ceil(Math.ceil(Math.abs(new Date().getTime() - post.data.created_utc * 1000)) /
-            (1000 * 60 * 60));
-        var author = post.data.author;
-        return (react_1.default.createElement("li", { className: cardslist_css_1.default.cardLi, key: index },
-            react_1.default.createElement(Card_1.Card, { id: post.data.id, title: post.data.title, author: author, created_utc: result, urlpreview: urlpreview, score: post.data.score, num_comments: post.data.num_comments })));
-    })));
+    // const { posts, loading, errorLoading } = useContext(postsContext);
+    var token = react_redux_1.useSelector(function (state) { return state.token; });
+    var _a = react_1.useState([]), posts = _a[0], setData = _a[1];
+    var _b = react_1.useState(false), loading = _b[0], setLoading = _b[1];
+    var _c = react_1.useState(""), errorLoading = _c[0], setErrorLoading = _c[1];
+    var _d = react_1.useState(""), nextAfter = _d[0], setNextAfter = _d[1];
+    var _e = react_1.useState(0), countLoad = _e[0], setCountLoad = _e[1];
+    var _f = react_1.useState(false), nextLoad = _f[0], setNextLoad = _f[1];
+    var bottomOfList = react_1.useRef(null);
+    react_1.useEffect(function () {
+        if (!token)
+            return;
+        setCountLoad(countLoad + 1);
+        setNextLoad(false);
+        setLoading(true);
+        setErrorLoading("");
+        console.log("load axios1", countLoad);
+        function loadBestPost() {
+            return __awaiter(this, void 0, void 0, function () {
+                var error_1;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            _a.trys.push([0, 2, , 3]);
+                            return [4 /*yield*/, axios_1.default
+                                    .get("https://oauth.reddit.com/best.json", {
+                                    headers: { Authorization: "bearer " + token },
+                                    params: {
+                                        limit: 10,
+                                        after: nextAfter,
+                                    },
+                                })
+                                    .then(function (resp) {
+                                    var postsData = resp.data.data.children;
+                                    setNextAfter(resp.data.data.after);
+                                    setData(function (prevPostData) { return prevPostData.concat.apply(prevPostData, postsData); });
+                                })];
+                        case 1:
+                            _a.sent();
+                            return [3 /*break*/, 3];
+                        case 2:
+                            error_1 = _a.sent();
+                            setErrorLoading(String(error_1));
+                            return [3 /*break*/, 3];
+                        case 3:
+                            setLoading(false);
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        }
+        var observer = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) {
+                loadBestPost();
+            }
+        }, { rootMargin: "600px" });
+        if (bottomOfList.current) {
+            if (countLoad < 3)
+                observer.observe(bottomOfList.current);
+        }
+        return function () {
+            if (bottomOfList.current)
+                observer.unobserve(bottomOfList.current);
+        };
+    }, [bottomOfList.current, nextAfter, token, nextLoad]);
+    // Ecли использовать react-window
+    // const Row = ({ index, style }: IPropsRow) => {
+    //   if (posts[index]) {
+    //     let urlpreview = "";
+    //     if (posts[index].data.thumbnail === undefined) urlpreview = "";
+    //     else urlpreview = posts[index].data.thumbnail || "";
+    //     const result = Math.ceil(
+    //       Math.ceil(
+    //         Math.abs(new Date().getTime() - posts[index].data.created_utc * 1000)
+    //       ) /
+    //         (1000 * 60 * 60)
+    //     );
+    //     const author = posts[index].data.author;
+    //     return (
+    //       <div key={index} style={style}>
+    //         <Card
+    //           id={posts[index].data.id}
+    //           title={posts[index].data.title}
+    //           author={author}
+    //           created_utc={result}
+    //           urlpreview={urlpreview}
+    //           score={posts[index].data.score}
+    //           num_comments={posts[index].data.num_comments}
+    //         />
+    //       </div>
+    //     );
+    //   } else return <div></div>;
+    // };
+    return (react_1.default.createElement("ul", { className: cardslist_css_1.default.cardsList },
+        token && posts.length === 0 && !loading && !errorLoading && (react_1.default.createElement("div", { style: { textAlign: "center" } }, "\u041D\u0435\u0442 \u043D\u0438 \u043E\u0434\u043D\u043E\u0433\u043E \u043F\u043E\u0441\u0442\u0430")),
+        countLoad < 1 && loading && (react_1.default.createElement("div", { style: { textAlign: "center" } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430 \u043F\u043E\u0441\u0442\u043E\u0432...")),
+        errorLoading && (react_1.default.createElement("div", { role: "alert", style: { textAlign: "center" } },
+            "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u0432\u043E\u0439\u0442\u0438 \u0432 \u043B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442 reddit.com ",
+            react_1.default.createElement("br", null),
+            " \u0438\u043B\u0438 ",
+            errorLoading)),
+        posts.map(function (post, index) {
+            var urlpreview;
+            if (post.data.thumbnail === undefined)
+                urlpreview = "";
+            else
+                urlpreview = post.data.thumbnail;
+            var result = Math.ceil(Math.ceil(Math.abs(new Date().getTime() - post.data.created_utc * 1000)) /
+                (1000 * 60 * 60));
+            var author = post.data.author;
+            return (react_1.default.createElement("li", { className: cardslist_css_1.default.cardLi, key: index },
+                react_1.default.createElement(Card_1.Card, { id: post.data.id, title: post.data.title, author: author, created_utc: result, urlpreview: urlpreview, score: post.data.score, num_comments: post.data.num_comments })));
+        }),
+        countLoad == 4 && (react_1.default.createElement("button", { className: cardslist_css_1.default.btnLoad, onClick: function () {
+                setCountLoad(0);
+                setNextLoad(true);
+            } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u0435\u0449\u0435?")),
+        countLoad < 4 && countLoad > 1 && (react_1.default.createElement("button", { className: cardslist_css_1.default.btnLoad, disabled: true }, "\u0418\u0434\u0435\u0442 \u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0430...")),
+        react_1.default.createElement("div", { ref: bottomOfList })));
 }
 exports.CardsList = CardsList;
 
@@ -1285,7 +1432,8 @@ exports.CardsList = CardsList;
 // Exports
 module.exports = {
 	"cardsList": "cardslist__cardsList--1DoiZ",
-	"cardLi": "cardslist__cardLi--3-N0F"
+	"cardLi": "cardslist__cardLi--3-N0F",
+	"btnLoad": "cardslist__btnLoad--1h-S8"
 };
 
 
@@ -1299,47 +1447,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.usePostsData = void 0;
-var react_1 = __webpack_require__(0);
-var axios_1 = __importDefault(__webpack_require__(3));
-var react_redux_1 = __webpack_require__(2);
-function usePostsData() {
-    var _a = react_1.useState([]), data = _a[0], setData = _a[1];
-    var token = react_redux_1.useSelector(function (state) { return state.token; });
-    react_1.useEffect(function () {
-        axios_1.default
-            .get('https://oauth.reddit.com/best.json?limit=10', {
-            headers: { Authorization: "bearer " + token },
-        })
-            .then(function (resp) {
-            var postsData = resp.data.data.children;
-            console.log(postsData);
-            setData(postsData);
-        })
-            .catch(console.log);
-    }, [token]);
-    return data;
-}
-exports.usePostsData = usePostsData;
-
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.Card = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var card_css_1 = __importDefault(__webpack_require__(57));
-__webpack_require__(58);
-var TextComponent_1 = __webpack_require__(13);
+var card_css_1 = __importDefault(__webpack_require__(56));
+__webpack_require__(57);
+var TextComponent_1 = __webpack_require__(12);
 var CardMenu_1 = __webpack_require__(121);
-var Controls_1 = __webpack_require__(18);
+var Controls_1 = __webpack_require__(17);
 var Preview_1 = __webpack_require__(126);
 function Card(_a) {
     var title = _a.title, author = _a.author, urlpreview = _a.urlpreview, created_utc = _a.created_utc, id = _a.id, score = _a.score, num_comments = _a.num_comments;
@@ -1353,7 +1467,7 @@ exports.Card = Card;
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1363,13 +1477,13 @@ module.exports = {
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-hot-loader");
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -1381,7 +1495,7 @@ module.exports = {
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1418,7 +1532,7 @@ exports.MenuIcon = MenuIcon;
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1453,7 +1567,7 @@ exports.ComplainIcon = ComplainIcon;
 
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1488,7 +1602,7 @@ exports.HideIcon = HideIcon;
 
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1523,7 +1637,7 @@ exports.SaveIcon = SaveIcon;
 
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1558,7 +1672,7 @@ exports.ShareIcon = ShareIcon;
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1593,7 +1707,7 @@ exports.DownIcon = DownIcon;
 
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1628,7 +1742,7 @@ exports.UpIcon = UpIcon;
 
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1663,7 +1777,7 @@ exports.Copyicon = Copyicon;
 
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1698,7 +1812,7 @@ exports.Imgicon = Imgicon;
 
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1733,7 +1847,7 @@ exports.Tagicon = Tagicon;
 
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1768,7 +1882,7 @@ exports.SaveCommenticon = SaveCommenticon;
 
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1803,7 +1917,7 @@ exports.Personicon = Personicon;
 
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1838,7 +1952,7 @@ exports.Renewicon = Renewicon;
 
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1873,7 +1987,7 @@ exports.Linkicon = Linkicon;
 
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1908,7 +2022,7 @@ exports.Microphoneicon = Microphoneicon;
 
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1943,7 +2057,7 @@ exports.Commentsicon = Commentsicon;
 
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1978,7 +2092,7 @@ exports.Penicon = Penicon;
 
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2013,7 +2127,7 @@ exports.Lettericon = Lettericon;
 
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2048,7 +2162,7 @@ exports.Pdficon = Pdficon;
 
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2085,7 +2199,7 @@ exports.RedditIcon = RedditIcon;
 
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2121,7 +2235,7 @@ exports.Crossicon = Crossicon;
 
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2154,7 +2268,7 @@ exports.useUserAvatar = useUserAvatar;
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2165,7 +2279,7 @@ module.exports = {
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2177,7 +2291,7 @@ module.exports = {
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2193,11 +2307,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(85), exports);
+__exportStar(__webpack_require__(84), exports);
 
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2227,11 +2341,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Post = void 0;
 var react_1 = __importStar(__webpack_require__(0));
-var react_dom_1 = __importDefault(__webpack_require__(17));
-var post_css_1 = __importDefault(__webpack_require__(86));
-var TextComponent_1 = __webpack_require__(87);
-var Controls_1 = __webpack_require__(88);
-var postsContext_1 = __webpack_require__(11);
+var react_dom_1 = __importDefault(__webpack_require__(16));
+var post_css_1 = __importDefault(__webpack_require__(85));
+var TextComponent_1 = __webpack_require__(86);
+var Controls_1 = __webpack_require__(87);
+var postsContext_1 = __webpack_require__(20);
 var Icons_1 = __webpack_require__(1);
 var merge_1 = __webpack_require__(5);
 var generateRandomIndex_1 = __webpack_require__(6);
@@ -2244,7 +2358,7 @@ var react_redux_1 = __webpack_require__(2);
 function Post(_a) {
     var title = _a.title, onClose = _a.onClose, author = _a.author, created_utc = _a.created_utc, id = _a.id, urlpreview = _a.urlpreview, score = _a.score, num_comments = _a.num_comments;
     var ref = react_1.useRef(null);
-    var posts = react_1.useContext(postsContext_1.postsContext);
+    var _b = react_1.useContext(postsContext_1.postsContext), posts = _b.posts, loading = _b.loading, errorLoading = _b.errorLoading;
     var comments = useCommentsData_1.useCommentsData(id);
     var isClose = useCloseElement_1.useCloseElement(ref, false, onClose);
     var LIST = [
@@ -2294,7 +2408,7 @@ exports.Post = Post;
 
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2307,6 +2421,26 @@ module.exports = {
 	"cross": "post__cross--2ieHK",
 	"ulicons": "post__ulicons--4AK_C"
 };
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(__webpack_require__(12), exports);
 
 
 /***/ }),
@@ -2326,31 +2460,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(13), exports);
+__exportStar(__webpack_require__(17), exports);
 
 
 /***/ }),
 /* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(18), exports);
-
-
-/***/ }),
-/* 89 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2361,7 +2475,7 @@ module.exports = {
 
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2372,9 +2486,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CarmaCounter = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var carmacounter_css_1 = __importDefault(__webpack_require__(91));
-var BtnUp_1 = __webpack_require__(19);
-var BtnDown_1 = __webpack_require__(20);
+var carmacounter_css_1 = __importDefault(__webpack_require__(90));
+var BtnUp_1 = __webpack_require__(18);
+var BtnDown_1 = __webpack_require__(19);
 function CarmaCounter(_a) {
     var score = _a.score;
     return (react_1.default.createElement("div", { className: carmacounter_css_1.default.karmaCounter },
@@ -2386,7 +2500,7 @@ exports.CarmaCounter = CarmaCounter;
 
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2397,7 +2511,7 @@ module.exports = {
 
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2409,7 +2523,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BtnUp = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
 var Icons_1 = __webpack_require__(1);
-var btnup_css_1 = __importDefault(__webpack_require__(93));
+var btnup_css_1 = __importDefault(__webpack_require__(92));
 function BtnUp(_a) {
     var click = _a.click, state = _a.state;
     return (react_1.default.createElement("button", { className: state ? btnup_css_1.default.up : btnup_css_1.default.up_disable, onClick: click },
@@ -2419,7 +2533,7 @@ exports.BtnUp = BtnUp;
 
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2430,7 +2544,7 @@ module.exports = {
 
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2442,7 +2556,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BtnDown = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
 var Icons_1 = __webpack_require__(1);
-var btndown_css_1 = __importDefault(__webpack_require__(95));
+var btndown_css_1 = __importDefault(__webpack_require__(94));
 function BtnDown(_a) {
     var click = _a.click, state = _a.state;
     return (react_1.default.createElement("button", { className: state ? btndown_css_1.default.down_disable : btndown_css_1.default.down, onClick: click },
@@ -2452,7 +2566,7 @@ exports.BtnDown = BtnDown;
 
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2463,7 +2577,7 @@ module.exports = {
 
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2474,8 +2588,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommentsNumber = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var commentsnumber_css_1 = __importDefault(__webpack_require__(97));
-var CommentIcon_1 = __webpack_require__(15);
+var commentsnumber_css_1 = __importDefault(__webpack_require__(96));
+var CommentIcon_1 = __webpack_require__(14);
 function CommentsNumber(_a) {
     var num_comments = _a.num_comments;
     return (react_1.default.createElement("button", { className: commentsnumber_css_1.default.commentsButton },
@@ -2486,7 +2600,7 @@ exports.CommentsNumber = CommentsNumber;
 
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2497,7 +2611,7 @@ module.exports = {
 
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2508,7 +2622,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShareButton = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var sharebutton_css_1 = __importDefault(__webpack_require__(99));
+var sharebutton_css_1 = __importDefault(__webpack_require__(98));
 var Icon_1 = __webpack_require__(10);
 var enumIcon_1 = __webpack_require__(4);
 function ShareButton() {
@@ -2519,7 +2633,7 @@ exports.ShareButton = ShareButton;
 
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -2529,7 +2643,7 @@ module.exports = {
 
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2545,11 +2659,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(101), exports);
+__exportStar(__webpack_require__(100), exports);
 
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2560,7 +2674,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SaveButton = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var savebtn_css_1 = __importDefault(__webpack_require__(102));
+var savebtn_css_1 = __importDefault(__webpack_require__(101));
 var Icon_1 = __webpack_require__(10);
 var enumIcon_1 = __webpack_require__(4);
 function SaveButton() {
@@ -2571,13 +2685,116 @@ exports.SaveButton = SaveButton;
 
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports) {
 
 // Exports
 module.exports = {
 	"savebtn": "savebtn__savebtn--3shgA"
 };
+
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.usePostsData = void 0;
+var react_1 = __webpack_require__(0);
+var axios_1 = __importDefault(__webpack_require__(3));
+var react_redux_1 = __webpack_require__(2);
+function usePostsData() {
+    var _a = react_1.useState([]), posts = _a[0], setData = _a[1];
+    var _b = react_1.useState(false), loading = _b[0], setLoading = _b[1];
+    var _c = react_1.useState(""), errorLoading = _c[0], setErrorLoading = _c[1];
+    var _d = react_1.useState(""), nextAfter = _d[0], setNextAfter = _d[1];
+    var token = react_redux_1.useSelector(function (state) { return state.token; });
+    react_1.useEffect(function () {
+        if (!token)
+            return;
+        setLoading(true);
+        setErrorLoading("");
+        function loadBestPost() {
+            return __awaiter(this, void 0, void 0, function () {
+                var error_1;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            _a.trys.push([0, 2, , 3]);
+                            return [4 /*yield*/, axios_1.default
+                                    .get("https://oauth.reddit.com/best.json", {
+                                    headers: { Authorization: "bearer " + token },
+                                    params: {
+                                        limit: 30,
+                                        after: nextAfter,
+                                    },
+                                })
+                                    .then(function (resp) {
+                                    var postsData = resp.data.data.children;
+                                    console.log(resp.data.data.after);
+                                    setNextAfter(resp.data.data.after);
+                                    setData(function (prevPostData) { return prevPostData.concat.apply(prevPostData, postsData); });
+                                })];
+                        case 1:
+                            _a.sent();
+                            return [3 /*break*/, 3];
+                        case 2:
+                            error_1 = _a.sent();
+                            setErrorLoading(String(error_1));
+                            return [3 /*break*/, 3];
+                        case 3:
+                            setLoading(false);
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        }
+        loadBestPost();
+    }, [token]);
+    return { posts: posts, loading: loading, errorLoading: errorLoading };
+}
+exports.usePostsData = usePostsData;
 
 
 /***/ }),
@@ -2798,7 +3015,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(16), exports);
+__exportStar(__webpack_require__(15), exports);
 
 
 /***/ }),
@@ -2818,7 +3035,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(14), exports);
+__exportStar(__webpack_require__(13), exports);
 
 
 /***/ }),
@@ -2979,8 +3196,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ControlOpenAddComments = void 0;
 var react_1 = __importDefault(__webpack_require__(0));
-var BtnDown_1 = __webpack_require__(20);
-var BtnUp_1 = __webpack_require__(19);
+var BtnDown_1 = __webpack_require__(19);
+var BtnUp_1 = __webpack_require__(18);
 function ControlOpenAddComments(_a) {
     var onClickUp = _a.onClickUp, onClickDown = _a.onClickDown, openReplies = _a.openReplies;
     return (react_1.default.createElement(react_1.default.Fragment, null,
@@ -3160,7 +3377,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DropDownMenu = void 0;
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 var react_1 = __importStar(__webpack_require__(0));
-var react_dom_1 = __importDefault(__webpack_require__(17));
+var react_dom_1 = __importDefault(__webpack_require__(16));
 var useCloseElement_1 = __webpack_require__(23);
 var merge_1 = __webpack_require__(5);
 var generateRandomIndex_1 = __webpack_require__(6);
