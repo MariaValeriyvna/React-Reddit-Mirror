@@ -21,6 +21,8 @@ import {
   Pdficon,
 } from "../Icons";
 import { useFormik } from "formik";
+import { useDispatch } from "react-redux";
+import { updateComment, updateReply } from "../../store/actions";
 
 interface ICommentFormProps {
   placeHolder: string;
@@ -41,12 +43,16 @@ export function CommentForm({
   id,
   onClick,
   value,
+  nameAuthor
 }: ICommentFormProps): JSX.Element {
+  const dispatch=useDispatch();
   const idForm = generateRandomString() + id;
   const formik = useFormik({
     initialValues: { comment: value, id: idForm },
     onSubmit: (values) => {
       console.log("submit", values);
+      if (id) dispatch(updateComment(idForm, id, values.comment))
+      else dispatch(updateReply(idForm, nameAuthor, values.comment))
     },
     validate: (values) => {
       const errors = { comment: "Необходимо ввести более 2-х символов" };

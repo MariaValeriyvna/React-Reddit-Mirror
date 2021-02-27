@@ -50,12 +50,12 @@
   .textContent {
     flex-basis: 672px;
   }
-  .postLink::after {
+  /* .postLink::after {
     content: '';
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-  }
+  } */
 }

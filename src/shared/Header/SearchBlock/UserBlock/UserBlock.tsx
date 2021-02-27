@@ -14,6 +14,7 @@ export function UserBlock({
 }: IUserBlockProps): JSX.Element {
   return (
     <div>
+      
       <a
         className={styles.userblock}
         href="https://www.reddit.com/api/v1/authorize?client_id=iYguATByxd-5PA&response_type=code&state=random_string&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=read submit identity"

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import { getPosts } from "../store/actions";
 export interface IUsePostsData {
   posts: IPostData[];
   loading: boolean;
@@ -30,6 +31,7 @@ export function usePostsData(): IUsePostsData {
   const [errorLoading, setErrorLoading] = useState("");
   const [nextAfter, setNextAfter] = useState("");
   const token = useSelector<RootState, string>((state) => state.token);
+  
   useEffect(() => {
     if (!token) return;
     setLoading(true);
@@ -47,7 +49,6 @@ export function usePostsData(): IUsePostsData {
           })
           .then((resp) => {
             const postsData: Array<IPostData> = resp.data.data.children;
-            console.log(resp.data.data.after);
             setNextAfter(resp.data.data.after);
             setData((prevPostData) => prevPostData.concat(...postsData));
           });

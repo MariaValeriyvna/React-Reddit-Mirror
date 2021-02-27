@@ -26,13 +26,10 @@ export function Card({
   return (
     <div className={styles.card}>
       <TextComponent
-        urlpreview={urlpreview}
         id={id}
         title={title}
         author={author}
         created_utc={created_utc}
-        score={score}
-        num_comments={num_comments}
       />
       <Preview url={urlpreview} />
       <CardMenu />

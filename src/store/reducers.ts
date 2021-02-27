@@ -1,5 +1,5 @@
 import { AnyAction, Reducer } from 'redux';
-import { SET_TOKEN, UPDATE_COMMENT, UPDATE_REPLY } from './actions';
+import { GET_POSTS, SET_TOKEN, UPDATE_COMMENT, UPDATE_REPLY } from './actions';
 import { ME_REQUEST, ME_REQUEST_ERROR, ME_REQUEST_SUCCESS } from './me/actions';
 import { meReducer } from './me/reducer';
 import { initialState, RootState } from './store';
@@ -25,6 +25,12 @@ export const rootReducer: Reducer<RootState, AnyAction> = (
           [action.key]: { forAuthor: action.forAuthor, reply: action.reply },
         },
       };
+      case GET_POSTS:
+        return {
+          ...state,
+          posts: 
+          [...state.posts].concat(action.posts)
+        };
     case SET_TOKEN:
       return {
         ...state,
